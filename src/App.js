@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { Navbar, Nav, NavDropdown, MenuItem, NavItem } from 'react-bootstrap';
-import FontAwesome from '@fortawesome/fontawesome'
 
 class App extends Component {
   render() {
