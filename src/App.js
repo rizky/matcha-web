@@ -10,13 +10,11 @@ class App extends Component {
 	<Router>
 		<div className="App">
 			<Navigator/>
-				<Route exact path='/' component={Pages.Home} />
-				<Route exact path='/discover' component={Pages.Discover} />
-				<Route exact path='/messages' component={Pages.Messages} />
-				<Route exact path='/notification' component={Pages.Notification} />
-				<Route exact path='/profile' component={Pages.Profile} />
-				<Route exact path='/settings' component={Pages.Settings} />
-				<Route exact path='/logout' component={Pages.Logout} />
+				{
+					Object.keys(Pages).map((page, index) => {
+						return <Route key={index} path={'/' + page.toLowerCase()} component={Pages[page]} />
+					})
+				}
 			<Footer/>
 		</div>
 	</Router>
