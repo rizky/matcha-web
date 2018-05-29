@@ -1,0 +1,7 @@
+export { default as Home } from './Home'
+export { default as Discover } from './Discover'
+export { default as Messages } from './Messages'
+export { default as Notification } from './Notification'
+export { default as Profile } from './Account/Profile'
+export { default as Settings } from './Account/Settings'
+export { default as Logout } from './Account/Logout'

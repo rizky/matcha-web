@@ -7,23 +7,23 @@ class Footer extends Component {
 			<header className="App-header">
 				<Navbar>
 					<Navbar.Header>
-						<Navbar.Brand><a href="#home">Matcha</a></Navbar.Brand>
+						<Navbar.Brand><a href="/">Matcha</a></Navbar.Brand>
 					</Navbar.Header>
 					<Nav>
-						<NavItem eventKey={1} href="#">Home</NavItem>
-						<NavItem eventKey={1} href="#">Discover</NavItem>
-						<NavItem eventKey={1} href="#">Messages</NavItem>
+						<NavItem href="/">Home</NavItem>
+						<NavItem href="/discover">Discover</NavItem>
+						<NavItem href="/messages">Messages</NavItem>
 					</Nav>
 					<Nav pullRight>
-						<NavItem eventKey={1} href="#">Notification</NavItem>
-						<NavDropdown eventKey={3} title="Account">
-							<MenuItem eventKey={3.1}>Profile</MenuItem>
-							<MenuItem eventKey={3.2}>Settings</MenuItem>
+						<NavItem href="/notification">Notification</NavItem>
+						<NavDropdown id="navigator" title="Account">
+							<MenuItem href="/profile">Profile</MenuItem>
+							<MenuItem href="/settings">Settings</MenuItem>
 							<MenuItem divider />
-							<MenuItem eventKey={3.4}>Log out</MenuItem>
+							<MenuItem href="/logout">Log out</MenuItem>
 						</NavDropdown>
 					</Nav>
-				</Navbar>
+				</Navbar>				
 			</header>
 		)
 	}
