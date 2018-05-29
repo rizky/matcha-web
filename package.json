@@ -1,19 +1,10 @@
 {
-  "name": "matcha",
-  "version": "0.1.0",
-  "private": true,
-  "dependencies": {
-    "bootstrap": "3",
-    "react": "^16.4.0",
-    "react-bootstrap": "^0.32.1",
-    "react-dom": "^16.4.0",
-    "react-router-dom": "^4.2.2",
-    "react-scripts": "1.1.4"
-  },
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test --env=jsdom",
-    "eject": "react-scripts eject"
-  }
+		"start": "concurrently \"npm run server\" \"npm run client\"",
+		"server": "cd server && npm start",
+		"client": "cd client && npm start",
+		"install": "npm run install_server; npm run install_client",
+		"install_server": "cd server && npm install",
+		"install_client": "cd client && npm install"
+	}
 }

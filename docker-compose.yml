@@ -9,9 +9,11 @@ services:
     command: npm start
     volumes:
       - '.:/usr/src/app'
-      - '/usr/src/app/node_modules'
+      - '/usr/src/app/server/node_modules'
+      - '/usr/src/app/client/node_modules'
     ports:
       - '3000:3000'
+      - '3001:3001'
     environment:
       - NODE_ENV=development
 
