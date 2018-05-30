@@ -1,18 +1,20 @@
-"use strict";
+'use strict';
 
 Object.defineProperty(exports, "__esModule", {
 	value: true
 });
 
-var _database = require("../db/database");
+var _database = require('../db/database');
 
 var _database2 = _interopRequireDefault(_database);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
+var table = 'user';
+
 var User = {
 	getAllUsers: function getAllUsers(callback) {
-		return _database2.default.query("Select * from user", callback);
+		return _database2.default.query('Select * from ' + table, callback);
 	},
 
 	getUserById: function getUserById(id, callback) {
