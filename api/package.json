@@ -1,25 +1,18 @@
 {
-  "name": "lookup-server",
-  "version": "0.0.1",
+  "name": "rkdemo",
+  "version": "0.0.0",
   "private": true,
-  "dependencies": {
-    "babel-core": "6.14.0",
-    "express": "4.13.3",
-    "fs": "0.0.2",
-    "sql.js": "0.3.2"
-  },
   "scripts": {
-    "start": "npm run server",
-    "server": "node server.js",
-    "dev": "echo \"This command has been deprecated. Use 'npm start'\" && exit 1",
-    "lint": "eslint ."
+    "start": "node index.js"
   },
-  "devDependencies": {
-    "concurrently": "3.1.0",
-    "eslint": "^3.19.0",
-    "eslint-config-airbnb": "14.1.0",
-    "eslint-plugin-import": "2.2.0",
-    "eslint-plugin-jsx-a11y": "4.0.0",
-    "eslint-plugin-react": "6.9.0"
+  "dependencies": {
+    "body-parser": "~1.15.1",
+    "cookie-parser": "~1.4.3",
+    "cors": "^2.8.1",
+    "debug": "~2.2.0",
+    "express": "~4.13.4",
+    "file-system": "^2.2.2",
+    "jade": "~1.11.0",
+    "mysql": "^2.11.1"
   }
 }
