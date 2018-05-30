@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import { Photo } from '../Components'
+import './Photo.css'
 
 export default class Photos extends Component {
 	constructor() {
@@ -23,7 +24,7 @@ export default class Photos extends Component {
 
 	render () {
 		return (
-			<div>{this.state.photos}</div>
+			<div className='photos' >{this.state.photos}</div>
 		)
 	}
 }
