@@ -5,8 +5,8 @@
   "main": "index.js",
   "scripts": {
     "build": "rimraf dist/ && babel ./ --out-dir dist/ --ignore ./node_modules,./.babelrc,./package.json,./npm-debug.log --copy-files",
-	"serve": "node dist/index.js",
-	"start": "nodemon index.js --exec babel-node --presets es2015"
+	"serve": "node dist/app.js",
+	"start": "nodemon app.js --exec babel-node --presets es2015"
   },
   "dependencies": {
     "body-parser": "~1.15.1",
