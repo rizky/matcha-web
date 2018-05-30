@@ -3,8 +3,8 @@
 		"start": "concurrently \"npm run api\" \"npm run web\"",
 		"api": "cd api && npm start",
 		"web": "cd web && npm start",
-		"setup": "npm run setup:api; npm run setup:web",
-		"setup:api": "cd api && npm install",
-		"setup:web": "cd web && npm install"
+		"install": "npm run install:api; npm run install:web",
+		"install:api": "cd api && npm install",
+		"install:web": "cd web && npm install"
 	}
 }
