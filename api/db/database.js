@@ -1,9 +1,10 @@
-var mysql=require('mysql');
-var connection=mysql.createPool({
+import mysql from 'mysql'
+
+var connection = mysql.createPool({
 	host:'db',
 	user:'root',
 	password:'root',
 	database:'matcha'
-});
+})
 
-module.exports=connection;
+export default connection
