@@ -15,7 +15,7 @@ export default class Photos extends Component {
 				return result.json()
 			}).then( data => {
 				let photos = data.map ( photo => {
-					return (<Photo photo={photo}/>)
+					return (<Photo key={photo.id} photo={photo}/>)
 				})
 				this.setState({photos: photos})
 			})
