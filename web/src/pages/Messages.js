@@ -1,11 +1,12 @@
 import React, { Component } from 'react'
+import { Threads } from '../components'
 
-class Home extends Component {
+class Messages extends Component {
 	render() {
 		return (
-			<p>Messages</p>
+			<Threads users={this.props.users}/>
 		)
 	}
 }
 
-export default Home
+export default Messages
