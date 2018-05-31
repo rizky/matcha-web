@@ -1,5 +1,5 @@
 let actions = {
-	loadPhotos: function() {
+	loadPhotos: () => {
 		return (dispatch) => {
 			fetch (`http://localhost:81/photos`)
 			.then ( result => {
@@ -12,13 +12,13 @@ let actions = {
 			})
 		}
 	},
-	addPhoto: function(photo) {
+	addPhoto: (photo) => {
 		return {
 			type: 'ADD_PHOTO',
 			photo: photo
 		}
 	},
-	deletePhoto: function(id) {
+	deletePhoto: (id) => {
 		return {
 		type: 'DELETE_PHOTO',
 		id: id

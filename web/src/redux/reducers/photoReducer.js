@@ -1,5 +1,5 @@
 
-let photoReducer = function(photos = [], action) {
+let photoReducer = (photos = [], action) => {
 	switch (action.type) {
 		case 'LOAD_PHOTOS':
 			console.log(action)

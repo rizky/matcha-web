@@ -20,11 +20,11 @@ class App extends Component {
 	}
 }
 
-function mapStateToProps(state) {
+const mapStateToProps = (state) => {
 	return state
 }
   
-function mapDispatchToProps(dispatch) {
+const mapDispatchToProps = (dispatch) => {
 	return {
 		actions: bindActionCreators(actions, dispatch)
 	}
