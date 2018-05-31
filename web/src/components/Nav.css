@@ -27,14 +27,9 @@ ul {
 	color: #757575;
 }
 
-.nav li:hover {
-	color: #55acee;
-}
-
 .nav li>button {
 	font-size: 0.8em;
 	border: 0;
-	background: #55acee;
 	color: #fff;
 	border-radius: 100px;
 }
