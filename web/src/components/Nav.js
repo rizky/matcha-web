@@ -12,12 +12,27 @@ class Footer extends Component {
 							<span className="nav-text">Home</span>
 						</a>
 					</li>
-					<li className="nav_spacing"></li>
-					<li className="nav_logo">Matcha</li>
 					<li>
-						<a href="/camera">
-							<i className="fa fa-camera"></i>
-							<span className="nav-text">Camera</span>
+						<a href="/discover">
+							<i className="far fa-compass"></i>
+							<span className="nav-text">Discover</span>
+						</a>
+					</li>
+					<li>
+						<a href="/messages">
+							<i className="far fa-envelope"></i>
+							<span className="nav-text">Messages</span>
+						</a>
+					</li>
+					<li className="nav_logo">
+						<i className="fas fa-leaf"></i>
+						<span>Matcha</span>
+					</li>
+					<li className="nav_spacing"></li>
+					<li>
+						<a href="/notification">
+							<i className="fa fa-bell"></i>
+							<span className="nav-text">Notification</span>
 						</a>
 					</li>
 					<li className="nav_account">

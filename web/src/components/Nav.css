@@ -5,7 +5,7 @@ ul {
 
 .nav {
 	display: grid;
-	grid-template: 1fr / min-content min-content auto min-content min-content;
+	grid-template: 1fr / min-content min-content min-content auto min-content min-content min-content;
 	align-items: center;
 	padding: 10px 10px;
 	border: 1px solid #eeeeee;
@@ -18,7 +18,7 @@ ul {
 	text-align: center;
 	cursor: pointer;
 	padding: 10px;
-	min-width: 120px;
+	min-width: 130px;
 }
 
 .nav li a {
@@ -40,11 +40,11 @@ ul {
 }
 
 .nav_logo {
-	color: #55acee;
+	color: #eb4188;
 	font-size: 1.3em;
 }
 
-@media screen and (max-width: 717px) {
+@media screen and (max-width: 730px) {
 	.nav li {
 		min-width: 50px;
 	}
@@ -55,11 +55,11 @@ ul {
 		display: none;
 	}
 	.nav {
-		grid-template: 1fr / 1fr 1fr 1fr;
+		grid-template: 1fr / 1fr 1fr 1fr 1fr 1fr;
 	}
 }
 
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 635px) {
 	.nav-text {
 		display: none;
 	}
@@ -76,7 +76,7 @@ ul {
 		display: none;
 	}
 	.nav {
-		grid-template: 1fr / 1fr 1fr 1fr;
+		grid-template: 1fr / 1fr 1fr 1fr 1fr 1fr;
 	}
 }
 

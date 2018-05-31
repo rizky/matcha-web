@@ -93,3 +93,7 @@ hr {
 	flex-direction: column;
 	color: red;
 }
+
+.fa, .fas, .far {
+	padding-right: 10px;
+}
