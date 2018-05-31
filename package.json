@@ -1,10 +1,15 @@
 {
-  "scripts": {
-		"start": "concurrently \"npm run api\" \"npm run web\"",
-		"api": "cd api && npm start",
-		"web": "cd web && npm start",
-		"install": "npm run install:api; npm run install:web",
-		"install:api": "cd api && npm install",
-		"install:web": "cd web && npm install"
-	}
+		"scripts": {
+				"start": "concurrently \"npm run api\" \"npm run web\"",
+				"api": "cd api && npm start",
+				"web": "cd web && npm start",
+				"install": "npm run install:api; npm run install:web",
+				"install:api": "cd api && npm install",
+				"install:web": "cd web && npm install"
+		},
+		"dependencies": {
+				"react-redux": "^5.0.7",
+				"redux": "^4.0.0",
+				"redux-thunk": "^2.3.0"
+		}
 }
