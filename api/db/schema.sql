@@ -120,6 +120,9 @@ CREATE TABLE `user` (
   `picture` varchar(255) NOT NULL,
   `dob` timestamp NULL DEFAULT NULL,
   `subscribed` bit(1) NOT NULL DEFAULT b'1',
+  `lat` float( 10, 6 ) NOT NULL ,
+  `long` float( 10, 6 ) NOT NULL ,
+  `activeAt` timestamp NULL DEFAULT NULL,
   `createdAt` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
   `updatedAt` timestamp NULL DEFAULT NULL,
   `deleted` bit(1) NOT NULL DEFAULT b'0',
@@ -135,9 +138,9 @@ CREATE TABLE `user` (
 -- Records of user
 -- ----------------------------
 BEGIN;
-INSERT INTO `user` VALUES (0000000001, 'admin', 'Admin', '3bb37061e887baa3b48ebe9f060f1a42baf995fb', 'camagru.rizky@gmail.com', '/img/profiles/no-pic.jpg', '1994-05-30 16:39:15', b'1', '2018-05-30 16:39:15', NULL, b'0', NULL, NULL);
-INSERT INTO `user` VALUES (0000000002, 'deleted_admin', 'Admin', '3bb37061e887baa3b48ebe9f060f1a42baf995fb', 'deleted_admin@gmail.com', 'https://avatars1.githubusercontent.com/u/6814254?s=460&v=4', '1994-05-30 16:39:15', b'1', '2018-05-30 16:39:15', NULL, b'1', NULL, NULL);
-INSERT INTO `user` VALUES (0000000003, 'rizkyario', 'Rizky Ario', '3bb37061e887baa3b48ebe9f060f1a42baf995fb', 'rizkyario@gmail.com', '/img/profiles/no-pic.jpg', '1994-05-30 16:39:15', b'1', '2018-05-30 16:39:15', NULL, b'0', NULL, NULL);
+INSERT INTO `user` VALUES (0000000001, 'admin', 'Admin', '3bb37061e887baa3b48ebe9f060f1a42baf995fb', 'camagru.rizky@gmail.com', '/img/profiles/no-pic.jpg', '1988-05-30 16:39:15', b'1', 46.529, 6.5626, '2018-05-30 16:39:15', '2018-05-30 16:39:15', NULL, b'0', NULL, NULL);
+INSERT INTO `user` VALUES (0000000002, 'deleted_admin', 'Admin', '3bb37061e887baa3b48ebe9f060f1a42baf995fb', 'deleted_admin@gmail.com', 'https://avatars1.githubusercontent.com/u/6814254?s=460&v=4', '1994-05-30 16:39:15', b'1', 46.529, 6.5626, '2018-05-30 16:39:15', '2018-05-30 16:39:15', NULL, b'1', NULL, NULL);
+INSERT INTO `user` VALUES (0000000003, 'rizkyario', 'Rizky Ario', '3bb37061e887baa3b48ebe9f060f1a42baf995fb', 'rizkyario@gmail.com', '/img/profiles/no-pic.jpg', '1994-05-30 16:39:15', b'1', 46.529, 6.5626, '2018-05-30 16:39:15', '2018-05-30 16:39:15', NULL, b'0', NULL, NULL);
 COMMIT;
 
 SET FOREIGN_KEY_CHECKS = 1;
