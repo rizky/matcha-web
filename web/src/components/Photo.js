@@ -32,7 +32,7 @@ export default class Photo extends Component {
 		photo.user = (photo.user) ? photo.user : 'far'
 		return (
 			<div className='photo' id={`photo_${photo.id}`}>
-				<a href={`/account/${photo.user_username}`}>
+				<a href={`/account/${photo.user.username}`}>
 					<i className='fas fa-user-circle'></i>
 					<span className='user'>{photo.user.username}</span>
 				</a>

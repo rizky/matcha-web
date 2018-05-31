@@ -16,6 +16,16 @@ let actions = {
 		type: 'DELETE_PHOTO',
 		id: id
 		}
+	},
+	loadPhotosAsync: function() {
+		return (dispatch) => {
+			fetch (`http://localhost:81/photos`)
+			.then ( result => {
+				return result.json()
+			}).then( photos => {
+				dispatch(photos);
+			})
+		}
 	}
 }
   

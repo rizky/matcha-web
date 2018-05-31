@@ -12,14 +12,8 @@ class App extends Component {
 		<Router>
 			<div className="App">
 				<Navigator/>
-					{/* {
-						Object.keys(Pages).map((page, index) => {
-							let path = (page.toLowerCase() === 'home') ? '/' : '/' + page.toLowerCase();
-							return <Route key={index} exact path={path} component={Pages[page]} />
-						})
-					} */}
-					<Route exact path='/' render={()=><Home photos={this.props.photos} actions={this.props.actions}/>} />
-				<Footer/>
+				<Route exact path='/' render={()=><Home photos={this.props.photos} actions={this.props.actions}/>} />
+				{/* <Footer/> */}
 			</div>
 		</Router>
 		);
