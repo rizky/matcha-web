@@ -7,7 +7,8 @@ import configureStore from './redux/store'
 import { Provider } from 'react-redux'
 
 let initialState = {
-	photos: []
+	photos: [],
+	users: []
 }
   
 let store = configureStore(initialState)

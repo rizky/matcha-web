@@ -1,11 +1,12 @@
 import React, { Component } from 'react';
+import { Users } from '../components'
 
-class Home extends Component {
+class Discover extends Component {
   render() {
     return (
-		<p>Discover</p>
+		<Users users={this.props.users}/>
     );
   }
 }
 
-export default Home;
+export default Discover;
