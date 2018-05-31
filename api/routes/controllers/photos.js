@@ -13,7 +13,7 @@ router.get('/:id?', (req, res, next) =>
 			: res.json(rows)
 		})
 	else
-		Photo.find((err, rows) => {
+		Photo.find(null, (err, rows) => {
 			(err)
 			? res.json(err)
 			: res.json(rows)

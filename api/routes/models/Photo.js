@@ -7,15 +7,18 @@ export default class Photo extends ORM {
 	{
 		photo['like_logo'] = 'far'
 		photo.user = await User.findOne(photo.user)
-		photo.comment = await Comment.findAll({photo: photo.id})
-		return photo;
 	}
 
-	static find(callback)
+	static find(params, callback)
 	{
-		Photo.findAll(null, (err, photos) =>
+		Photo.findAll(params, (err, photos) =>
 		{	
-			var promises = photos.map(async (photo) => {
+			let promises = photos.map(async (photo) => {
+				photo.comments = await Comment.findAll({photo: photo.id})
+				photo.comments.map(async (comment) => {
+					comment.user = await User.findOne(comment.user)
+					return comment
+				})
 				return await this.populate(photo)
 			})
 			Promise.all(promises).then(results => {
@@ -28,7 +31,7 @@ export default class Photo extends ORM {
 	{
 		Photo.findOne(id, (err, photos) =>
 		{	
-			var promises = photos.map(async (photo) => {
+			let promises = photos.map(async (photo) => {
 				return await this.populate(photo)
 			})
 			Promise.all(promises).then(results => {

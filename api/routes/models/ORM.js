@@ -10,7 +10,6 @@ export default class ORM {
 				query += ` and ${param} = ?`
 				values.push(params[param])
 			})
-		console.log(query)
 		if (callback)
 			return db.query(query, values, callback)
 		return new Promise (

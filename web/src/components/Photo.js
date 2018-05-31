@@ -3,6 +3,7 @@ import { Modal, Button } from 'react-bootstrap'
 import './Photo.css'
 import { dispatch } from '../index'
 import * as PhotoActions from '../redux/actions/photo'
+import { Comments } from '../components'
 
 export default class Photo extends Component {
 	constructor(props, context) {
@@ -53,12 +54,12 @@ export default class Photo extends Component {
 					</a>
 					<hr/>
 				</div>
+				<Comments comments={photo.comments}/>
 				<div>
 					<input
 						id={`comment_text_${photo.id}`} placeholder='Add a comment...' className='comment_text'></input>
 					<i className='fa fa-ellipsis-v' style={{ float: 'right' }} onClick={this.handleShow}></i>
 				</div>
-
 				<Modal show={this.state.show} onHide={this.handleClose} bsSize="small">				
 					<div className="well" style={wellStyles}>
 					<Button onClick={this.handleDelete} bsStyle="danger" block>Delete</Button>
