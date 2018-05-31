@@ -11,7 +11,7 @@ class App extends Component {
 			<div className="App">
 				<Navigator/>
 				<Route exact path='/' render={()=><Home photos={this.props.photos}/>} />
-				{/* <Footer/> */}
+				<Footer/>
 			</div>
 		</Router>
 		);

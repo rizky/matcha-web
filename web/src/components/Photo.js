@@ -32,6 +32,7 @@ export default class Photo extends Component {
 		var photo = this.props.photo
 		photo.like_logo = (photo.like_logo) ? photo.like_logo : 'far'
 		photo.user = (photo.user) ? photo.user : 'far'
+		let time_elapse = this.timeSince(Date.parse(photo.createdAt))
 		return (
 			<div className='photo' id={`photo_${photo.id}`}>
 				<a href={`/account/${photo.user.username}`}>
@@ -47,13 +48,13 @@ export default class Photo extends Component {
 					</a>
 					<i className='far fa-comment'></i>
 				</div>
-				<span className='likes_v'>{photo.likes}</span>
+				{/* <span className='likes_v'>{photo.likes}</span> */}
 				<Comments comments={photo.comments}/>
 				<div>
 					<a href='/photos/{photo.id}'>	
-						<span className='time_text'>{photo.time_elapse}</span>
+						<span className='time_text'>{time_elapse}</span>
 					</a>
-					<hr/>
+					<hr className='hrphoto'/>
 				</div>
 				<div>
 					<input
@@ -69,5 +70,31 @@ export default class Photo extends Component {
 				</Modal>	
 			</div>
 		)
+	}
+
+	timeSince(date) {
+		var seconds = Math.floor((new Date() - date) / 1000);
+		var interval = Math.floor(seconds / 31536000);
+		
+		if (interval > 1) {
+			return interval + " years ago";
+		}
+		interval = Math.floor(seconds / 2592000);
+		if (interval > 1) {
+			return interval + " months ago";
+		}
+		interval = Math.floor(seconds / 86400);
+		if (interval > 1) {
+			return interval + " days ago";
+		}
+		interval = Math.floor(seconds / 3600);
+		if (interval > 1) {
+			return interval + " hours ago";
+		}
+		interval = Math.floor(seconds / 60);
+		if (interval > 1) {
+			return interval + " minutes ago";
+		}
+		return Math.floor(seconds) + " seconds ago";
 	}
 }
