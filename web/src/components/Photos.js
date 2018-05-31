@@ -11,7 +11,7 @@ export default class Photos extends Component {
 	}
 
 	componentDidMount() {
-		fetch (`http://localhost:3001/photos`)
+		fetch (`http://localhost:81/photos`)
 			.then ( result => {
 				return result.json()
 			}).then( data => {
