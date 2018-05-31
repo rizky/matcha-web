@@ -1,5 +1,4 @@
 import React, { Component } from 'react'
-import { Modal, Button } from 'react-bootstrap'
 import './Photo.css'
 import { dispatch } from '../index'
 import * as PhotoActions from '../redux/actions/photo'
@@ -27,8 +26,6 @@ export default class Photo extends Component {
 	}
 
 	render () {
-		const wellStyles = { maxWidth: 400, margin: '0 auto' }
-
 		var photo = this.props.photo
 		photo.like_logo = (photo.like_logo) ? photo.like_logo : 'far'
 		photo.user = (photo.user) ? photo.user : 'far'
@@ -54,20 +51,13 @@ export default class Photo extends Component {
 					<a href='/photos/{photo.id}'>	
 						<span className='time_text'>{time_elapse}</span>
 					</a>
-					<hr className='hrphoto'/>
+					<hr/>
 				</div>
 				<div>
 					<input
 						id={`comment_text_${photo.id}`} placeholder='Add a comment...' className='comment_text'></input>
 					<i className='fa fa-ellipsis-v' style={{ float: 'right' }} onClick={this.handleShow}></i>
 				</div>
-				<Modal show={this.state.show} onHide={this.handleClose} bsSize="small">				
-					<div className="well" style={wellStyles}>
-					<Button onClick={this.handleDelete} bsStyle="danger" block>Delete</Button>
-					<Button onClick={this.handleClose} block>Share to Twitter</Button>
-					<Button onClick={this.handleClose} block>Cancel</Button>
-					</div>
-				</Modal>	
 			</div>
 		)
 	}
