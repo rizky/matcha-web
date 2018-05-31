@@ -43,7 +43,7 @@ class Footer extends Component {
 						</a>	
 						<ul className="ani">
 							<li><a href="/account/login">Login</a></li>
-							<li><a href="/account/register">Register</a></li>
+							<li><a href="/account/registration">Register</a></li>
 						</ul>
 					</li>
 				</ul>

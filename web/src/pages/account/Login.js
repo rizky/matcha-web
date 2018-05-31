@@ -12,7 +12,7 @@ class Login extends Component {
 					<hr/>
 					<button type='submit'>Login</button>
 					<a href='/account/recover'>Forgot password?</a>
-					<div>Don't have an account? <a href='/account/register'>Sign Up</a></div>
+					<div>Don't have an account? <a href='/account/registration'>Sign Up</a></div>
 				</form>
 			</div>
 		)
