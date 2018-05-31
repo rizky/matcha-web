@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Photos } from '../Components'
+import { Photos } from '../components'
 
 class Home extends Component {	
 	render() {

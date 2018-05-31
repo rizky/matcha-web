@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Photo } from '../Components'
+import { Photo } from '../components'
 import './Photo.css'
 
 export default class Photos extends Component {
