@@ -4,12 +4,7 @@ import './Photo.css'
 
 export default class Photos extends Component {
 	componentDidMount() {
-		fetch (`http://localhost:81/photos`)
-			.then ( result => {
-				return result.json()
-			}).then( photos => {
-				this.props.actions.loadPhotos(photos);
-			})
+		this.props.actions.loadPhotos()
 	}
 
 	render () {

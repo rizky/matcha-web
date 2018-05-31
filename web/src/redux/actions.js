@@ -1,8 +1,15 @@
 let actions = {
-	loadPhotos: function(photos) {
-		return {
-			type: 'LOAD_PHOTOS',
-			photos: photos
+	loadPhotos: function() {
+		return (dispatch) => {
+			fetch (`http://localhost:81/photos`)
+			.then ( result => {
+				return result.json()
+			}).then( photos => {
+				dispatch({
+					type: 'LOAD_PHOTOS',
+					photos: photos
+				});
+			})
 		}
 	},
 	addPhoto: function(photo) {
@@ -17,16 +24,6 @@ let actions = {
 		id: id
 		}
 	},
-	loadPhotosAsync: function() {
-		return (dispatch) => {
-			fetch (`http://localhost:81/photos`)
-			.then ( result => {
-				return result.json()
-			}).then( photos => {
-				dispatch(photos);
-			})
-		}
-	}
 }
   
 export default actions
