@@ -2,20 +2,26 @@ import React, { Component } from 'react'
 import './Photo.css'
 
 export default class Photo extends Component {
+
+	handleDelete = () => {
+		this.props.actions.deletePhoto(this.props.photo.id);
+	}
+
 	render () {
 		var photo = this.props.photo
 		photo.like_logo = (photo.like_logo) ? photo.like_logo : 'far'
+		photo.user = (photo.user) ? photo.user : 'far'
 		return (
 			<div className='photo' id={`photo_${photo.id}`}>
 				<a href={`/account/${photo.user_username}`}>
 					<i className='fas fa-user-circle'></i>
 					<span className='user'>{photo.user.username}</span>
 				</a>
-				<a href='/photos/{photo.id}'>
+				<a href={`/photos/${photo.id}`}>
 					<div><img src={photo.url} alt=''/></div>
 				</a>
 				<div>
-					<a href='/photos/like/{photo.id}'>
+					<a href={`/photos/like/${photo.id}`}>
 						<i className={`${photo.like_logo} fa-heart`}></i>
 					</a>
 					<i className='far fa-comment'></i>
@@ -30,7 +36,7 @@ export default class Photo extends Component {
 				<div>
 					<input
 						id={`comment_text_${photo.id}`} placeholder='Add a comment...' className='comment_text'></input>
-					<i className='fa fa-ellipsis-v' style={{ float: 'right' }}></i>
+					<i className='fa fa-ellipsis-v' style={{ float: 'right' }} onClick={this.handleDelete}></i>
 				</div>
 			</div>
 		)

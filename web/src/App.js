@@ -18,7 +18,7 @@ class App extends Component {
 							return <Route key={index} exact path={path} component={Pages[page]} />
 						})
 					} */}
-					<Route exact path='/' render={()=><Home photos={this.props.photos}/>} />
+					<Route exact path='/' render={()=><Home photos={this.props.photos} actions={this.props.actions}/>} />
 				<Footer/>
 			</div>
 		</Router>

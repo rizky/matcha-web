@@ -7,11 +7,7 @@ import configureStore from './redux/store'
 import { Provider } from 'react-redux'
 
 let initialState = {
-	photos: [{
-		id: '0000000001',
-		url: '/img/photos/40547073-32d77e60-6031-11e8-8f8c-5e9429224498.jpg',
-		user: {username : 'Admin'}
-	}]
+	photos: []
 }
   
 let store = configureStore(initialState)

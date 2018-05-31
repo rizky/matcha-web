@@ -7,6 +7,6 @@ let finalCreateStore = compose(
 	applyMiddleware(thunk, createLogger())
 )(createStore)
 
-export default function configureStore(initialState = { photos: [], user: {} }) {
+export default function configureStore(initialState = { photos: [] }) {
 	return finalCreateStore(rootReducer, initialState)
 }
