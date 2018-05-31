@@ -25,7 +25,8 @@ export default class User extends Component {
 	}
 
 	render () {
-		var user = this.props.user
+		let user = this.props.user
+		let age = this.age(Date.parse(user.dob))
 		return (
 			<div className='photo' id={`user_${user.id}`}>
 				<a href={`/users/${user.id}`}>
@@ -34,11 +35,17 @@ export default class User extends Component {
 				<div>
 					<a href={`/account/${user.username}`}>
 						<span className='user'>{user.name}, </span>
-						<span className='user'>{user.username}</span>
+						<span>{age}</span>
 					</a>
 					<i className='fa fa-ellipsis-v' style={{ float: 'right' }} onClick={this.handleShow}></i>
 				</div>
 			</div>
 		)
+	}
+
+	age(date) {
+		var seconds = Math.floor((new Date() - date) / 1000)
+		var interval = Math.floor(seconds / 31536000)
+		return interval;
 	}
 }
