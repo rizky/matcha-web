@@ -1,13 +1,32 @@
 import React, { Component } from 'react'
+import { Popover, Modal, Button } from 'react-bootstrap'
 import './Photo.css'
 
 export default class Photo extends Component {
+	constructor(props, context) {
+		super(props, context)
+
+		this.state = {
+			show: false
+		}
+	}
 
 	handleDelete = () => {
-		this.props.actions.deletePhoto(this.props.photo.id);
+		this.props.actions.deletePhoto(this.props.photo.id)
+		this.handleClose()
+	}
+
+	handleClose = () => {
+		this.setState({ show: false })
+	}
+
+	handleShow = () => {
+		this.setState({ show: true })
 	}
 
 	render () {
+		const wellStyles = { maxWidth: 400, margin: '0 auto' }
+
 		var photo = this.props.photo
 		photo.like_logo = (photo.like_logo) ? photo.like_logo : 'far'
 		photo.user = (photo.user) ? photo.user : 'far'
@@ -36,8 +55,16 @@ export default class Photo extends Component {
 				<div>
 					<input
 						id={`comment_text_${photo.id}`} placeholder='Add a comment...' className='comment_text'></input>
-					<i className='fa fa-ellipsis-v' style={{ float: 'right' }} onClick={this.handleDelete}></i>
+					<i className='fa fa-ellipsis-v' style={{ float: 'right' }} onClick={this.handleShow}></i>
 				</div>
+
+				<Modal show={this.state.show} onHide={this.handleClose} bsSize="small">				
+					<div className="well" style={wellStyles}>
+					<Button onClick={this.handleDelete} bsStyle="danger" block>Delete</Button>
+					<Button onClick={this.handleClose} block>Share to Twitter</Button>
+					<Button onClick={this.handleClose} block>Cancel</Button>
+					</div>
+				</Modal>	
 			</div>
 		)
 	}
