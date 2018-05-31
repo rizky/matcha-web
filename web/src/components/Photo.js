@@ -4,6 +4,7 @@ import './Photo.css'
 export default class Photo extends Component {
 	render () {
 		var photo = this.props.photo
+		photo.like_logo = (photo.like_logo) ? photo.like_logo : 'far'
 		return (
 			<div className='photo' id={`photo_${photo.id}`}>
 				<a href={`/account/${photo.user_username}`}>
