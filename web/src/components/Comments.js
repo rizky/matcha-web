@@ -10,6 +10,6 @@ export default class Comments extends Component {
 		if (comments.length > 0)
 			return <div className='comments'>{comments}</div>
 		else
-			return null;
+			return null
 	}
 }

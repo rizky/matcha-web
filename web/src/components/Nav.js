@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component } from 'react'
 import './Nav.css'
 
 class Footer extends Component {
@@ -52,4 +52,4 @@ class Footer extends Component {
 	}
 }
 
-export default Footer;
+export default Footer

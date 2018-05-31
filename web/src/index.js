@@ -1,6 +1,6 @@
-import React from 'react';
-import { render } from 'react-dom';
-import App from './App';
+import React from 'react'
+import { render } from 'react-dom'
+import App from './App'
 import configureStore from './redux/store'
 import { Provider } from 'react-redux'
 
@@ -18,4 +18,4 @@ render(
    		<App />
   	</Provider>,
 	document.getElementById('root')
-);
+)

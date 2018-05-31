@@ -13,6 +13,6 @@ export default (users = [], action) => {
 			})
 		default:
 			console.log(action)
-			return (users);
+			return (users)
 	}
 }

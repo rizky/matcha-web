@@ -7,7 +7,7 @@ export const loadPhotos = () => {
 			dispatch({
 				type: 'LOAD_PHOTOS',
 				photos: photos
-			});
+			})
 		})
 	}
 }
