@@ -39,7 +39,7 @@ ul {
 	font-size: 1.3em;
 }
 
-@media screen and (max-width: 730px) {
+@media screen and (max-width: 900px) {
 	.nav li {
 		min-width: 50px;
 	}
