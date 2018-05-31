@@ -1,18 +1,19 @@
 import React, { Component } from 'react'
-import { Popover, Modal, Button } from 'react-bootstrap'
+import { Modal, Button } from 'react-bootstrap'
 import './Photo.css'
+import { dispatch } from '../index'
+import * as PhotoActions from '../redux/actions/photo'
 
 export default class Photo extends Component {
 	constructor(props, context) {
 		super(props, context)
-
 		this.state = {
 			show: false
 		}
 	}
 
 	handleDelete = () => {
-		this.props.actions.deletePhoto(this.props.photo.id)
+		dispatch(PhotoActions.deletePhoto(this.props.photo.id))
 		this.handleClose()
 	}
 

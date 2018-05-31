@@ -1,5 +1,5 @@
 
-let photoReducer = (photos = [], action) => {
+export default (photos = [], action) => {
 	switch (action.type) {
 		case 'LOAD_PHOTOS':
 			console.log(action)
@@ -16,5 +16,3 @@ let photoReducer = (photos = [], action) => {
 			return (photos);
 	}
 }
-
-export default photoReducer

@@ -3,8 +3,6 @@ import { Navigator, Footer } from './components'
 import { BrowserRouter as Router, Route } from "react-router-dom";
 import { Home } from './pages'
 import { connect } from 'react-redux'
-import { bindActionCreators } from 'redux'
-import actions from './redux/actions'
 
 class App extends Component {
 	render() {
@@ -12,7 +10,7 @@ class App extends Component {
 		<Router>
 			<div className="App">
 				<Navigator/>
-				<Route exact path='/' render={()=><Home photos={this.props.photos} actions={this.props.actions}/>} />
+				<Route exact path='/' render={()=><Home photos={this.props.photos}/>} />
 				{/* <Footer/> */}
 			</div>
 		</Router>
@@ -24,10 +22,4 @@ const mapStateToProps = (state) => {
 	return state
 }
   
-const mapDispatchToProps = (dispatch) => {
-	return {
-		actions: bindActionCreators(actions, dispatch)
-	}
-}
-  
-export default connect(mapStateToProps, mapDispatchToProps)(App)
+export default connect(mapStateToProps)(App)

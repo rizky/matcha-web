@@ -12,6 +12,8 @@ let initialState = {
   
 let store = configureStore(initialState)
 
+export const dispatch = store.dispatch
+
 render(
 	<Provider store={store}>
    		<App />

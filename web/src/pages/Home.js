@@ -4,7 +4,7 @@ import { Photos } from '../components'
 class Home extends Component {	
 	render() {
 		return (
-			<Photos photos={this.props.photos} actions={this.props.actions}/>
+			<Photos photos={this.props.photos}/>
 		);
 	}
 }
