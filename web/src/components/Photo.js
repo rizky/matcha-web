@@ -32,12 +32,14 @@ export default class Photo extends Component {
 		let time_elapse = this.timeSince(Date.parse(photo.createdAt))
 		return (
 			<div className='photo' id={`photo_${photo.id}`}>
-				<a href={`/account/${photo.user.username}`}>
-					<i className='fas fa-user-circle'></i>
-					<span className='user'>{photo.user.username}</span>
+				<a className='stackLayout' href={`/account/${photo.user.username}`}>
+					<div className='image-cropper' style={{ marginRight: '5px'}}>
+						<img className='profile_picture' src={photo.user.picture} alt=''/>
+					</div>
+					<span className='user'> {photo.user.username}</span>
 				</a>
 				<a href={`/photos/${photo.id}`}>
-					<div><img src={photo.url} alt=''/></div>
+					<div><img className='picture' src={photo.url} alt=''/></div>
 				</a>
 				<div>
 					<a href={`/photos/like/${photo.id}`}>

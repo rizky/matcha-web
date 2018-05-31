@@ -117,6 +117,7 @@ CREATE TABLE `user` (
   `name` varchar(45) NOT NULL,
   `password` varchar(45) NOT NULL,
   `email` varchar(255) NOT NULL,
+  `picture` varchar(255) NOT NULL,
   `subscribed` bit(1) NOT NULL DEFAULT b'1',
   `createdAt` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
   `updatedAt` timestamp NULL DEFAULT NULL,
@@ -133,9 +134,9 @@ CREATE TABLE `user` (
 -- Records of user
 -- ----------------------------
 BEGIN;
-INSERT INTO `user` VALUES (0000000001, 'admin', 'Admin', '3bb37061e887baa3b48ebe9f060f1a42baf995fb', 'camagru.rizky@gmail.com', b'1', '2018-05-30 16:39:15', NULL, b'0', NULL, NULL);
-INSERT INTO `user` VALUES (0000000002, 'deleted_admin', 'Admin', '3bb37061e887baa3b48ebe9f060f1a42baf995fb', 'deleted_admin@gmail.com', b'1', '2018-05-30 16:39:15', NULL, b'1', NULL, NULL);
-INSERT INTO `user` VALUES (0000000003, 'rizkyario', 'Rizky Ario', '3bb37061e887baa3b48ebe9f060f1a42baf995fb', 'rizkyario@gmail.com', b'1', '2018-05-30 16:39:15', NULL, b'0', NULL, NULL);
+INSERT INTO `user` VALUES (0000000001, 'admin', 'Admin', '3bb37061e887baa3b48ebe9f060f1a42baf995fb', 'camagru.rizky@gmail.com', '/img/profiles/no-pic.jpg', b'1', '2018-05-30 16:39:15', NULL, b'0', NULL, NULL);
+INSERT INTO `user` VALUES (0000000002, 'deleted_admin', 'Admin', '3bb37061e887baa3b48ebe9f060f1a42baf995fb', 'deleted_admin@gmail.com', 'https://avatars1.githubusercontent.com/u/6814254?s=460&v=4', b'1', '2018-05-30 16:39:15', NULL, b'1', NULL, NULL);
+INSERT INTO `user` VALUES (0000000003, 'rizkyario', 'Rizky Ario', '3bb37061e887baa3b48ebe9f060f1a42baf995fb', 'rizkyario@gmail.com', '/img/profiles/no-pic.jpg', b'1', '2018-05-30 16:39:15', NULL, b'0', NULL, NULL);
 COMMIT;
 
 SET FOREIGN_KEY_CHECKS = 1;

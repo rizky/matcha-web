@@ -97,3 +97,25 @@ hr {
 .fa, .fas, .far {
 	padding-right: 10px;
 }
+
+/* Inline Style */
+
+.stackLayout {
+	display: flex;
+}
+
+.flow-horizontal {
+	flex-flow: row;
+}
+
+.flow-vertical {
+	flex-flow: column;
+}
+
+.horizontal-option-end {
+	justify-content: flex-end;
+}
+
+.size-medium {
+	font-size: 1.3em;
+}

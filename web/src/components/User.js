@@ -29,13 +29,13 @@ export default class User extends Component {
 		return (
 			<div className='photo' id={`user_${user.id}`}>
 				<a href={`/users/${user.id}`}>
-					<div><img src={user.image} alt=''/></div>
-				</a>
-				<a href={`/account/${user.username}`}>
-					<i className='fas fa-user-circle'></i>
-					<span className='user'>{user.username}</span>
+					<div><img className='picture' src={user.picture} alt=''/></div>
 				</a>
 				<div>
+					<a href={`/account/${user.username}`}>
+						<span className='user'>{user.name}, </span>
+						<span className='user'>{user.username}</span>
+					</a>
 					<i className='fa fa-ellipsis-v' style={{ float: 'right' }} onClick={this.handleShow}></i>
 				</div>
 			</div>
