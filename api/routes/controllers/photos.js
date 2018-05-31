@@ -6,14 +6,14 @@ var router = express.Router()
 router.get('/:id?', (req, res, next) =>
 {
 	if (req.params.id)
-		Photo.findOne(req.params.id, (err, rows) =>
+		Photo.get(req.params.id, (err, rows) =>
 		{
 			(err)
 			? res.json(err)
 			: res.json(rows)
 		})
 	else
-		Photo.get((err, rows) => {
+		Photo.find((err, rows) => {
 			(err)
 			? res.json(err)
 			: res.json(rows)
