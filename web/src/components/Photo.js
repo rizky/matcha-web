@@ -48,13 +48,13 @@ export default class Photo extends Component {
 					<i className='far fa-comment'></i>
 				</div>
 				<span className='likes_v'>{photo.likes}</span>
+				<Comments comments={photo.comments}/>
 				<div>
 					<a href='/photos/{photo.id}'>	
 						<span className='time_text'>{photo.time_elapse}</span>
 					</a>
 					<hr/>
 				</div>
-				<Comments comments={photo.comments}/>
 				<div>
 					<input
 						id={`comment_text_${photo.id}`} placeholder='Add a comment...' className='comment_text'></input>
