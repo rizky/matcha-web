@@ -16,7 +16,7 @@ export default class Comment extends Component {
 				<a href="/account/{{comment.user}}">
 					<span className="user">{comment.user.username} </span>
 				</a>
-				<span style={{width: '96%'}}>{comment.message}</span>
+				<span style={{width: '93%'}}>{comment.message}</span>
 				<div
 					className="{{comment.delete_v}}" style={{float: 'right', opacity: '0.3'}}>
 					<i className="fa fa-times"></i>

@@ -18,9 +18,15 @@ export default class Photo extends Component {
 	}
 
 	render () {
-		var photo = this.props.photo
-		photo.like_logo = (photo.like_logo) ? photo.like_logo : 'far'
-		photo.user = (photo.user) ? photo.user : 'far'
+		var photo = {
+			like_logo: 'far',
+			user: {
+				username: '',
+				picture: 'https://user-images.githubusercontent.com/6814254/40845839-253ad5f4-65b8-11e8-9ef5-19f4d79f153f.jpg'
+			},
+			time_elapse: 'just now'
+		}
+		photo = this.props.photo ? this.props.photo : photo
 		let time_elapse = this.timeSince(Date.parse(photo.createdAt))
 		return (
 			<div className='photo' id={`photo_${photo.id}`}>

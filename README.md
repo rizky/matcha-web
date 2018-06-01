@@ -6,6 +6,10 @@
 git clone --recurse-submodules https://github.com/rizkyario/42-matcha.git && cd 42-matcha
 ```
 
+- http://localhost:80	: matcha web
+- http://localhost:81	: matcha api
+- http://localhost:82	: matcha storybook
+
 ### Development
 
 ```bash
