@@ -13,7 +13,7 @@ class App extends Component {
 		<main>
 			<Route exact path='/' render={()=><Home photos={this.props.photos}/>} />
 			<Route exact path='/discover' render={()=><Discover users={this.props.users}/>} />
-			<Route exact path='/messages' render={()=><Messages users={this.props.users}/>} />
+			<Route exact path='/messages' render={()=><Messages users={this.props.users} selectedUser={this.props.selectedUser}/>} />
 			<Route exact path='/account/login' render={()=><Login/>} />
 			<Route exact path='/account/registration' render={()=><Registration/>} />
 			

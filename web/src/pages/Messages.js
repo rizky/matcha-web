@@ -14,13 +14,12 @@ class Messages extends Component {
 			gridTemplate: '1fr / min-content auto min-content',
 			width: '100%'
 		}
-
-		let user = this.props.users[0]
+		console.log(this.props.selectedUser)
 		return (
 			<div style={messagePage}>
 				<Threads users={this.props.users}/>
 				<div></div>
-				<Profile user={user}/>
+				<Profile user={this.props.selectedUser}/>
 			</div>
 		)
 	}

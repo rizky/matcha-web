@@ -25,3 +25,10 @@ export const deleteUser = (id) => {
 	id: id
 	}
 }
+
+export const selectUser = (user) => {
+	return {
+		type: 'SELECT_USER',
+		user: user
+	}
+}

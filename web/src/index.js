@@ -6,9 +6,10 @@ import { Provider } from 'react-redux'
 
 let initialState = {
 	photos: [],
-	users: []
+	users: [],
+	selectedUser: null
 }
-  
+
 let store = configureStore(initialState)
 
 export const dispatch = store.dispatch
