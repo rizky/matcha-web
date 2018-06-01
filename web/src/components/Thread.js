@@ -6,9 +6,7 @@ export default class Thread extends Component {
 		let user = this.props.user
 		return (
 			<div className='thread' id={`user_${user.id}`} onClick={this.props.onClick}>
-				<a href={`/users/${user.id}`}>
-					<div><img className='profile_picture circled' src={user.picture} alt=''/></div>
-				</a>
+				<img className='profile_picture circled' src={user.picture} alt=''/>
 				<div className='thread_preview'>
 					<span className='h1'>{user.name} </span>
 					<span className='h2'>Sent you giphy</span>
