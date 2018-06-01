@@ -1,9 +1,10 @@
 .threads {
 	display: inline-grid;
 	grid-auto-rows: min-content;
-    width: 300px;
-    padding-left: 10px;
-    align-items: self-start;
+    margin-left: 10px;
+	align-items: self-start;
+	background-color: white;
+	height: 100%;
 }
 
 .thread {
@@ -16,6 +17,14 @@
 	background-color: white;
 	grid-gap: 0.5em;
 	width: 325px;
+}
+
+.thread_preview {
+	display: inline-grid;
+    margin-left: 10px;
+	align-items: center;
+	background-color: white;
+	height: 100%;
 }
 
 .h1 {
