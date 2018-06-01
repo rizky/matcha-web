@@ -12,8 +12,7 @@ class Messages extends Component {
 		const messagePage = {
 			display: 'grid',
 			gridTemplate: '1fr / min-content auto min-content',
-			width: '100vw',
-  			height: '100vh'
+			width: '100%'
 		}
 
 		let user = this.props.users[0]
