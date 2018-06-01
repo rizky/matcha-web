@@ -6,7 +6,8 @@ import user from './user'
 const rootReducer = combineReducers({
 	photos: photo,
 	users: users,
-	selectedUser: user
+	selectedUser: user,
+	userContext: user
 })
 
 export default rootReducer

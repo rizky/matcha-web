@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Threads, Profile, User } from '../components'
+import { Threads, Profile } from '../components'
 import { dispatch } from '../index'
 import * as UserActions from '../redux/actions/user'
 
