@@ -34,6 +34,7 @@ CREATE TABLE `comment` (
   `id` int(10) unsigned zerofill NOT NULL AUTO_INCREMENT,
   `user` int(10) unsigned zerofill NOT NULL,
   `photo` int(10) unsigned zerofill NOT NULL,
+  `to` int(10) unsigned zerofill NOT NULL,
   `message` varchar(255) DEFAULT NULL,
   `createdAt` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
   `updatedAt` timestamp NULL DEFAULT NULL,
@@ -46,14 +47,14 @@ CREATE TABLE `comment` (
 -- Records of comment
 -- ----------------------------
 BEGIN;
-INSERT INTO `comment` VALUES (0000000001, 0000000001, 0000000001, 'cosmos cubic wall', '2018-05-30 16:39:15', NULL, b'0');
-INSERT INTO `comment` VALUES (0000000002, 0000000002, 0000000003, 'pinky think thank toe', '2018-05-30 16:39:15', NULL, b'0');
-INSERT INTO `comment` VALUES (0000000003, 0000000003, 0000000004, 'raining color', '2018-05-30 16:39:15', NULL, b'0');
-INSERT INTO `comment` VALUES (0000000004, 0000000004, 0000000005, 'summer is malibu', '2018-05-30 16:39:15', NULL, b'0');
-INSERT INTO `comment` VALUES (0000000005, 0000000005, 0000000005, 'nice pic!', '2018-05-30 16:39:15', NULL, b'0');
-INSERT INTO `comment` VALUES (0000000006, 0000000006, 0000000005, 'thanks!!', '2018-05-30 16:39:15', NULL, b'0');
-INSERT INTO `comment` VALUES (0000000007, 0000000007, 0000000006, 'stairway to the rainbow', '2018-05-30 16:39:15', NULL, b'0');
-INSERT INTO `comment` VALUES (0000000008, 0000000008, 0000000006, 'nice pic!', '2018-05-30 16:39:15', NULL, b'0');
+INSERT INTO `comment` VALUES (0000000001, 0000000001, 0000000001, 0000000001, 'cosmos cubic wall', '2018-05-30 16:39:15', NULL, b'0');
+INSERT INTO `comment` VALUES (0000000002, 0000000002, 0000000003, 0000000003, 'pinky think thank toe', '2018-05-30 16:39:15', NULL, b'0');
+INSERT INTO `comment` VALUES (0000000003, 0000000003, 0000000004, 0000000004, 'raining color', '2018-05-30 16:39:15', NULL, b'0');
+INSERT INTO `comment` VALUES (0000000004, 0000000004, 0000000005, 0000000005, 'summer is malibu', '2018-05-30 16:39:15', NULL, b'0');
+INSERT INTO `comment` VALUES (0000000005, 0000000005, 0000000005, 0000000005, 'nice pic!', '2018-05-30 16:39:15', NULL, b'0');
+INSERT INTO `comment` VALUES (0000000006, 0000000006, 0000000005, 0000000005, 'thanks!!', '2018-05-30 16:39:15', NULL, b'0');
+INSERT INTO `comment` VALUES (0000000007, 0000000007, 0000000006, 0000000006, 'stairway to the rainbow', '2018-05-30 16:39:15', NULL, b'0');
+INSERT INTO `comment` VALUES (0000000008, 0000000008, 0000000006, 0000000006, 'nice pic!', '2018-05-30 16:39:15', NULL, b'0');
 COMMIT;
 
 -- ----------------------------
