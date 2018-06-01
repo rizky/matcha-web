@@ -29,17 +29,6 @@ createdAt
 updatedAt
 deleted
 
-[Message]
-*id
-+user
-+photo
-+like
-+thread
-message
-createdAt
-updatedAt
-deleted
-
 [Photo]
 *id
 +user
@@ -48,8 +37,19 @@ createdAt
 updatedAt
 deleted
 
-Message *--1 User
+[Message]
+*id
++thread
++photo
+from
+to
+like
+message
+createdAt
+updatedAt
+deleted
+
 Photo *--1 User
 User 1--* Thread
 Message *--1 Photo
-Thread *--1 Message
+Thread 1--* Message
