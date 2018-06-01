@@ -24,7 +24,7 @@ tokenLost
 *id
 +user1
 +user2
-isNew
+lastInteraction
 createdAt
 updatedAt
 deleted
