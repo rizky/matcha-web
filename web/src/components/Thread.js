@@ -1,18 +1,17 @@
 import React, { Component } from 'react'
+import './Threads.css'
 
 export default class Thread extends Component {
 	render () {
 		let user = this.props.user
 		return (
-			<div className='photo' id={`user_${user.id}`}>
+			<div className='thread' id={`user_${user.id}`}>
 				<a href={`/users/${user.id}`}>
-					<div><img className='picture' src={user.picture} alt=''/></div>
+					<div><img className='profile_picture circled' src={user.picture} alt=''/></div>
 				</a>
-				<div>
-					<a href={`/account/${user.username}`}>
-						<span className='user'>{user.name}, </span>
-					</a>
-					<i className='fa fa-ellipsis-v' style={{ float: 'right' }} onClick={this.handleShow}></i>
+				<div className='threads'>
+					<span className='h1'>{user.name} </span>
+					<span className='h2'>Sent you giphy</span>
 				</div>
 			</div>
 		)

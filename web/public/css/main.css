@@ -35,7 +35,7 @@ main {
 	flex: 1;
 	display: flex;
 	justify-content: center;
-	padding-top: 40px;
+	padding-top: 10px;
 	padding-bottom: 5px;
 	flex-wrap: wrap;
 	align-items: flex-start;

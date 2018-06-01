@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import { Thread } from '../components'
+import './Threads.css'
 
 export default class Threads extends Component {
 	render () {
@@ -7,7 +8,7 @@ export default class Threads extends Component {
 			return (<Thread key={user.id} user={user}/>)
 		})
 		return (
-			<div className='photos'>{users}</div>
+			<div className='threads'>{users}</div>
 		)
 	}
 }

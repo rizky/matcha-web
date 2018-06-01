@@ -1,30 +1,10 @@
 import React, { Component } from 'react'
 import './Photo.css'
-import { dispatch } from '../index'
-import * as UserActions from '../redux/actions/user'
 
 export default class User extends Component {
-	constructor(props, context) {
-		super(props, context)
-		this.state = {
-			show: false
-		}
-	}
-
-	handleDelete = () => {
-		dispatch(UserActions.deleteUser(this.props.user.id))
-		this.handleClose()
-	}
-
-	handleClose = () => {
-		this.setState({ show: false })
-	}
-
-	handleShow = () => {
-		this.setState({ show: true })
-	}
-
 	render () {
+		if (!this.props.user)
+			return null
 		var lat = 46.529
 		var long = 6.5
 		let user = this.props.user
