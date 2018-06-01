@@ -2,7 +2,7 @@ version: '3.1'
 
 services:
   web:
-    command: npm start:prod
+    command: npm run start:prod
     environment:
       - NODE_ENV=production
 
