@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Threads, Profile } from '../components'
+import { Threads, Profile, User } from '../components'
 import { dispatch } from '../index'
 import * as UserActions from '../redux/actions/user'
 
@@ -15,7 +15,8 @@ class Messages extends Component {
 			width: '100%',
 			height: 'calc(100vh - 125px)'
 		}
-		console.log(this.props.selectedUser)
+		if (this.props.users.length > 0 && this.props.selectedUser == null)
+			dispatch(UserActions.selectUser(this.props.users[0]))
 		return (
 			<div style={messagePage}>
 				<Threads users={this.props.users}/>
