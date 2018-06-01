@@ -33,17 +33,9 @@ deleted
 *id
 +user
 +photo
++like
 +thread
 message
-createdAt
-updatedAt
-deleted
-
-[Like]
-*id
-+user
-+photo
-+thread
 createdAt
 updatedAt
 deleted
@@ -57,10 +49,7 @@ updatedAt
 deleted
 
 Message *--1 User
-Like *--1 User
-Like *--1 Photo
-Message *--1 Photo
 Photo *--1 User
 User 1--* Thread
-Thread *--1 Like
+Message *--1 Photo
 Thread *--1 Message
