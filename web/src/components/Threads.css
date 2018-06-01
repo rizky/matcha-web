@@ -1,10 +1,12 @@
 .threads {
-	display: inline-grid;
+	display: grid;
 	grid-auto-rows: min-content;
-    margin-left: 10px;
+	margin-left: 10px;
+	margin-bottom: 10px;
 	align-items: self-start;
 	background-color: white;
-	height: 100%;
+	position: relative;
+	overflow-y: auto;
 }
 
 .thread {

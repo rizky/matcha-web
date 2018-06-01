@@ -12,7 +12,8 @@ class Messages extends Component {
 		const messagePage = {
 			display: 'grid',
 			gridTemplate: '1fr / min-content auto min-content',
-			width: '100%'
+			width: '100%',
+			height: 'calc(100vh - 125px)'
 		}
 		console.log(this.props.selectedUser)
 		return (
