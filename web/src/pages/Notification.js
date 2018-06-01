@@ -1,11 +1,11 @@
-import React, { Component } from 'react';
+import React, { Component } from 'react'
 
 class Notification extends Component {
-  render() {
-    return (
-		<p>Notification</p>
-    );
-  }
+	render() {
+		return (
+			<p>Notification</p>
+		)
+	}
 }
 
-export default Notification;
+export default Notification

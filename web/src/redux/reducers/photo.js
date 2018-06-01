@@ -13,6 +13,6 @@ export default (photos = [], action) => {
 			})
 		default:
 			console.log(action)
-			return (photos);
+			return (photos)
 	}
 }

@@ -1,5 +1,4 @@
 import React, { Component } from 'react'
-import { Modal, Button } from 'react-bootstrap'
 import './Photo.css'
 import { dispatch } from '../index'
 import * as PhotoActions from '../redux/actions/photo'
@@ -27,20 +26,20 @@ export default class Photo extends Component {
 	}
 
 	render () {
-		const wellStyles = { maxWidth: 400, margin: '0 auto' }
-
 		var photo = this.props.photo
 		photo.like_logo = (photo.like_logo) ? photo.like_logo : 'far'
 		photo.user = (photo.user) ? photo.user : 'far'
 		let time_elapse = this.timeSince(Date.parse(photo.createdAt))
 		return (
 			<div className='photo' id={`photo_${photo.id}`}>
-				<a href={`/account/${photo.user.username}`}>
-					<i className='fas fa-user-circle'></i>
-					<span className='user'>{photo.user.username}</span>
+				<a className='stackLayout' href={`/account/${photo.user.username}`}>
+					<div className='image-cropper' style={{ marginRight: '5px'}}>
+						<img className='profile_picture' src={photo.user.picture} alt=''/>
+					</div>
+					<span className='user'> {photo.user.username}</span>
 				</a>
 				<a href={`/photos/${photo.id}`}>
-					<div><img src={photo.url} alt=''/></div>
+					<div><img className='picture' src={photo.url} alt=''/></div>
 				</a>
 				<div>
 					<a href={`/photos/like/${photo.id}`}>
@@ -54,47 +53,40 @@ export default class Photo extends Component {
 					<a href='/photos/{photo.id}'>	
 						<span className='time_text'>{time_elapse}</span>
 					</a>
-					<hr className='hrphoto'/>
+					<hr/>
 				</div>
 				<div>
 					<input
 						id={`comment_text_${photo.id}`} placeholder='Add a comment...' className='comment_text'></input>
 					<i className='fa fa-ellipsis-v' style={{ float: 'right' }} onClick={this.handleShow}></i>
 				</div>
-				<Modal show={this.state.show} onHide={this.handleClose} bsSize="small">				
-					<div className="well" style={wellStyles}>
-					<Button onClick={this.handleDelete} bsStyle="danger" block>Delete</Button>
-					<Button onClick={this.handleClose} block>Share to Twitter</Button>
-					<Button onClick={this.handleClose} block>Cancel</Button>
-					</div>
-				</Modal>	
 			</div>
 		)
 	}
 
 	timeSince(date) {
-		var seconds = Math.floor((new Date() - date) / 1000);
-		var interval = Math.floor(seconds / 31536000);
+		var seconds = Math.floor((new Date() - date) / 1000)
+		var interval = Math.floor(seconds / 31536000)
 		
 		if (interval > 1) {
-			return interval + " years ago";
+			return interval + " years ago"
 		}
-		interval = Math.floor(seconds / 2592000);
+		interval = Math.floor(seconds / 2592000)
 		if (interval > 1) {
-			return interval + " months ago";
+			return interval + " months ago"
 		}
-		interval = Math.floor(seconds / 86400);
+		interval = Math.floor(seconds / 86400)
 		if (interval > 1) {
-			return interval + " days ago";
+			return interval + " days ago"
 		}
-		interval = Math.floor(seconds / 3600);
+		interval = Math.floor(seconds / 3600)
 		if (interval > 1) {
-			return interval + " hours ago";
+			return interval + " hours ago"
 		}
-		interval = Math.floor(seconds / 60);
+		interval = Math.floor(seconds / 60)
 		if (interval > 1) {
-			return interval + " minutes ago";
+			return interval + " minutes ago"
 		}
-		return Math.floor(seconds) + " seconds ago";
+		return Math.floor(seconds) + " seconds ago"
 	}
 }

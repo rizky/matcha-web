@@ -5,7 +5,7 @@ var router = express.Router()
 
 // Load all controllers
 Object.keys(Controllers).forEach((key) => {
-	router.use(`/${key}`, Controllers[key]);
+	router.use(`/${key}`, Controllers[key])
 })
 
 router.get('/', (req, res, next) => {

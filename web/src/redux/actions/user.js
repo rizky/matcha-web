@@ -7,7 +7,7 @@ export const loadUsers = () => {
 			dispatch({
 				type: 'LOAD_USERS',
 				users: users
-			});
+			})
 		})
 	}
 }

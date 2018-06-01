@@ -18,7 +18,7 @@ services:
       - NODE_ENV=development
 
   db:
-    image: mysql:5.5.59
+    image: mysql:5.7
     restart: always
     environment:
       MYSQL_ROOT_PASSWORD: root

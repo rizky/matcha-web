@@ -1,0 +1,7 @@
+.profile {
+	display: inline-grid;
+	grid-auto-rows: min-content;
+	margin-right: 10px;
+	align-items: self-start;
+	background-color: white
+}

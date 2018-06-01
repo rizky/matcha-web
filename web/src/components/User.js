@@ -1,55 +1,83 @@
 import React, { Component } from 'react'
-import { Modal, Button } from 'react-bootstrap'
 import './Photo.css'
-import { dispatch } from '../index'
-import * as UserActions from '../redux/actions/user'
-import { Comments } from '../components'
 
 export default class User extends Component {
-	constructor(props, context) {
-		super(props, context)
-		this.state = {
-			show: false
-		}
-	}
-
-	handleDelete = () => {
-		dispatch(UserActions.deleteUser(this.props.user.id))
-		this.handleClose()
-	}
-
-	handleClose = () => {
-		this.setState({ show: false })
-	}
-
-	handleShow = () => {
-		this.setState({ show: true })
-	}
-
 	render () {
-		const wellStyles = { maxWidth: 400, margin: '0 auto' }
-
-		var user = this.props.user
+		if (!this.props.user)
+			return null
+		var lat = 46.529
+		var long = 6.5
+		let user = this.props.user
+		let age = this.age(Date.parse(user.dob))
+		let activeAt = this.timeSince(Date.parse(user.activeAt))
+		let distance = this.getDistanceFromLatLonInKm(user.lat, user.long, lat, long)
 		return (
 			<div className='photo' id={`user_${user.id}`}>
 				<a href={`/users/${user.id}`}>
-					<div><img src={user.image} alt=''/></div>
-				</a>
-				<a href={`/account/${user.username}`}>
-					<i className='fas fa-user-circle'></i>
-					<span className='user'>{user.username}</span>
+					<div><img className='picture' src={user.picture} alt=''/></div>
 				</a>
 				<div>
+					<a href={`/account/${user.username}`}>
+						<span className='user'>{user.name}, </span>
+						<span>{age}</span>
+					</a>
 					<i className='fa fa-ellipsis-v' style={{ float: 'right' }} onClick={this.handleShow}></i>
 				</div>
-				<Modal show={this.state.show} onHide={this.handleClose} bsSize="small">				
-					<div className="well" style={wellStyles}>
-					<Button onClick={this.handleDelete} bsStyle="danger" block>Delete</Button>
-					<Button onClick={this.handleClose} block>Share to Twitter</Button>
-					<Button onClick={this.handleClose} block>Cancel</Button>
-					</div>
-				</Modal>	
+				<div>
+					<span className='time_text'>{distance} kilometer away, </span>
+					<span className='time_text'> active {activeAt}</span>
+				</div>
 			</div>
 		)
+	}
+
+	age(date) {
+		var seconds = Math.floor((new Date() - date) / 1000)
+		var interval = Math.floor(seconds / 31536000)
+		return interval;
+	}
+
+	timeSince(date) {
+		var seconds = Math.floor((new Date() - date) / 1000)
+		var interval = Math.floor(seconds / 31536000)
+		
+		if (interval > 1) {
+			return interval + " years ago"
+		}
+		interval = Math.floor(seconds / 2592000)
+		if (interval > 1) {
+			return interval + " months ago"
+		}
+		interval = Math.floor(seconds / 86400)
+		if (interval > 1) {
+			return interval + " days ago"
+		}
+		interval = Math.floor(seconds / 3600)
+		if (interval > 1) {
+			return interval + " hours ago"
+		}
+		interval = Math.floor(seconds / 60)
+		if (interval > 1) {
+			return interval + " minutes ago"
+		}
+		return Math.floor(seconds) + " seconds ago"
+	}
+
+	getDistanceFromLatLonInKm(lat1,lon1,lat2,lon2) {
+		var R = 6371; // Radius of the earth in km
+		var dLat = this.deg2rad(lat2-lat1);  // deg2rad below
+		var dLon = this.deg2rad(lon2-lon1); 
+		var a = 
+			Math.sin(dLat/2) * Math.sin(dLat/2) +
+			Math.cos(this.deg2rad(lat1)) * Math.cos(this.deg2rad(lat2)) * 
+			Math.sin(dLon/2) * Math.sin(dLon/2)
+			; 
+		var c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1-a)); 
+		var d = R * c; // Distance in km
+		return Math.ceil(d)
+	}
+	
+	deg2rad(deg) {
+		return deg * (Math.PI/180)
 	}
 }
