@@ -17,14 +17,6 @@ export default class Photo extends Component {
 		this.handleClose()
 	}
 
-	handleClose = () => {
-		this.setState({ show: false })
-	}
-
-	handleShow = () => {
-		this.setState({ show: true })
-	}
-
 	render () {
 		var photo = this.props.photo
 		photo.like_logo = (photo.like_logo) ? photo.like_logo : 'far'
