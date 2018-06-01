@@ -1,6 +1,8 @@
+import config from '../../config'
+
 export const loadUsers = () => {
 	return (dispatch) => {
-		fetch (`http://localhost:81/users`)
+		fetch (`${config.url.apiHost}/users`)
 		.then ( result => {
 			return result.json()
 		}).then( users => {

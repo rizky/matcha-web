@@ -13,11 +13,9 @@ export default class User extends Component {
 		let distance = this.getDistanceFromLatLonInKm(user.lat, user.long, lat, long)
 		return (
 			<div className='photo' id={`user_${user.id}`}>
-				<a href={`/users/${user.id}`}>
-					<div><img className='picture' src={user.picture} alt=''/></div>
-				</a>
+				<img className='picture' src={user.picture} alt=''/>
 				<div>
-					<a href={`/account/${user.username}`}>
+					<a>
 						<span className='user'>{user.name}, </span>
 						<span>{age}</span>
 					</a>
