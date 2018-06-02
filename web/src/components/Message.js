@@ -1,6 +1,5 @@
 import React, { Component } from 'react'
 import './Photo.css'
-import { Link } from 'react-router-dom'
 
 export default class Message extends Component {
 	constructor(props, context) {

@@ -2,17 +2,10 @@ import React, { Component } from 'react'
 import { BrowserRouter as Router, Route } from "react-router-dom"
 import { Home, Discover, Login, Logout, Registration, MessagesPage, Nav, Footer } from './pages'
 import { connect } from 'react-redux'
-import { dispatch } from './index'
-import * as UserActions from './redux/actions/user'
 
 export const UserContext = React.createContext();
 
 class App extends Component {
-	componentDidMount() {
-		let user = { id: 1, username: 'admin' }
-			dispatch(UserActions.login(user))
-	}
-
 	render() {
 		const { userContext, photos, users } = this.props
 		return (
