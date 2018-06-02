@@ -5,6 +5,9 @@
 	margin-right: 10px;
 	margin-bottom: 10px;
 	align-items: self-start;
+	padding: 10px;
+	border: 1px solid #eeeeee;
+	color: #757575;
 	background-color: white;
 	position: relative;
 	overflow-y: auto;
