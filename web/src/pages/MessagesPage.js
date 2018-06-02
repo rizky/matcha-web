@@ -41,9 +41,3 @@ export default class MessagesPage extends Component {
 		)
 	}
 }
-
-Messages.propTypes = {
-	threads: PropTypes.array.isRequired,
-	messages: PropTypes.array.isRequired,
-	selectedThread: PropTypes.object.isRequired
-};

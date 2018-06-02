@@ -14,7 +14,7 @@ export default class Threads extends Component {
 
 	render () {
 		if (!this.props.threads)
-			return null
+			return <div></div>
 		let threads = this.props.threads.map ( thread => {
 			return (<Thread key={thread.id} user={thread.user2} onClick={() => this.selectThread(thread)} />)
 		})
