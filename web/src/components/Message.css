@@ -13,14 +13,20 @@
 
 .message {
 	display: grid;
-	grid-template-columns: min-content auto;
+	grid-template-columns: min-content min-content;
+	align-items: flex-end;
+	grid-gap: 0.5em;
+}
+
+.message-box {
+	display: grid;
 	align-items: center;
 	padding: 10px;
 	border: 1px solid #eeeeee;
 	color: #757575;
 	background-color: white;
 	grid-gap: 0.5em;
-	width: 325px;
+	width: 100px;
 }
 
 .h1 {
@@ -38,6 +44,7 @@
 .time_text {
 	opacity: 0.6;
 	font-size: 0.8em;
+	justify-self: center;
 }
 
 .message .profile_picture {

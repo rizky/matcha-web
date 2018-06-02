@@ -12,7 +12,6 @@ export default class ORM {
 			})
 		if (order)
 			query += ` ORDER BY ${order[0]} ${order[1]}`
-		console.log(query)
 		if (callback)
 			return db.query(query, values, callback)
 		return new Promise (
