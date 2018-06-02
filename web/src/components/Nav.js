@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom'
 
 class Nav extends Component {
 	render() {
-		console.log(this.props)
+		const { userContext } = this.props
 		return (
 			<header>
 				<ul className="nav">
@@ -38,10 +38,24 @@ class Nav extends Component {
 							<span className="nav-text">Notification</span>
 						</Link>
 					</li>
-					<li className="nav_account">
+					{ (userContext)
+					? (<li className="nav_account">
 						<Link to="/account">
 							<span><i className="fas fa-user-circle"></i>
-								<span className="nav-text">{this.props.userContext ? this.props.userContext.name : 'Account'}</span>
+								<span className="nav-text">{userContext ? userContext.name : 'Account'}</span>
+							</span>
+						</Link>	
+						<ul className="ani">
+							<li><Link to="/account/">Profile</Link></li>
+							<li><Link to="/account/settings">Settings</Link></li>
+							<li><Link to="/account/logout">Logout</Link></li>
+							<div className='handler'></div>
+						</ul>
+					</li>)
+					: (<li className="nav_account">
+						<Link to="/account">
+							<span><i className="fas fa-user-circle"></i>
+								<span className="nav-text">{userContext ? userContext.name : 'Account'}</span>
 							</span>
 						</Link>	
 						<ul className="ani">
@@ -49,7 +63,8 @@ class Nav extends Component {
 							<li><Link to="/account/registration">Register</Link></li>
 							<div className='handler'></div>
 						</ul>
-					</li>
+					</li>)
+					}
 				</ul>
 			</header>
 		)
