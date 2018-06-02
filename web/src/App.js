@@ -10,9 +10,9 @@ class App extends Component {
 	render() {
 		return (
 		<div>
-			<UserContext.Provider value={this.props.userContext}>
-				<Nav/>
-				<Router>
+			<Router>
+				<UserContext.Provider value={this.props.userContext}>
+					<Nav/>
 					<main>
 						<Route exact path='/' render={()=><Home photos={this.props.photos}/>} />
 						<Route exact path='/discover' render={()=><Discover users={this.props.users}/>} />
@@ -20,9 +20,9 @@ class App extends Component {
 						<Route exact path='/account/login' render={()=><Login/>} />
 						<Route exact path='/account/registration' render={()=><Registration/>} />
 					</main>
-				</Router>
-				<Footer/>
-			</UserContext.Provider>
+					<Footer/>
+				</UserContext.Provider>
+			</Router>
 		</div>
 		)
 	}

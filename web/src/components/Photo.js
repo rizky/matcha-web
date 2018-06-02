@@ -3,6 +3,7 @@ import './Photo.css'
 import { dispatch } from '../index'
 import * as PhotoActions from '../redux/actions/photo'
 import { Comments } from '../components'
+import { Link } from 'react-router-dom'
 
 export default class Photo extends Component {
 	constructor(props, context) {
@@ -24,27 +25,27 @@ export default class Photo extends Component {
 		let time_elapse = this.timeSince(Date.parse(createdAt))
 		return (
 			<div className='photo' id={`photo_${id}`}>
-				<a className='stackLayout' href={`/account/${user.username}`}>
+				<Link className='stackLayout' to={`/account/${user.username}`}>
 					<div className='image-cropper' style={{ marginRight: '5px'}}>
 						<img className='profile_picture' src={user.picture} alt=''/>
 					</div>
 					<span className='user'> {user.username}</span>
-				</a>
-				<a href={`/photos/${id}`}>
+				</Link>
+				<Link to={`/photos/${id}`}>
 					<div><img className='picture' src={url} alt=''/></div>
-				</a>
+				</Link>
 				<div>
-					<a href={`/photos/like/${id}`}>
+					<Link to={`/photos/like/${id}`}>
 						<i className={`${like_logo} fa-heart`}></i>
-					</a>
+					</Link>
 					<i className='far fa-comment'></i>
 				</div>
 				{/* <span className='likes_v'>{photo.likes}</span> */}
 				<Comments comments={comments}/>
 				<div>
-					<a href='/photos/{id}'>	
+					<Link to='/photos/{id}'>	
 						<span className='time_text'>{time_elapse}</span>
-					</a>
+					</Link>
 					<hr/>
 				</div>
 				<div>

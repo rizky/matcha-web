@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import './Nav.css'
 import { UserContext } from '../App'
+import { Link } from 'react-router-dom'
 
 class Nav extends Component {
 	render() {
@@ -9,22 +10,22 @@ class Nav extends Component {
 			<header>
 				<ul className="nav">
 					<li>
-						<a href="/">
+						<Link to="/">
 							<i className="fa fa-home"></i>
 							<span className="nav-text">Home</span>
-						</a>
+						</Link>
 					</li>
 					<li>
-						<a href="/discover">
+						<Link to="/discover">
 							<i className="far fa-compass"></i>
 							<span className="nav-text">Discover</span>
-						</a>
+						</Link>
 					</li>
 					<li>
-						<a href="/messages">
+						<Link to="/messages">
 							<i className="far fa-envelope"></i>
 							<span className="nav-text">Messages</span>
-						</a>
+						</Link>
 					</li>
 					<li className="nav_logo">
 						<i className="fas fa-leaf"></i>
@@ -32,20 +33,20 @@ class Nav extends Component {
 					</li>
 					<li className="nav_spacing"></li>
 					<li>
-						<a href="/notification">
+						<Link to="/notification">
 							<i className="fa fa-bell"></i>
 							<span className="nav-text">Notification</span>
-						</a>
+						</Link>
 					</li>
 					<li className="nav_account">
-						<a href="/account">
+						<Link to="/account">
 							<span><i className="fas fa-user-circle"></i>
 								<span className="nav-text">{this.props.userContext ? this.props.userContext.name : 'Account'}</span>
 							</span>
-						</a>	
+						</Link>	
 						<ul className="ani">
-							<li><a href="/account/login">Login</a></li>
-							<li><a href="/account/registration">Register</a></li>
+							<li><Link to="/account/login">Login</Link></li>
+							<li><Link to="/account/registration">Register</Link></li>
 						</ul>
 					</li>
 				</ul>
