@@ -1,4 +1,4 @@
-.messages {
+.notifications {
 	display: grid;
 	grid-auto-rows: min-content;
 	margin-left: 10px;
@@ -14,17 +14,20 @@
 	gap: 5px;
 }
 
-.message {
+.notification {
 	display: grid;
-	grid-template-columns: min-content min-content;
-	align-items: flex-end;
+	grid-template-columns: repeat(5, min-content);
+	align-items: center;
 	grid-gap: 0.5em;
 }
 
-.message-box {
+.notification-box {
 	display: grid;
 	align-items: center;
+	margin-bottom: 10px;
+	margin-left: 110px;
 	padding: 10px;
+	justify-self: start;
 	border: 1px solid #eeeeee;
 	color: #757575;
 	background-color: white;
@@ -51,13 +54,13 @@
 	justify-self: center;
 }
 
-.message .profile_picture {
-	width: 20px;
+.notification .profile_picture {
+	width: 30px;
 }
 
-.message .circled {
-    width: 20px;
-    height: 20px;
+.notification .circled {
+    width: 30px;
+    height: 30px;
     position: relative;
     overflow: hidden;
     border-radius: 50%;

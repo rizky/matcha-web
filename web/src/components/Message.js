@@ -24,7 +24,7 @@ class Message extends Component {
 						: null
 					}
 					<div className='message-box'>
-						<span>{message.message}</span>
+						{message.message}
 					</div>
 				</div>
 			</div>

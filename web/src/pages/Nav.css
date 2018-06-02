@@ -77,8 +77,9 @@ ul {
 
 .nav_account ul {
 	position: absolute;
+	right: 0;
+	top: 0;
 	display: flex;
-	align-items: center;
 	padding: 10px 10px;
 	border: 1px solid #eeeeee;
 	border-radius: 5px;
@@ -87,9 +88,10 @@ ul {
 	flex-direction: column;
 	opacity: 0;
 	background-color: #fff;
-	margin-top: 10px;
-	margin-left: -48px;
+	margin-top: 50px;
+	margin-right: 10px;
 	width: 168px;
+	z-index: 1000;
 }
 
 .nav_account ul ul li {
