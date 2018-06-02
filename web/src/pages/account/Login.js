@@ -1,6 +1,16 @@
 import React, { Component } from 'react'
+import { dispatch } from '../../index'
+import * as UserActions from '../../redux/actions/user'
 
 class Login extends Component {
+	componentDidMount() {
+		let user = {
+			id: '000000001',
+			name: 'Guest'
+		}
+		dispatch(UserActions.login(user))
+	}
+
 	render() {
 		return (
 			<div className="forms">

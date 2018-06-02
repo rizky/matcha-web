@@ -1,8 +1,10 @@
 import React, { Component } from 'react'
 import './Nav.css'
+import { UserContext } from '../App'
 
-class Footer extends Component {
+class Nav extends Component {
 	render() {
+		console.log(this.props)
 		return (
 			<header>
 				<ul className="nav">
@@ -38,7 +40,7 @@ class Footer extends Component {
 					<li className="nav_account">
 						<a href="/account">
 							<span><i className="fas fa-user-circle"></i>
-								<span className="nav-text">Account</span>
+								<span className="nav-text">{this.props.userContext ? this.props.userContext.name : 'Account'}</span>
 							</span>
 						</a>	
 						<ul className="ani">
@@ -52,4 +54,8 @@ class Footer extends Component {
 	}
 }
 
-export default Footer
+export default React.forwardRef((props, ref) => (
+	<UserContext.Consumer>
+		{user => <Nav {...props} userContext={user} ref={ref}/>}
+	</UserContext.Consumer>
+));

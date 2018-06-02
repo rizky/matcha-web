@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { Photos } from '../components'
-import { UserContext } from '../App'
+
 class Home extends Component {	
 	render() {
 		return (
@@ -9,8 +9,4 @@ class Home extends Component {
 	}
 }
 
-export default React.forwardRef((props, ref) => (
-	<UserContext.Consumer>
-		{user => <Home {...props} userContext={user} ref={ref}/>}
-	</UserContext.Consumer>
-));
+export default Home

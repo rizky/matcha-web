@@ -8,7 +8,7 @@ let initialState = {
 	photos: [],
 	users: [],
 	selectedUser: null,
-	userContext: 'test',
+	userContext: null,
 }
 
 let store = configureStore(initialState)
