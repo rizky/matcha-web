@@ -1,7 +1,6 @@
 import React, { Component } from 'react'
 import { User } from '../components'
 import './Profile.css'
-import PropTypes from 'prop-types';
 
 export default class Profile extends Component {
 	render () {
@@ -12,7 +11,3 @@ export default class Profile extends Component {
 		)
 	}
 }
-
-Profile.propTypes = {
-	user: PropTypes.object.isRequired
-};
