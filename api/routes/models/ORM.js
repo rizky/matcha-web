@@ -1,15 +1,18 @@
 import db from '../../db/database'
 
 export default class ORM {
-	static findAll(params, callback = null)
+	static findAll(params, order = null, callback = null)
 	{
-		let query = `select * from ${this.name.toLowerCase()} where deleted = false`
+		let query = `SELECT * FROM ${this.name.toLowerCase()} WHERE deleted = false`
 		let values = []
 		if (params !== null)
 			Object.keys(params).forEach((param) => {
 				query += ` and ${param} = ?`
 				values.push(params[param])
 			})
+		if (order)
+			query += ` ORDER BY ${order[0]} ${order[1]}`
+		console.log(query)
 		if (callback)
 			return db.query(query, values, callback)
 		return new Promise (
@@ -25,7 +28,7 @@ export default class ORM {
 
 	static findOne(id, callback = null)
 	{
-		let query = `select * from ${this.name.toLowerCase()} where deleted = false and id=?`
+		let query = `SELECT * FROM ${this.name.toLowerCase()} WHERE deleted = false and id=?`
 
 		if (callback)
 			return db.query(query, [id], callback)

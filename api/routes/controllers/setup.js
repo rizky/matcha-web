@@ -7,6 +7,8 @@ router.get('/', async (req, res, next) =>
 {
 	await User.truncate()
 	await Thread.truncate()
+	await Message.truncate()
+
 	let user = {
 		username: "admin",
 		name: "Virgil Sawyer",
@@ -114,6 +116,7 @@ router.get('/', async (req, res, next) =>
 		thread: thread.id,
 		from: thread.user1,
 		to: thread.user2,
+		createdAt: '2018-06-02 09:13:56',
 		message: 'Hello'
 	}
 	await Message.insert(message)

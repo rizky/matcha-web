@@ -13,7 +13,7 @@ router.get('/:id?', (req, res, next) =>
 			: res.json(rows)
 		})
 	else
-		Thread.findAll(null, (err, rows) => {
+		Thread.findAll(null, null, (err, rows) => {
 			(err)
 			? res.json(err)
 			: res.json(rows)

@@ -11,7 +11,7 @@ export default class Photo extends ORM {
 
 	static find(params, callback)
 	{
-		Photo.findAll(params, (err, photos) =>
+		Photo.findAll(params, null, (err, photos) =>
 		{	
 			let promises = photos.map(async (photo) => {
 				photo.messages = await Message.findAll({photo: photo.id})
