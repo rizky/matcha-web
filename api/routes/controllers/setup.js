@@ -109,6 +109,23 @@ router.get('/', async (req, res, next) =>
 
 	let thread = { user1: 1, user2: 2 }
 	thread = await Thread.insert(thread)
+
+	let message = {
+		thread: thread.id,
+		from: thread.user1,
+		to: thread.user2,
+		message: 'Hello'
+	}
+	await Message.insert(message)
+
+	message = {
+		thread: thread.id,
+		from: thread.user2,
+		to: thread.user1,
+		message: 'Hi There'
+	}
+	await Message.insert(message)
+
 	thread = { user1: 1, user2: 3 }
 	thread = await Thread.insert(thread)
 	thread = { user1: 1, user2: 4 }

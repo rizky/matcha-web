@@ -33,7 +33,7 @@ DROP TABLE IF EXISTS `message`;
 CREATE TABLE `message` (
   `id` int(30) NOT NULL AUTO_INCREMENT,
   `thread` int(30) NOT NULL,
-  `photo` int(30) NOT NULL,
+  `photo` int(30) NULL DEFAULT NULL,
   `from` int(30) NOT NULL,
   `to` int(30) NOT NULL,
   `like` bit(1) NOT NULL DEFAULT b'0',
