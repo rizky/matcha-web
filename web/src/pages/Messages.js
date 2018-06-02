@@ -8,6 +8,11 @@ class Messages extends Component {
 		dispatch(UserActions.loadUsers())
 	}
 
+	componentDidUpdate() {
+		if (this.props.users.length > 0 && this.props.selectedUser == null)
+			dispatch(UserActions.selectUser(this.props.users[0]))
+	}
+
 	render() {
 		const messagePage = {
 			display: 'grid',
@@ -15,8 +20,7 @@ class Messages extends Component {
 			width: '100%',
 			height: 'calc(100vh - 125px)'
 		}
-		if (this.props.users.length > 0 && this.props.selectedUser == null)
-			dispatch(UserActions.selectUser(this.props.users[0]))
+		
 		return (
 			<div style={messagePage}>
 				<Threads users={this.props.users}/>
