@@ -47,6 +47,7 @@ class Nav extends Component {
 						<ul className="ani">
 							<li><Link to="/account/login">Login</Link></li>
 							<li><Link to="/account/registration">Register</Link></li>
+							<div className='handler'></div>
 						</ul>
 					</li>
 				</ul>
