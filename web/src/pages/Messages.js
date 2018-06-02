@@ -7,7 +7,6 @@ import PropTypes from 'prop-types';
 
 class Messages extends Component {
 	componentDidMount() {
-		console.log(this.props);
 		if (this.props.userContext)
 			dispatch(ThreadAction.loadThreads(this.props.userContext.id))
 	}

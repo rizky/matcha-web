@@ -141,8 +141,6 @@ router.get('/', async (req, res, next) =>
 	thread = { user1: 1, user2: 9 }
 	thread = await Thread.insert(thread)
 
-	console.log(thread)
-
 	res.writeHead(200, {'Content-Type': 'text/plain'});
     res.end('Done\n'); 
 })
