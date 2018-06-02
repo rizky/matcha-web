@@ -44,10 +44,10 @@ class Message extends Component {
 	 
 		var hour = date.getHours();
 		var minute = date.getMinutes();
-		// if (Math.floor(Date.now - date / 86400) > 1)
+		if (Math.floor(Date.now - date / 86400) > 1)
 			return `${day} ${monthNames[monthIndex]} ${year}, ${hour}:${minute}`;
-		// else
-		// 	return `${hour}:${minute}`;
+		else
+			return `${hour}:${minute}`;
 	  }
 }
 
