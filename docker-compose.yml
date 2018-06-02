@@ -2,24 +2,28 @@ version: '3.1'
 
 services:
   web:
-    image: rizkyario/42-matcha
+    image: rizkyario/42-matcha:latest
     build:
       context: .
       dockerfile: Dockerfile
     command: npm start
     volumes:
       - '.:/usr/src/app'
-      - '/usr/src/app/node_modules'
+      - '/usr/src/app/api/node_modules'
+      - '/usr/src/app/web/node_modules'
     ports:
-      - '3000:3000'
+      - '80:3000'
+      - '81:3001'
     environment:
       - NODE_ENV=development
 
   db:
-    image: mysql:5.5.59
+    image: mysql:5.7
     restart: always
     environment:
       MYSQL_ROOT_PASSWORD: root
     ports:
       - "3306:3306"
+    volumes:
+        - ./api/db/schema.sql:/docker-entrypoint-initdb.d/schema.sql
   #docker-compose up

@@ -1,0 +1,30 @@
+.messages-page {
+	display: grid;
+    grid-template-rows: 1fr;
+    grid-template-columns: min-content auto min-content;
+    grid-template-areas: none;
+    width: 100%;
+    height: calc(100vh - 125px);
+}
+
+@media screen and (max-width: 1050px) {
+	.messages-page {
+		grid-template-columns: min-content auto;
+	}
+	.messages-page .profile {
+		display: none;
+	}
+}
+
+@media screen and (max-width: 700px) {
+	.messages-page {
+		grid-template-columns: auto;
+	}
+	.messages-page .profile {
+		display: none;
+	}
+
+	.messages-page .threads {
+		display: none;
+	}
+}
