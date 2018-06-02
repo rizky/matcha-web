@@ -6,8 +6,8 @@ import { Link } from 'react-router-dom'
 class Login extends Component {
 	componentDidMount() {
 		let user = {
-			id: '000000001',
-			name: 'Guest'
+			id: 1,
+			username: 'admin'
 		}
 		dispatch(UserActions.login(user))
 	}

@@ -1,7 +1,6 @@
 import React, { Component } from 'react'
-import { Nav, Footer } from './components'
 import { BrowserRouter as Router, Route } from "react-router-dom"
-import { Home, Discover, Login, Logout, Registration, Messages } from './pages'
+import { Home, Discover, Login, Logout, Registration, Messages, Nav, Footer } from './pages'
 import { connect } from 'react-redux'
 
 export const UserContext = React.createContext();
@@ -17,7 +16,7 @@ class App extends Component {
 					<main>
 						<Route exact path='/' render={()=><Home photos={photos}/>} />
 						<Route exact path='/discover' render={()=><Discover users={users}/>} />
-						<Route exact path='/messages' render={()=><Messages users={users} selectedUser={selectedUser}/>} />
+						<Route exact path='/messages' render={()=><Messages {...this.props} />} />
 						<Route exact path='/account/login' render={()=><Login/>} />
 						<Route exact path='/account/logout' render={()=><Logout/>} />
 						<Route exact path='/account/registration' render={()=><Registration/>} />

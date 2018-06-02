@@ -42,7 +42,7 @@ class Nav extends Component {
 					? (<li className="nav_account">
 						<Link to="/account">
 							<span><i className="fas fa-user-circle"></i>
-								<span className="nav-text">{userContext ? userContext.name : 'Account'}</span>
+								<span className="nav-text">{userContext ? userContext.username : 'Account'}</span>
 							</span>
 						</Link>	
 						<ul className="ani">
@@ -55,7 +55,7 @@ class Nav extends Component {
 					: (<li className="nav_account">
 						<Link to="/account">
 							<span><i className="fas fa-user-circle"></i>
-								<span className="nav-text">{userContext ? userContext.name : 'Account'}</span>
+								<span className="nav-text">{userContext ? userContext.username : 'Account'}</span>
 							</span>
 						</Link>	
 						<ul className="ani">

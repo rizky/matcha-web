@@ -1,16 +1,20 @@
 import React, { Component } from 'react'
 import { Threads, Profile } from '../components'
 import { dispatch } from '../index'
+import * as ThreadAction from '../redux/actions/thread'
 import * as UserActions from '../redux/actions/user'
+import PropTypes from 'prop-types';
 
 class Messages extends Component {
 	componentDidMount() {
-		dispatch(UserActions.loadUsers())
+		console.log(this.props);
+		if (this.props.userContext)
+			dispatch(ThreadAction.loadThreads(this.props.userContext.id))
 	}
 
 	componentDidUpdate() {
-		if (this.props.users.length > 0 && this.props.selectedUser == null)
-			dispatch(UserActions.selectUser(this.props.users[0]))
+		if (this.props.threads.length > 0 && this.props.selectedUser == null)
+			dispatch(UserActions.selectUser(this.props.threads[0].user2))
 	}
 
 	render() {
@@ -21,14 +25,20 @@ class Messages extends Component {
 			height: 'calc(100vh - 125px)'
 		}
 		
+		const { threads } = this.props
 		return (
 			<div style={messagePage}>
-				<Threads {...this.props}/>
+				<Threads threads={threads}/>
 				<div></div>
-				<Profile {...this.props}/>
+				<Profile user={this.props.selectedUser}/>
 			</div>
 		)
 	}
 }
+
+Messages.propTypes = {
+	threads: PropTypes.array.isRequired,
+	selectedUser: PropTypes.object.isRequired
+};
 
 export default Messages
