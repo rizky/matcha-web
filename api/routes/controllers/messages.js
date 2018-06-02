@@ -3,10 +3,10 @@ import Message from '../models/Message'
 
 var router = express.Router()
 
-router.get('/:id?', (req, res, next) =>
+router.get('/:id', (req, res, next) =>
 {
 	if (req.params.id)
-		Message.find({thread: req.params.id}, (err, rows) =>
+		Message.find({id: req.params.id}, null, (err, rows) =>
 		{
 			(err)
 			? res.json(err)
@@ -18,6 +18,26 @@ router.get('/:id?', (req, res, next) =>
 			? res.json(err)
 			: res.json(rows)
 		})
+})
+
+router.get('/thread/:thread', (req, res, next) =>
+{
+	Message.find({thread: req.params.thread}, null, (err, rows) =>
+	{
+		(err)
+		? res.json(err)
+		: res.json(rows)
+	})
+})
+
+router.get('/to/:to', (req, res, next) =>
+{
+	Message.find({to: req.params.to}, ['createdAt', 'DESC'], (err, rows) =>
+	{
+		(err)
+		? res.json(err)
+		: res.json(rows)
+	})
 })
 
 export default router

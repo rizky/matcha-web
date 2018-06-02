@@ -125,6 +125,7 @@ router.get('/', async (req, res, next) =>
 		thread: thread.id,
 		from: thread.user2,
 		to: thread.user1,
+		createdAt: '2018-06-02 09:14:56',
 		message: 'Hi There'
 	}
 	await Message.insert(message)
@@ -144,6 +145,7 @@ router.get('/', async (req, res, next) =>
 		thread: thread.id,
 		from: thread.user2,
 		to: thread.user1,
+		createdAt: '2018-06-02 09:15:56',
 		message: 'Hi There'
 	}
 	await Message.insert(message)
@@ -163,6 +165,7 @@ router.get('/', async (req, res, next) =>
 		thread: thread.id,
 		from: thread.user2,
 		to: thread.user1,
+		createdAt: '2018-06-02 09:16:56',
 		message: 'Hi There'
 	}
 	await Message.insert(message)
@@ -182,6 +185,7 @@ router.get('/', async (req, res, next) =>
 		thread: thread.id,
 		from: thread.user2,
 		to: thread.user1,
+		createdAt: '2018-06-02 09:17:56',
 		message: 'Hi There'
 	}
 	await Message.insert(message)

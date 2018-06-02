@@ -7,10 +7,12 @@ export default class Message extends ORM {
 		message.from = await User.findOne(message.from)
 	}
 
-	static find(params, callback)
+	static find(params, order, callback)
 	{
-		Message.findAll(params, null, (err, messages) =>
+		Message.findAll(params, order, (err, messages) =>
 		{	
+			if (err)
+				callback(err, messages)
 			var promises = messages.map(async (message) => {
 				return await this.populate(message)
 			})

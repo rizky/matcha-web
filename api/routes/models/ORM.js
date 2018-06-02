@@ -3,11 +3,12 @@ import db from '../../db/database'
 export default class ORM {
 	static findAll(params, order = null, callback = null)
 	{
-		let query = `SELECT * FROM ${this.name.toLowerCase()} WHERE deleted = false`
+		let table = this.name.toLowerCase()
+		let query = `SELECT * FROM ${table} WHERE deleted = false`
 		let values = []
 		if (params !== null)
 			Object.keys(params).forEach((param) => {
-				query += ` and ${param} = ?`
+				query += ` and ${table}.${param} = ?`
 				values.push(params[param])
 			})
 		if (order)
