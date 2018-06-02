@@ -19,8 +19,8 @@ class Notification extends Component {
 					<span className='time_text'>{time}</span>
 					{
 						(notification.match.data[0] === 1)
-						? <i class="fab fa-gratipay"></i>
-						: <i class="far fa-envelope"></i>
+						? <i className="fab fa-gratipay"></i>
+						: <i className="far fa-envelope"></i>
 					}
 					<img className='profile_picture circled' src={notification.from.picture} alt=''/>
 					<span className='h1' style={{whiteSpace:'nowrap'}}>{notification.from.name}</span>
