@@ -13,8 +13,9 @@ export default class Message extends Component {
 		const {message} = this.props
 		return (
 			<div className="message" id="message_{{message.id}}">
-				<span className="user">{message.from} </span>
+				<span className="user">{message.from.name} </span>
 				<span style={{width: '96%'}}>{message.message}</span>
+				<span style={{width: '96%'}}>{message.createdAt}</span>
 			</div>
 		)
 	}
