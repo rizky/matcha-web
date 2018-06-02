@@ -7,6 +7,8 @@ import PropTypes from 'prop-types';
 
 class Messages extends Component {
 	componentDidMount() {
+		let user = { id: 1, username: 'admin' }
+		dispatch(UserActions.login(user))
 		if (this.props.userContext)
 			dispatch(ThreadAction.loadThreads(this.props.userContext.id))
 	}

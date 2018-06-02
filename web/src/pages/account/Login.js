@@ -5,10 +5,7 @@ import { Link } from 'react-router-dom'
 
 class Login extends Component {
 	componentDidMount() {
-		let user = {
-			id: 1,
-			username: 'admin'
-		}
+		let user = { id: 1, username: 'admin' }
 		dispatch(UserActions.login(user))
 	}
 
