@@ -110,7 +110,7 @@ router.get('/', async (req, res, next) =>
 	await User.insert(user)
 
 	let thread = { user1: 1, user2: 2 }
-	thread = await Thread.insert(thread)
+	thread = await Thread.match(thread)
 
 	let message = {
 		thread: thread.id,
@@ -131,7 +131,7 @@ router.get('/', async (req, res, next) =>
 	await Message.insert(message)
 
 	thread = { user1: 1, user2: 3 }
-	thread = await Thread.insert(thread)
+	thread = await Thread.match(thread)
 	message = {
 		thread: thread.id,
 		from: thread.user1,
@@ -151,7 +151,7 @@ router.get('/', async (req, res, next) =>
 	await Message.insert(message)
 
 	thread = { user1: 1, user2: 4 }
-	thread = await Thread.insert(thread)
+	thread = await Thread.match(thread)
 	message = {
 		thread: thread.id,
 		from: thread.user1,
@@ -171,7 +171,7 @@ router.get('/', async (req, res, next) =>
 	await Message.insert(message)
 
 	thread = { user1: 1, user2: 5 }
-	thread = await Thread.insert(thread)
+	thread = await Thread.match(thread)
 	message = {
 		thread: thread.id,
 		from: thread.user1,

@@ -35,9 +35,17 @@ export default class Thread extends ORM {
 						thread['id'] = data.insertId
 						let message = {
 							thread: data.insertId,
-							from: 0,
+							from: thread.user2,
 							to: thread.user1,
-							match: thread.user2,
+							match: true,
+							message: 'Match'
+						}
+						Message.insert(message)
+						message = {
+							thread: data.insertId,
+							from: thread.user1,
+							to: thread.user2,
+							match: true,
 							message: 'Match'
 						}
 						Message.insert(message)

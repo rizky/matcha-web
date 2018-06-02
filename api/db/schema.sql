@@ -36,7 +36,7 @@ CREATE TABLE `message` (
   `photo` int(30) NULL DEFAULT NULL,
   `from` int(30) NOT NULL,
   `to` int(30) NOT NULL,
-  `match` int(30) DEFAULT NULL,
+  `match` bit(1) NOT NULL DEFAULT b'0',
   `like` bit(1) NOT NULL DEFAULT b'0',
   `message` varchar(255) DEFAULT NULL,
   `createdAt` timestamp NULL DEFAULT CURRENT_TIMESTAMP,

@@ -36,6 +36,19 @@
 	white-space: nowrap;
 }
 
+.notification-box-empty {
+	display: grid;
+	align-items: center;
+	margin-bottom: 10px;
+	margin-left: 110px;
+	padding: 10px;
+	justify-self: start;
+	background-color: white;
+	grid-gap: 0.5em;
+	max-width: 300px;
+	white-space: nowrap;
+}
+
 .h1 {
 	font-weight: bold;
 }

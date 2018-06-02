@@ -11,15 +11,24 @@ class Notification extends Component {
 
 	render () {
 		const { notification } = this.props
+		console.log(notification)
 		const time = this.formatDate(new Date(Date.parse(notification.createdAt)))
 		return (
 			<div style={{display: 'grid'}}>
 				<div className='notification'>
 					<span className='time_text'>{time}</span>
-					<i class="far fa-envelope"></i>
+					{
+						(notification.match.data[0] === 1)
+						? <i class="fab fa-gratipay"></i>
+						: <i class="far fa-envelope"></i>
+					}
 					<img className='profile_picture circled' src={notification.from.picture} alt=''/>
 					<span className='h1' style={{whiteSpace:'nowrap'}}>{notification.from.name}</span>
-					<span style={{whiteSpace:'nowrap'}} >sent you a message</span>
+					{
+						(notification.match.data[0] === 1)
+						? <span style={{whiteSpace:'nowrap'}} >is your new Match!</span>
+						: <span style={{whiteSpace:'nowrap'}} >sent you a message</span>
+					}
 				</div>
 				<div className='notification-box'>
 					{notification.message}
