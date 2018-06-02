@@ -3,7 +3,7 @@ import Message from '../models/Message'
 
 var router = express.Router()
 
-router.get('/:id', (req, res, next) =>
+router.get('/:id?', (req, res, next) =>
 {
 	if (req.params.id)
 		Message.find({id: req.params.id}, null, (err, rows) =>

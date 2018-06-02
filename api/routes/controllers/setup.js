@@ -191,13 +191,13 @@ router.get('/', async (req, res, next) =>
 	await Message.insert(message)
 
 	thread = { user1: 1, user2: 6 }
-	thread = await Thread.insert(thread)
+	thread = await Thread.match(thread)
 	thread = { user1: 1, user2: 7 }
-	thread = await Thread.insert(thread)
+	thread = await Thread.match(thread)
 	thread = { user1: 1, user2: 8 }
-	thread = await Thread.insert(thread)
+	thread = await Thread.match(thread)
 	thread = { user1: 1, user2: 9 }
-	thread = await Thread.insert(thread)
+	thread = await Thread.match(thread)
 
 	res.writeHead(200, {'Content-Type': 'text/plain'});
     res.end('Done\n'); 

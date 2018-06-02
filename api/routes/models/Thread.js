@@ -22,4 +22,29 @@ export default class Thread extends ORM {
 			})
 		})
 	}
+
+	static match(thread)
+	{
+		return new Promise (
+			(resolve, reject) => {
+				Thread.insert(thread, (err, data) => {
+					if (err)
+						reject(err)
+					else
+					{
+						thread['id'] = data.insertId
+						let message = {
+							thread: data.insertId,
+							from: 0,
+							to: thread.user1,
+							match: thread.user2,
+							message: 'Match'
+						}
+						Message.insert(message)
+						resolve(thread)
+					}
+				})
+			}
+		)
+	}
 }

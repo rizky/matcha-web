@@ -4,7 +4,10 @@ import User from './User'
 export default class Message extends ORM {
 	static async populate(message)
 	{
-		message.from = await User.findOne(message.from)
+		if (message.from == 0)
+			message.from = { id: 0, name: 'Matcha', username: 'Matcha'}
+		else
+			message.from = await User.findOne(message.from)
 	}
 
 	static find(params, order, callback)
