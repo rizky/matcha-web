@@ -1,30 +1,35 @@
-.threads {
-	display: inline-grid;
+.messages {
+	display: grid;
 	grid-auto-rows: min-content;
-    margin-left: 10px;
+	margin-left: 10px;
+	margin-right: 10px;
+	margin-bottom: 10px;
 	align-items: self-start;
+	padding: 10px;
+	border: 1px solid #eeeeee;
+	color: #757575;
 	background-color: white;
-	height: 100%;
+	position: relative;
+	overflow-y: auto;
+	gap: 5px;
 }
 
-.thread {
+.message {
 	display: grid;
-	grid-template-columns: min-content auto min-content;
+	grid-template-columns: min-content min-content;
+	align-items: flex-end;
+	grid-gap: 0.5em;
+}
+
+.message-box {
+	display: grid;
 	align-items: center;
 	padding: 10px;
 	border: 1px solid #eeeeee;
 	color: #757575;
 	background-color: white;
 	grid-gap: 0.5em;
-	width: 325px;
-}
-
-.thread_preview {
-	display: inline-grid;
-    margin-left: 10px;
-	align-items: center;
-	background-color: white;
-	height: 100%;
+	width: 100px;
 }
 
 .h1 {
@@ -42,21 +47,16 @@
 .time_text {
 	opacity: 0.6;
 	font-size: 0.8em;
+	justify-self: center;
 }
 
-.more_threads {
-	width: 100%;
-	text-align: center;
-	margin: 0.8em;
+.message .profile_picture {
+	width: 20px;
 }
 
-.thread .profile_picture {
-	width: 70px;
-}
-
-.thread .circled {
-    width: 70px;
-    height: 70px;
+.message .circled {
+    width: 20px;
+    height: 20px;
     position: relative;
     overflow: hidden;
     border-radius: 50%;

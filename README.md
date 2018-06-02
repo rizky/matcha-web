@@ -4,7 +4,6 @@
 
 ```bash
 git clone --recurse-submodules https://github.com/rizkyario/42-matcha.git && cd 42-matcha
-docker build -t rizkyario/42-matcha .
 ```
 
 ### Development

@@ -7,7 +7,7 @@ const config = {
 };
 
 if (prod) {
-	config.url.apiHost = 'http://matcha.isara.tv:81';
+	config.url.apiHost = 'http://matcha.riz.ky:81';
 }
 
 export default config;

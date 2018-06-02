@@ -4,7 +4,7 @@ import { Users } from '../components'
 class Discover extends Component {
 	render() {
 		return (
-			<Users users={this.props.users}/>
+			<Users {...this.props}/>
 		)
 	}
 }

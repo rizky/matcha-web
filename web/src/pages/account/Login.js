@@ -1,6 +1,14 @@
 import React, { Component } from 'react'
+import { dispatch } from '../../index'
+import * as UserActions from '../../redux/actions/user'
+import { Link } from 'react-router-dom'
 
 class Login extends Component {
+	componentDidMount() {
+		let user = { id: 1, username: 'admin' }
+		dispatch(UserActions.login(user))
+	}
+
 	render() {
 		return (
 			<div className="forms">
@@ -11,8 +19,8 @@ class Login extends Component {
 					<input type='password' name='password' placeholder='Password' value=''/>
 					<hr/>
 					<button type='submit'>Login</button>
-					<a href='/account/recover'>Forgot password?</a>
-					<div>Don't have an account? <a href='/account/registration'>Sign Up</a></div>
+					<Link to='/account/recover'>Forgot password?</Link>
+					<div>Don't have an account? <Link to='/account/registration'>Sign Up</Link></div>
 				</form>
 			</div>
 		)

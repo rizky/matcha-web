@@ -28,9 +28,15 @@ export const deleteUser = (id) => {
 	}
 }
 
-export const selectUser = (user) => {
+export const login = (user) => {
 	return {
-		type: 'SELECT_USER',
+		type: 'LOGIN',
 		user: user
+	}
+}
+
+export const logout = () => {
+	return {
+		type: 'LOGOUT'
 	}
 }

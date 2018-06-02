@@ -10,6 +10,8 @@ export default class Users extends Component {
 	}
 
 	render () {
+		if (!this.props.users)
+			return null
 		let users = this.props.users.map ( user => {
 			return (<User key={user.id} user={user}/>)
 		})

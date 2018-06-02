@@ -8,7 +8,7 @@ export default class User extends Component {
 		var lat = 46.529
 		var long = 6.5
 		let user = this.props.user
-		let age = this.age(Date.parse(user.dob))
+		let age = this.calculateAge(Date.parse(user.dob))
 		let activeAt = this.timeSince(Date.parse(user.activeAt))
 		let distance = this.getDistanceFromLatLonInKm(user.lat, user.long, lat, long)
 		return (
@@ -29,7 +29,7 @@ export default class User extends Component {
 		)
 	}
 
-	age(date) {
+	calculateAge(date) {
 		var seconds = Math.floor((new Date() - date) / 1000)
 		var interval = Math.floor(seconds / 31536000)
 		return interval;

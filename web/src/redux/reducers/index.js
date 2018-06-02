@@ -1,12 +1,18 @@
 import { combineReducers } from 'redux'
 import photo from './photo'
 import users from './users'
-import user from './user'
+import selectedThread from './thread'
+import threads from './threads'
+import messages from './messages'
+import authentication from './authentication'
 
 const rootReducer = combineReducers({
 	photos: photo,
 	users: users,
-	selectedUser: user
+	threads: threads,
+	selectedThread: selectedThread,
+	userContext: authentication,
+	messages: messages
 })
 
 export default rootReducer

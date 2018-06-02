@@ -3,9 +3,10 @@ import rootReducer from './reducers'
 import  { createLogger }  from 'redux-logger'
 import thunk from 'redux-thunk'
 
-export default () => {  
+export default (initialState = null) => {  
 	return createStore(
 		rootReducer,
+		initialState,
 		applyMiddleware(thunk, createLogger())
 	)
 }

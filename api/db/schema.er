@@ -1,5 +1,9 @@
+title {label: "Matcha ER Diagram", size: "20"}
+
+# Entities
+
 [User]
-id
+*id
 username
 name
 password
@@ -16,12 +20,36 @@ deleted
 tokenValidated
 tokenLost
 
-[comment]
-id
-user
-photo
+[Thread]
+*id
++user1
++user2
+lastInteraction
+createdAt
+updatedAt
+deleted
+
+[Photo]
+*id
++user
+url
+createdAt
+updatedAt
+deleted
+
+[Message]
+*id
++thread
++photo
+from
+to
+like
 message
 createdAt
 updatedAt
 deleted
 
+Photo *--1 User
+User 1--* Thread
+Message *--1 Photo
+Thread 1--* Message
