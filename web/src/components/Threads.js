@@ -2,21 +2,21 @@ import React, { Component } from 'react'
 import { Thread } from '../components'
 import './Threads.css'
 import { dispatch } from '../index'
-import * as UserActions from '../redux/actions/user'
+import * as ThreadActions from '../redux/actions/thread'
+import * as MessageActions from '../redux/actions/message'
 import PropTypes from 'prop-types';
 
 export default class Threads extends Component {
-	selectUser = (user) => {
-		dispatch(UserActions.selectUser(user))
+	selectThread = (thread) => {
+		dispatch(ThreadActions.selectThread(thread))
+		dispatch(MessageActions.loadMessages(thread.id))
 	}
 
 	render () {
-		console.log(this.props);
-		
 		if (!this.props.threads)
 			return null
 		let threads = this.props.threads.map ( thread => {
-			return (<Thread key={thread.id} user={thread.user2} onClick={() => this.selectUser(thread.user2)} />)
+			return (<Thread key={thread.id} user={thread.user2} onClick={() => this.selectThread(thread)} />)
 		})
 		return (
 			<div className='threads'>{threads}</div>

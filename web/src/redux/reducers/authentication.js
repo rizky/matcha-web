@@ -5,7 +5,6 @@ export default (userContext = null, action) => {
 		case 'LOGOUT':
 			return (null)
 		default:
-			console.log(action)
 			return (userContext)
 	}
 }

@@ -4,14 +4,6 @@ import App from './App'
 import configureStore from './redux/store'
 import { Provider } from 'react-redux'
 
-// let initialState = {
-// 	photos: [],
-// 	users: [],
-// 	messages: [], 
-// 	selectedUser: null,
-// 	userContext: null,
-// }
-
 let store = configureStore()
 
 export const dispatch = store.dispatch

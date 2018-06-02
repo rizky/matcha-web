@@ -1,8 +1,8 @@
 import config from '../../config'
 
-export const loadMessages = () => {
+export const loadMessages = (id) => {
 	return (dispatch) => {
-		fetch (`${config.url.apiHost}/messages`)
+		fetch (`${config.url.apiHost}/messages/${id}`)
 		.then ( result => {
 			return result.json()
 		}).then( messages => {

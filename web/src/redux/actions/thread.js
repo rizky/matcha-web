@@ -2,8 +2,6 @@ import config from '../../config'
 
 export const loadThreads = (id) => {
 	return (dispatch) => {
-		console.log(`${config.url.apiHost}/threads/${id}`);
-		
 		fetch (`${config.url.apiHost}/threads/${id}`)
 		.then ( result => {
 			return result.json()

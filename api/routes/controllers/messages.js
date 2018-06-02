@@ -6,7 +6,7 @@ var router = express.Router()
 router.get('/:id?', (req, res, next) =>
 {
 	if (req.params.id)
-		Message.get(req.params.id, (err, rows) =>
+		Message.findAll({thread: req.params.id}, (err, rows) =>
 		{
 			(err)
 			? res.json(err)
