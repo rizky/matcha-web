@@ -6,7 +6,7 @@ export default class Profile extends Component {
 	render () {
 		return (
 			<div className='profile'>
-				<User user={this.props.user}/>
+				<User user={this.props.selectedUser}/>
 			</div>
 		)
 	}

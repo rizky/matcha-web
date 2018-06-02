@@ -23,9 +23,9 @@ class Messages extends Component {
 		
 		return (
 			<div style={messagePage}>
-				<Threads users={this.props.users}/>
+				<Threads {...this.props}/>
 				<div></div>
-				<Profile user={this.props.selectedUser}/>
+				<Profile {...this.props}/>
 			</div>
 		)
 	}

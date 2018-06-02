@@ -11,7 +11,7 @@ export default class Comment extends Component {
 	}
 
 	render () {
-		let comment = this.props.comment
+		const {comment} = this.props
 		return (
 			<div className="comment" id="comment_{{comment.id}}">
 				<Link to="/account/{{comment.user}}">

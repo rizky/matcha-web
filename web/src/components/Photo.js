@@ -19,7 +19,7 @@ export default class Photo extends Component {
 	}
 
 	render () {
-		var { id, user, url, like_logo, comments, createdAt } = this.props.photo
+		var { photo: { id, user, url, like_logo, comments, createdAt } } = this.props
 		like_logo = (like_logo) ? like_logo : 'far'
 		user = (user) ? user : 'far'
 		let time_elapse = this.timeSince(Date.parse(createdAt))
