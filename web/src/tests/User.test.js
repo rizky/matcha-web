@@ -11,6 +11,12 @@ test('User is NULL', () => {
 	let user = null
 	const component = shallow(<User user={user} />);
 	expect(component.type()).toEqual(null);
+
+	const display = renderer.create(
+		<User user={user} />,
+	  );
+	let tree = display.toJSON();
+ 	expect(tree).toMatchSnapshot();
 });
 
 test('User is valid', () => {
@@ -34,6 +40,12 @@ test('User is valid', () => {
 	const component = shallow(<User user={user} />);
 	expect(component.length).toEqual(1);
 	expect(component.find('.user').text()).toEqual(user.name+', ');
+
+	const display = renderer.create(
+		<User user={user} />,
+	  );
+	let tree = display.toJSON();
+ 	expect(tree).toMatchSnapshot();
 });
 
 test('Distance calculation', null);

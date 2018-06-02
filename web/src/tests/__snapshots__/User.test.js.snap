@@ -1,0 +1,52 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`User is NULL 1`] = `null`;
+
+exports[`User is valid 1`] = `
+<div
+  className="photo"
+  id="user_0000000001"
+>
+  <img
+    alt=""
+    className="picture"
+    src="/img/profiles/no-pic.jpg"
+  />
+  <div>
+    <a>
+      <span
+        className="user"
+      >
+        Admin
+        , 
+      </span>
+      <span>
+        30
+      </span>
+    </a>
+    <i
+      className="fa fa-ellipsis-v"
+      onClick={undefined}
+      style={
+        Object {
+          "float": "right",
+        }
+      }
+    />
+  </div>
+  <div>
+    <span
+      className="time_text"
+    >
+      5
+       kilometer away, 
+    </span>
+    <span
+      className="time_text"
+    >
+       active 
+      2 days ago
+    </span>
+  </div>
+</div>
+`;

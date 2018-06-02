@@ -2,6 +2,11 @@
   "name": "matcha",
   "version": "0.1.0",
   "private": true,
+  "jest": {
+    "snapshotSerializers": [
+      "jest-html"
+    ]
+  },
   "dependencies": {
     "react": "^16.4.0",
     "react-dom": "^16.4.0",
@@ -17,10 +22,13 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "jest-html": "jest-html"
   },
   "devDependencies": {
     "enzyme": "^3.3.0",
-    "enzyme-adapter-react-16": "^1.1.1"
+    "enzyme-adapter-react-16": "^1.1.1",
+    "jest": "^23.1.0",
+    "jest-html": "^1.4.0"
   }
 }
