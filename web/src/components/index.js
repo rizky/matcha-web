@@ -1,5 +1,3 @@
-export { default as Nav } from './Nav'
-export { default as Footer } from './Footer'
 export { default as Photo } from './Photo'
 export { default as Photos } from './Photos'
 export { default as Comment } from './Comment'

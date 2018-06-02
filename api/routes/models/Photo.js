@@ -1,6 +1,6 @@
 import ORM from './ORM'
 import User from './User'
-import Comment from './Comment'
+import Message from './Message'
 
 export default class Photo extends ORM {
 	static async populate(photo)
@@ -14,10 +14,10 @@ export default class Photo extends ORM {
 		Photo.findAll(params, (err, photos) =>
 		{	
 			let promises = photos.map(async (photo) => {
-				photo.comments = await Comment.findAll({photo: photo.id})
-				photo.comments.map(async (comment) => {
-					comment.user = await User.findOne(comment.user)
-					return comment
+				photo.messages = await Message.findAll({photo: photo.id})
+				photo.messages.map(async (message) => {
+					message.user = await User.findOne(message.user)
+					return message
 				})
 				return await this.populate(photo)
 			})

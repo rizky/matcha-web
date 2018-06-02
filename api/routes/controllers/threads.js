@@ -1,19 +1,19 @@
 import express from 'express'
-import Comment from '../models/Comment'
+import Thread from '../models/Thread'
 
 var router = express.Router()
 
 router.get('/:id?', (req, res, next) =>
 {
 	if (req.params.id)
-		Comment.get(req.params.id, (err, rows) =>
+		Thread.find({ user1: req.params.id}, (err, rows) =>
 		{
 			(err)
 			? res.json(err)
 			: res.json(rows)
 		})
 	else
-		Comment.findAll(null, (err, rows) => {
+		Thread.findAll(null, (err, rows) => {
 			(err)
 			? res.json(err)
 			: res.json(rows)
