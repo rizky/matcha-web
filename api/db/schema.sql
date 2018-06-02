@@ -27,14 +27,16 @@ SET NAMES utf8mb4;
 SET FOREIGN_KEY_CHECKS = 0;
 
 -- ----------------------------
--- Table structure for comment
+-- Table structure for message
 -- ----------------------------
-DROP TABLE IF EXISTS `comment`;
-CREATE TABLE `comment` (
-  `id` int(10) unsigned zerofill NOT NULL AUTO_INCREMENT,
-  `user` int(10) unsigned zerofill NOT NULL,
-  `photo` int(10) unsigned zerofill NOT NULL,
-  `to` int(10) unsigned zerofill NOT NULL,
+DROP TABLE IF EXISTS `message`;
+CREATE TABLE `message` (
+  `id` int(30) NOT NULL AUTO_INCREMENT,
+  `thread` int(30) NOT NULL,
+  `photo` int(30) NOT NULL,
+  `from` int(30) NOT NULL,
+  `to` int(30) NOT NULL,
+  `like` bit(1) NOT NULL DEFAULT b'0',
   `message` varchar(255) DEFAULT NULL,
   `createdAt` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
   `updatedAt` timestamp NULL DEFAULT NULL,
@@ -44,50 +46,28 @@ CREATE TABLE `comment` (
 ) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
--- Records of comment
+-- Table structure for thread
 -- ----------------------------
-BEGIN;
-INSERT INTO `comment` VALUES (0000000001, 0000000001, 0000000001, 0000000001, 'cosmos cubic wall', '2018-05-30 16:39:15', NULL, b'0');
-INSERT INTO `comment` VALUES (0000000002, 0000000002, 0000000003, 0000000003, 'pinky think thank toe', '2018-05-30 16:39:15', NULL, b'0');
-INSERT INTO `comment` VALUES (0000000003, 0000000003, 0000000004, 0000000004, 'raining color', '2018-05-30 16:39:15', NULL, b'0');
-INSERT INTO `comment` VALUES (0000000004, 0000000004, 0000000005, 0000000005, 'summer is malibu', '2018-05-30 16:39:15', NULL, b'0');
-INSERT INTO `comment` VALUES (0000000005, 0000000005, 0000000005, 0000000005, 'nice pic!', '2018-05-30 16:39:15', NULL, b'0');
-INSERT INTO `comment` VALUES (0000000006, 0000000006, 0000000005, 0000000005, 'thanks!!', '2018-05-30 16:39:15', NULL, b'0');
-INSERT INTO `comment` VALUES (0000000007, 0000000007, 0000000006, 0000000006, 'stairway to the rainbow', '2018-05-30 16:39:15', NULL, b'0');
-INSERT INTO `comment` VALUES (0000000008, 0000000008, 0000000006, 0000000006, 'nice pic!', '2018-05-30 16:39:15', NULL, b'0');
-COMMIT;
-
--- ----------------------------
--- Table structure for like
--- ----------------------------
-DROP TABLE IF EXISTS `like`;
-CREATE TABLE `like` (
-  `id` int(10) unsigned zerofill NOT NULL AUTO_INCREMENT,
-  `user` int(10) unsigned zerofill NOT NULL,
-  `photo` int(10) unsigned zerofill NOT NULL,
+DROP TABLE IF EXISTS `thread`;
+CREATE TABLE `thread` (
+  `id` int(30) NOT NULL AUTO_INCREMENT,
+  `user1` int(30) NOT NULL,
+  `user2` int(30) NOT NULL,
+  `lastMessage` int(30) NULL DEFAULT NULL,
   `createdAt` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
   `updatedAt` timestamp NULL DEFAULT NULL,
   `deleted` bit(1) NOT NULL DEFAULT b'0',
   PRIMARY KEY (`id`),
   UNIQUE KEY `id_UNIQUE` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
-
--- ----------------------------
--- Records of like
--- ----------------------------
-BEGIN;
-INSERT INTO `like` VALUES (0000000001, 0000000001, 0000000005, '2018-05-30 16:39:15', NULL, b'0');
-INSERT INTO `like` VALUES (0000000002, 0000000002, 0000000006, '2018-05-30 16:39:15', NULL, b'0');
-INSERT INTO `like` VALUES (0000000003, 0000000003, 0000000006, '2018-05-30 16:39:15', NULL, b'0');
-COMMIT;
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Table structure for photo
 -- ----------------------------
 DROP TABLE IF EXISTS `photo`;
 CREATE TABLE `photo` (
-  `id` int(10) unsigned zerofill NOT NULL AUTO_INCREMENT,
-  `user` int(10) unsigned zerofill NOT NULL,
+  `id` int(30) NOT NULL AUTO_INCREMENT,
+  `user` int(30) NOT NULL,
   `url` varchar(255) NOT NULL,
   `createdAt` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
   `updatedAt` timestamp NULL DEFAULT NULL,
@@ -113,7 +93,7 @@ COMMIT;
 -- ----------------------------
 DROP TABLE IF EXISTS `user`;
 CREATE TABLE `user` (
-  `id` int(10) unsigned zerofill NOT NULL AUTO_INCREMENT,
+  `id` int(30) NOT NULL AUTO_INCREMENT,
   `username` varchar(45) NOT NULL,
   `name` varchar(45) NOT NULL,
   `password` varchar(45) NOT NULL,

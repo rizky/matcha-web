@@ -64,9 +64,13 @@ export default class ORM {
 		return new Promise (
 			(resolve, reject) => {
 				db.query(query, values,(err, data) => {
-					(err)
-					? reject(err)
-					: resolve(data)
+					if (err)
+						reject(err)
+					else
+					{
+						params['id'] = data.insertId
+						resolve(params)
+					}
 				})
 			}
 		)

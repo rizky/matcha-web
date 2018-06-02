@@ -1,9 +1,9 @@
 import ORM from './ORM'
 
-export default class Comment extends ORM {
+export default class Message extends ORM {
 	static find(params, callback)
 	{
-		Comment.findAll(params, (err, comments) =>
+		Message.findAll(params, (err, comments) =>
 		{	
 			var promises = comments.map(async (comment) => {
 				return await this.populate(comment)

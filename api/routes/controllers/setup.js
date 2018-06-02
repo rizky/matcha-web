@@ -1,11 +1,12 @@
 import express from 'express'
-import { User, Photo } from '../models'
+import { User, Photo, Message, Thread } from '../models'
 
 var router = express.Router()
 
 router.get('/', async (req, res, next) =>
 {
 	await User.truncate()
+	await Thread.truncate()
 	let user = {
 		username: "admin",
 		name: "Virgil Sawyer",
@@ -105,6 +106,26 @@ router.get('/', async (req, res, next) =>
 		long: 6.5626
 	}
 	await User.insert(user)
+
+	let thread = { user1: 1, user2: 2 }
+	thread = await Thread.insert(thread)
+	thread = { user1: 1, user2: 3 }
+	thread = await Thread.insert(thread)
+	thread = { user1: 1, user2: 4 }
+	thread = await Thread.insert(thread)
+	thread = { user1: 1, user2: 5 }
+	thread = await Thread.insert(thread)
+	thread = { user1: 1, user2: 6 }
+	thread = await Thread.insert(thread)
+	thread = { user1: 1, user2: 7 }
+	thread = await Thread.insert(thread)
+	thread = { user1: 1, user2: 8 }
+	thread = await Thread.insert(thread)
+	thread = { user1: 1, user2: 9 }
+	thread = await Thread.insert(thread)
+
+	console.log(thread)
+
 	res.writeHead(200, {'Content-Type': 'text/plain'});
     res.end('Done\n'); 
 })
