@@ -117,7 +117,7 @@ router.get('/', async (req, res, next) =>
 		from: thread.user1,
 		to: thread.user2,
 		createdAt: '2018-06-02 09:13:56',
-		message: 'Hello'
+		message: `Hello`
 	}
 	await Message.insert(message)
 
@@ -131,10 +131,61 @@ router.get('/', async (req, res, next) =>
 
 	thread = { user1: 1, user2: 3 }
 	thread = await Thread.insert(thread)
+	message = {
+		thread: thread.id,
+		from: thread.user1,
+		to: thread.user2,
+		createdAt: '2018-06-02 09:13:56',
+		message: `Hello`
+	}
+	await Message.insert(message)
+
+	message = {
+		thread: thread.id,
+		from: thread.user2,
+		to: thread.user1,
+		message: 'Hi There'
+	}
+	await Message.insert(message)
+
 	thread = { user1: 1, user2: 4 }
 	thread = await Thread.insert(thread)
+	message = {
+		thread: thread.id,
+		from: thread.user1,
+		to: thread.user2,
+		createdAt: '2018-06-02 09:13:56',
+		message: `Hello`
+	}
+	await Message.insert(message)
+
+	message = {
+		thread: thread.id,
+		from: thread.user2,
+		to: thread.user1,
+		message: 'Hi There'
+	}
+	await Message.insert(message)
+
 	thread = { user1: 1, user2: 5 }
 	thread = await Thread.insert(thread)
+	message = {
+		thread: thread.id,
+		from: thread.user1,
+		to: thread.user2,
+		createdAt: '2018-06-02 09:13:56',
+		message: `Hello`
+	}
+	await Message.insert(message)
+
+	message = {
+		thread: thread.id,
+		from: thread.user2,
+		to: thread.user1,
+		message: 'Hi There'
+	}
+	await Message.insert(message)
+
 	thread = { user1: 1, user2: 6 }
 	thread = await Thread.insert(thread)
 	thread = { user1: 1, user2: 7 }
