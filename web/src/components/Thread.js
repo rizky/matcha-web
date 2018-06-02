@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import './Threads.css'
+import './Thread.css'
 
 export default class Thread extends Component {
 	render () {

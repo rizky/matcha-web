@@ -7,7 +7,7 @@ import { Provider } from 'react-redux'
 let initialState = {
 	userContext: {
 		id: 1,
-		username: "admin",
+		username: "vsawyer",
 		name: "Virgil Sawyer",
 		password: "3bb37061e887baa3b48ebe9f060f1a42baf995fb",
 		email: "sawyer@gmail.com",

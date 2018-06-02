@@ -3,6 +3,7 @@ import { Threads, Messages,  Profile } from '../components'
 import { dispatch } from '../index'
 import * as ThreadActions from '../redux/actions/thread'
 import * as MessageActions from '../redux/actions/message'
+import './MessagesPage.css'
 
 export default class MessagesPage extends Component {
 	componentDidMount() {
@@ -21,18 +22,11 @@ export default class MessagesPage extends Component {
 		}
 	}
 
-	render() {
-		const messagePage = {
-			display: 'grid',
-			gridTemplate: '1fr / min-content auto min-content',
-			width: '100%',
-			height: 'calc(100vh - 125px)'
-		}
-		
+	render() {		
 		const { threads, messages, selectedThread } = this.props
 		const user = (selectedThread) ? selectedThread.user2: null
 		return (
-			<div style={messagePage}>
+			<div className='messages-page'>
 				<Threads threads={threads}/>
 				<Messages messages={messages}/>
 				<Profile user={user}/>

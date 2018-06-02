@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { Thread } from '../components'
-import './Threads.css'
+import './Thread.css'
 import { dispatch } from '../index'
 import * as ThreadActions from '../redux/actions/thread'
 import * as MessageActions from '../redux/actions/message'

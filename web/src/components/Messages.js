@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { Message } from '../components'
-import './Photo.css'
+import './Message.css'
 
 export default class Messages extends Component {
 	render () {
