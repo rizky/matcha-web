@@ -14,12 +14,12 @@ class Notification extends Component {
 		console.log(notification)
 		const time = this.formatDate(new Date(Date.parse(notification.createdAt)))
 		return (
-			<div style={{display: 'grid'}}>
+			<div style={{display: 'grid', marginTop: '5px'}}>
 				<div className='notification'>
 					<span className='time_text'>{time}</span>
 					{
 						(notification.match.data[0] === 1)
-						? <i className="fab fa-gratipay"></i>
+						? <i className="fas fa-star"></i>
 						: <i className="far fa-envelope"></i>
 					}
 					<img className='profile_picture circled' src={notification.from.picture} alt=''/>
@@ -30,9 +30,15 @@ class Notification extends Component {
 						: <span style={{whiteSpace:'nowrap'}} >sent you a message</span>
 					}
 				</div>
-				<div className='notification-box'>
-					{notification.message}
-				</div>
+				{
+					(notification.match.data[0] === 1)
+					? <div className='notification-box-empty'>
+					  </div>
+					: <div className='notification-box'>
+						{notification.message}
+					  </div>
+				}
+				
 				<hr style={{ margin: '0px 20px'}}/>
 			</div>
 		)
