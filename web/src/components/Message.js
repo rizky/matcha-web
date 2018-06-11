@@ -24,7 +24,7 @@ class Message extends Component {
 				message.match.data[0]
 				? <div style={{textAlign: 'center', margin: '10px', marginBottom: '0px', width: '100%'}}>
 					<hr style={{marginLeft: '-10px'}}/>
-					<span style={{background: '#fff', position:'relative', top:'-19px', left: '-8px', fontSize: '0.8em', padding: '10px', color: '#b2b2b2'}}>Your are match</span>
+					<span style={{background: '#fff', position:'relative', top:'-19px', left: '-8px', fontSize: '0.8em', padding: '10px', color: '#b2b2b2'}}>You are a match</span>
 				</div>
 				: <div className='message' style={isYou}>
 					{
