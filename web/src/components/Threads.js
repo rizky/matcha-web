@@ -18,10 +18,14 @@ export default class Threads extends Component {
 		let threads = this.props.threads.map ( thread => {
 			if (!thread.lastMessage.match.data[0])
 				return (<Thread key={thread.id} user={thread.user2} type={1} lastMessage={thread.lastMessage} onClick={() => this.selectThread(thread)} />)
+			else
+				return null
 		})
 		let matches = this.props.threads.map ( thread => {
 			if (thread.lastMessage.match.data[0])
 				return (<Thread key={thread.id} user={thread.user2} lastMessage={thread.lastMessage} onClick={() => this.selectThread(thread)} />)
+			else
+				return null
 		})
 		return (
 			<div className='threadsPane'>

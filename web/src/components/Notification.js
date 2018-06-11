@@ -10,11 +10,11 @@ class Notification extends Component {
 	}
 
 	render () {
-		const { notification } = this.props
+		const { notification, onClick } = this.props
 		console.log(notification)
 		const time = this.formatDate(new Date(Date.parse(notification.createdAt)))
 		return (
-			<div style={{display: 'grid', marginTop: '5px'}}>
+			<div style={{display: 'grid', marginTop: '5px'}} onClick={onClick}>
 				<div className='notification'>
 					<span className='time_text'>{time}</span>
 					{

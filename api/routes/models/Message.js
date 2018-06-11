@@ -1,5 +1,6 @@
 import ORM from './ORM'
 import User from './User'
+import Thread from './Thread';
 
 export default class Message extends ORM {
 	static async populate(message)
@@ -8,6 +9,9 @@ export default class Message extends ORM {
 			message.from = { id: 0, name: 'Matcha', username: 'Matcha'}
 		else
 			message.from = await User.findOne(message.from)
+		message.thread = await Thread.findOne(message.thread)
+		message.thread.user1 = await User.findOne(message.thread.user1)
+		message.thread.user2 = await User.findOne(message.thread.user2)
 	}
 
 	static find(params, order, callback)
