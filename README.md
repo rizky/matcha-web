@@ -3,19 +3,21 @@
 ## Installation
 
 ```bash
-git clone --recurse-submodules https://github.com/rizkyario/42-matcha.git && cd 42-matcha
+git clone https://github.com/rizkyario/42-matcha.git && cd 42-matcha
 ```
 
 ### Development
 
 ```bash
-docker-compose up
+docker-compose build; docker-compose up
+curl http://localhost:81/setup
 ```
 
 ### Production
 
 ```bash
 docker-compose -f docker-compose.yml -f docker-compose-prod.yml up
+curl http://localhost:81/setup
 ```
 
 ## Debugging

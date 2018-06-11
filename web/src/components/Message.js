@@ -17,16 +17,21 @@ class Message extends Component {
 		return (
 			<div style={{display: 'grid'}} id="message_{{message.id}}">
 				<span className='time_text'>{time}</span>
-				<div className='message' style={isYou}>
+				{
+				message.match.data[0]
+				? <div style={{textAlign: 'center', margin: '10px', marginBottom: '0px', width: '100%'}}>
+					<hr style={{marginLeft: '-10px'}}/>
+					<span style={{background: '#fff', position:'relative', top:'-19px', padding: '10px', color: '#b2b2b2'}}>Your are match</span>
+				</div>
+				: <div className='message' style={isYou}>
 					{
 						! isYou
 						? <img className='profile_picture circled' src={message.from.picture} alt=''/>
 						: null
 					}
-					<div className='message-box'>
-						{message.message}
-					</div>
+					<div className='message-box'>{message.message}</div>
 				</div>
+				}
 			</div>
 		)
 	}
