@@ -109,86 +109,99 @@ router.get('/', async (req, res, next) =>
 	}
 	await User.insert(user)
 
+	// Insert Match and Message
+
+	function sleep(ms) {
+		return new Promise(resolve => setTimeout(resolve, ms));
+	}
+
 	let thread = { user1: 1, user2: 2 }
 	thread = await Thread.match(thread)
-
+	await sleep(100);
+	
 	let message = {
 		thread: thread.id,
 		from: thread.user1,
 		to: thread.user2,
-		createdAt: '2018-06-02 09:13:56',
 		message: `Hello`
 	}
 	await Message.insert(message)
+	await sleep(100);
 
 	message = {
 		thread: thread.id,
 		from: thread.user2,
 		to: thread.user1,
-		createdAt: '2018-06-02 09:14:56',
 		message: 'Hi There'
 	}
 	await Message.insert(message)
+	await sleep(100);
 
 	thread = { user1: 1, user2: 3 }
 	thread = await Thread.match(thread)
+	await sleep(100);
+
 	message = {
 		thread: thread.id,
 		from: thread.user1,
 		to: thread.user2,
-		createdAt: '2018-06-02 09:13:56',
 		message: `Hello`
 	}
 	await Message.insert(message)
+	await sleep(100);
 
 	message = {
 		thread: thread.id,
 		from: thread.user2,
 		to: thread.user1,
-		createdAt: '2018-06-02 09:15:56',
 		message: 'Hello! How are you'
 	}
 	await Message.insert(message)
+	await sleep(100);
 
 	thread = { user1: 1, user2: 4 }
 	thread = await Thread.match(thread)
+	await sleep(100);
+
 	message = {
 		thread: thread.id,
 		from: thread.user1,
 		to: thread.user2,
-		createdAt: '2018-06-02 09:13:56',
 		message: `Hello`
 	}
 	await Message.insert(message)
+	await sleep(100);
 
 	message = {
 		thread: thread.id,
 		from: thread.user2,
 		to: thread.user1,
-		createdAt: '2018-06-02 09:16:56',
 		message: 'Hi! Nice to meet you'
 	}
 	await Message.insert(message)
+	await sleep(100);
 
 	thread = { user1: 1, user2: 5 }
 	thread = await Thread.match(thread)
+	await sleep(100);
+	
 	message = {
 		thread: thread.id,
 		from: thread.user1,
 		to: thread.user2,
-		createdAt: '2018-06-02 09:13:56',
 		message: `Hello`
 	}
 	await Message.insert(message)
+	await sleep(100);
 
 	message = {
 		thread: thread.id,
 		from: thread.user2,
 		to: thread.user1,
-		createdAt: '2018-06-02 09:17:56',
 		message: 'Bonjour!'
 	}
 	await Message.insert(message)
+	await sleep(100);
 
 	thread = { user1: 1, user2: 6 }
 	thread = await Thread.match(thread)
