@@ -1,3 +1,7 @@
+.threadsPane {
+	overflow-y: auto;
+}
+
 .threads {
 	display: grid;
 	grid-auto-rows: min-content;
@@ -19,7 +23,6 @@
 	border: 1px solid #eeeeee;
 	color: #757575;
 	background-color: white;
-	grid-gap: 0.5em;
 	width: 325px;
 }
 
@@ -64,4 +67,12 @@
     position: relative;
     overflow: hidden;
     border-radius: 50%;
+}
+
+.matches {
+	display: flex;
+	align-items: flex-start;
+	width: 300px;
+	min-width: 100%;
+	overflow-x: auto;
 }
