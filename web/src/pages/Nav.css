@@ -39,6 +39,14 @@ ul {
 	font-size: 1.3em;
 }
 
+.ani .handler {
+	background-color: transparent;
+    width: 130px;
+    height: 38px;
+    position: absolute;
+    margin-top: -50px;
+}
+
 @media screen and (max-width: 900px) {
 	.nav li {
 		min-width: 50px;
@@ -51,6 +59,10 @@ ul {
 	}
 	.nav {
 		grid-template: 1fr / 1fr 1fr 1fr 1fr 1fr;
+	}
+	.ani .handler {
+		width: 100px;
+		right: 0;
 	}
 }
 
@@ -72,6 +84,10 @@ ul {
 	}
 	.nav {
 		grid-template: 1fr / 1fr 1fr 1fr 1fr 1fr;
+	}
+	.ani .handler {
+		width: 50px;
+		right: 0;
 	}
 }
 
@@ -114,12 +130,4 @@ ul {
 	-moz-transition: 0.4s ease-in;
 	-o-transition: 0.4s ease-in;
 	transition: 0.4s ease-in;
-}
-
-.ani .handler {
-	background-color: transparent;
-    width: 130px;
-    height: 38px;
-    position: absolute;
-    margin-top: -50px;
 }
