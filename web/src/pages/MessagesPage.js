@@ -28,7 +28,7 @@ export default class MessagesPage extends Component {
 		return (
 			<div className='messages-page'>
 				<Threads threads={threads}/>
-				<Messages messages={messages}/>
+				<Messages messages={messages} userContext={this.props.userContext}/>
 				<Profile user={user}/>
 			</div>
 		)

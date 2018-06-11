@@ -7,6 +7,8 @@ export default class Messages extends Component {
 		if (this.props.messages == null)
 			return (<div></div>)
 		let messages = this.props.messages.map ( message => {
+			if (message.from.id !== this.props.userContext.id && message.match.data[0])
+				return null
 			return <Message key={message.id} message={message}/>
 		})
 		return <div className='messages'>{messages}</div>

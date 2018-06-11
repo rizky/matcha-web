@@ -117,7 +117,7 @@ router.get('/', async (req, res, next) =>
 
 	let thread = { user1: 1, user2: 2 }
 	thread = await Thread.match(thread)
-	await sleep(100);
+	await sleep(1000);
 	
 	let message = {
 		thread: thread.id,
@@ -126,7 +126,7 @@ router.get('/', async (req, res, next) =>
 		message: `Hello`
 	}
 	await Message.insert(message)
-	await sleep(100);
+	await sleep(1000);
 
 	message = {
 		thread: thread.id,
@@ -135,11 +135,11 @@ router.get('/', async (req, res, next) =>
 		message: 'Hi There'
 	}
 	await Message.insert(message)
-	await sleep(100);
+	await sleep(1000);
 
 	thread = { user1: 1, user2: 3 }
 	thread = await Thread.match(thread)
-	await sleep(100);
+	await sleep(1000);
 
 	message = {
 		thread: thread.id,
@@ -148,7 +148,7 @@ router.get('/', async (req, res, next) =>
 		message: `Hello`
 	}
 	await Message.insert(message)
-	await sleep(100);
+	await sleep(1000);
 
 	message = {
 		thread: thread.id,
@@ -157,11 +157,11 @@ router.get('/', async (req, res, next) =>
 		message: 'Hello! How are you'
 	}
 	await Message.insert(message)
-	await sleep(100);
+	await sleep(1000);
 
 	thread = { user1: 1, user2: 4 }
 	thread = await Thread.match(thread)
-	await sleep(100);
+	await sleep(1000);
 
 	message = {
 		thread: thread.id,
@@ -170,7 +170,7 @@ router.get('/', async (req, res, next) =>
 		message: `Hello`
 	}
 	await Message.insert(message)
-	await sleep(100);
+	await sleep(1000);
 
 	message = {
 		thread: thread.id,
@@ -179,11 +179,11 @@ router.get('/', async (req, res, next) =>
 		message: 'Hi! Nice to meet you'
 	}
 	await Message.insert(message)
-	await sleep(100);
+	await sleep(1000);
 
 	thread = { user1: 1, user2: 5 }
 	thread = await Thread.match(thread)
-	await sleep(100);
+	await sleep(1000);
 	
 	message = {
 		thread: thread.id,
@@ -192,7 +192,7 @@ router.get('/', async (req, res, next) =>
 		message: `Hello`
 	}
 	await Message.insert(message)
-	await sleep(100);
+	await sleep(1000);
 
 	message = {
 		thread: thread.id,
@@ -201,7 +201,7 @@ router.get('/', async (req, res, next) =>
 		message: 'Bonjour!'
 	}
 	await Message.insert(message)
-	await sleep(100);
+	await sleep(1000);
 
 	thread = { user1: 1, user2: 6 }
 	thread = await Thread.match(thread)

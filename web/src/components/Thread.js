@@ -4,7 +4,7 @@ import './Thread.css'
 export default class Thread extends Component {
 	render () {
 		const { user, onClick, lastMessage } = this.props
-		const message = (lastMessage) ? lastMessage.message : null
+		const message = (lastMessage !== null) ? lastMessage.message : null
 		return (
 			<div className='thread' id={`user_${user.id}`} onClick={onClick}>
 				<img className='profile_picture circled' src={user.picture} alt=''/>
