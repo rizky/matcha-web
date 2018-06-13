@@ -13,6 +13,24 @@ class Settings extends Component {
 				<hr />
 				<input type='email' name='email' placeholder='Email' value=''/>
 				<hr />
+				<input type='text' name='location' placeholder='Location' value=''/>
+				<hr />
+				<input type='text' placeholder='Gender' disabled value=''/>
+				<div style={{display: 'flex'}}>
+					<input type='radio' style={{width: '1em', height: '1em'}} name='subscribed' value='true'/>
+					<label for='subscribeNews'>Male</label>
+					<input type='radio' style={{width: '1em', height: '1em'}} name='subscribed' value='true'/>
+					<label for='subscribeNews'>Female</label>
+				</div>
+				<hr />
+				<input type='text' placeholder='Preferences' disabled value=''/>
+				<div style={{display: 'flex'}}>
+					<input type='checkbox' style={{width: '1em', height: '1em'}} name='subscribed' value='true'/>
+					<label for='subscribeNews'>Male</label>
+					<input type='checkbox' style={{width: '1em', height: '1em'}} name='subscribed' value='true'/>
+					<label for='subscribeNews'>Female</label>
+				</div>
+				<hr />
 				<br />
 				<h2>Password</h2>
 				<input type='password' name='password_old' placeholder='Old Password'/>

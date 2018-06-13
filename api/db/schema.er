@@ -13,6 +13,8 @@ dob
 subscribed
 lat
 long
+gender
+preferences
 activeAt
 createdAt
 updatedAt
