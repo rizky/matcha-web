@@ -28,7 +28,7 @@ export default class ORM {
 
 	static findOne(id, callback = null)
 	{
-		let query = `SELECT * FROM ${this.name.toLowerCase()} WHERE deleted = false and id=?`
+		let query = `SELECT * FROM ${this.name.toLowerCase()} WHERE deleted = false AND id=?`
 
 		if (callback)
 			return db.query(query, [id], callback)
@@ -61,7 +61,46 @@ export default class ORM {
 				values.push(params[param])
 			})
 
-		let query = `insert into ${table} (${columns}) values (${slots})`
+		let query = `INSERT INTO ${table} (${columns}) VALUES (${slots})`
+		if (callback)
+			return db.query(query, values, callback)
+		return new Promise (
+			(resolve, reject) => {
+				db.query(query, values,(err, data) => {
+					if (err)
+						reject(err)
+					else
+					{
+						params['id'] = data.insertId
+						resolve(params)
+					}
+				})
+			}
+		)
+	}
+
+	static update(params, callback = null)
+	{
+		let table = this.name.toLowerCase()
+		let values = []
+		let columns = ''
+		let slots = []
+		if (params !== null)
+			Object.keys(params).forEach((param, index) => {
+				if (index !== 0)
+				{
+					columns += ', '
+					slots += ', '
+				}
+				if (params[param] != 'deleted' && params[param] != 'id')
+				{
+					columns += `${table}.${param}`
+					slots += `?`
+					values.push(params[param])
+				}
+			})
+
+		let query = `UPDATE ${table} (${columns}) SET (${slots}) WHERE deleted = false AND id=?`
 		if (callback)
 			return db.query(query, values, callback)
 		return new Promise (
