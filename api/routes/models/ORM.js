@@ -43,6 +43,14 @@ export default class ORM {
 		)
 	}
 
+	static store(params, callback = null)
+	{
+		if (params.id)
+			return ORM.update(params, callback)
+		else
+			return ORM.insert(params, callback)
+	}
+
 	static insert(params, callback = null)
 	{
 		let table = this.name.toLowerCase()
