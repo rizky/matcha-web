@@ -87,20 +87,18 @@ export default class ORM {
 		let slots = []
 		if (params !== null)
 			Object.keys(params).forEach((param, index) => {
-				if (index !== 0)
+				
+				if (param != 'deleted' && param != 'id')
 				{
-					columns += ', '
-					slots += ', '
-				}
-				if (params[param] != 'deleted' && params[param] != 'id')
-				{
-					columns += `${table}.${param}`
-					slots += `?`
+					if (slots.length !== 0)
+						slots += ', '
+					columns = `${table}.${param}`
+					slots += `${columns} = ?`
 					values.push(params[param])
 				}
 			})
-
-		let query = `UPDATE ${table} (${columns}) SET (${slots}) WHERE deleted = false AND id=?`
+		values.push(params['id'])
+		let query = `UPDATE ${table} SET ${slots} WHERE id=?`
 		if (callback)
 			return db.query(query, values, callback)
 		return new Promise (
@@ -110,7 +108,6 @@ export default class ORM {
 						reject(err)
 					else
 					{
-						params['id'] = data.insertId
 						resolve(params)
 					}
 				})

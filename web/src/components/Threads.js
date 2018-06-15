@@ -13,7 +13,7 @@ export default class Threads extends Component {
 	}
 
 	render () {
-		if (!this.props.threads)
+		if (this.props.threads.length === 0)
 			return <div></div>
 		let threads = this.props.threads.map ( thread => {
 			if (!thread.lastMessage.match.data[0])

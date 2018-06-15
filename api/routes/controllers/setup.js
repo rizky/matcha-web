@@ -118,6 +118,10 @@ router.get('/', async (req, res, next) =>
 	let thread = { user1: 1, user2: 2 }
 	thread = await Thread.match(thread)
 	await sleep(1000);
+
+	thread = { user1: 2, user2: 1 }
+	thread = await Thread.match(thread)
+	await sleep(1000);
 	
 	let message = {
 		thread: thread.id,

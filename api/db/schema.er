@@ -26,6 +26,7 @@ tokenLost
 *id
 +user1
 +user2
+matcher
 lastInteraction
 createdAt
 updatedAt

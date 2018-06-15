@@ -14,6 +14,7 @@ export default class Thread extends ORM {
 	{
 		Thread.findAll(params, null, (err, threads) =>
 		{	
+			threads = threads.filter((thread) => thread['matcher'] === thread['user2'] );
 			var promises = threads.map(async (thread) => {
 				return await this.populate(thread)
 			})
@@ -23,18 +24,35 @@ export default class Thread extends ORM {
 		})
 	}
 
-	static match(thread)
+	static async match(params)
 	{
+		var threads = await Thread.findAll({ user1: params['user2'], user2: params['user1'] }, null)
+		params['matcher'] = params['user1']
+		console.log(params)
+		if (threads.length == 0)
+			return new Promise (
+				(resolve, reject) => {
+					Thread.insert(params, (err, data) => {
+						params['id'] = data.insertId
+						if (err)
+							reject(err)
+						else
+							resolve(params)
+					})
+				}
+			)
+		else
 		return new Promise (
 			(resolve, reject) => {
-				Thread.insert(thread, (err, data) => {
+				var thread = threads[0]
+				thread['matcher'] = thread['user2']
+				Thread.update(thread, (err, data) => {
 					if (err)
 						reject(err)
 					else
 					{
-						thread['id'] = data.insertId
 						let message = {
-							thread: data.insertId,
+							thread: thread.id,
 							from: thread.user2,
 							to: thread.user1,
 							match: true,
@@ -42,7 +60,7 @@ export default class Thread extends ORM {
 						}
 						Message.insert(message)
 						message = {
-							thread: data.insertId,
+							thread: thread.id,
 							from: thread.user1,
 							to: thread.user2,
 							match: true,
