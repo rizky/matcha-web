@@ -3,6 +3,8 @@ import { Message } from '../components'
 import './Message.css'
 import { dispatch } from '../index'
 import * as MessageActions from '../redux/actions/message'
+import * as ThreadActions from '../redux/actions/thread'
+import moment from 'moment'
 
 export default class Messages extends Component {
 	constructor(props) {
@@ -18,23 +20,32 @@ export default class Messages extends Component {
 
 	sendMessage = (e) => {
 		if (e.key === 'Enter') {
-			const { selectedThread } = this.props
-
+			const { selectedThread, userContext } = this.props
 			this.setState({
 				message: ''
 			})
-			dispatch(MessageActions.loadMessages(selectedThread.id))
+			let message = {
+				thread: selectedThread,
+				message: e.target.value,
+				from: userContext,
+				to: userContext.id === selectedThread.user1 ? selectedThread.user2: selectedThread.user1,
+				match: {data: [0]},
+				createdAt: moment().format('YYYY-MM-DD HH:mm:ss')
+			}
+			dispatch(MessageActions.addMessage(message))
+			selectedThread.lastMessage = message
+			dispatch(ThreadActions.selectThread(selectedThread))
 		}
 	}
 
 	render () {
-		var { messages } = this.props
+		var { messages, userContext } = this.props
 		if (messages == null)
 			return (<div></div>)
-		messages = this.props.messages.map ( message => {
-			if (message.from.id !== this.props.userContext.id && message.match.data[0])
+		messages = messages.map ( message => {
+			if (message.from.id !== userContext.id && message.match.data[0])
 				return null
-			return <Message key={message.id} message={message}/>
+			return <Message key={Math.random()} message={message}/>
 		})
 		return (
 			<div className='messagesPane'>

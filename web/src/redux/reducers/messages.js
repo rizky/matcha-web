@@ -4,7 +4,7 @@ export default (messages = [], action) => {
 		case 'LOAD_MESSAGES':
 			return (action.messages)
 		case 'ADD_MESSAGE':
-			return [action.message, ...messages]
+			return [...messages, action.message]
 		case 'DELETE_MESSAGE':
 			return messages.filter((message) => {
 				return (message.id !== action.id)

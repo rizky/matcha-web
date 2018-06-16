@@ -23,7 +23,7 @@ export const addMessage = (message) => {
 
 export const deleteMessage = (id) => {
 	return {
-	type: 'DELETE_MESSAGE',
-	id: id
+		type: 'DELETE_MESSAGE',
+		id: id
 	}
 }

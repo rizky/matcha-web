@@ -3,7 +3,7 @@
 	grid-template-rows: auto min-content;
 	margin-bottom: 10px;
 	width: 100%;
-	gap: 0px;
+	overflow-y: auto;
 }
 
 .messages {
