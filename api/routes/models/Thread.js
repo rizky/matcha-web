@@ -33,6 +33,7 @@ export default class Thread extends ORM {
 			return new Promise (
 				(resolve, reject) => {
 					Thread.insert(params, (err, data) => {
+						params['id'] = data.insertId
 						if (err)
 							reject(err)
 						else
