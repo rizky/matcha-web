@@ -54,6 +54,7 @@ CREATE TABLE `thread` (
   `id` int(30) NOT NULL AUTO_INCREMENT,
   `user1` int(30) NOT NULL,
   `user2` int(30) NOT NULL,
+  `matcher` int(30) NULL DEFAULT NULL,
   `lastMessage` int(30) NULL DEFAULT NULL,
   `createdAt` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
   `updatedAt` timestamp NULL DEFAULT NULL,
