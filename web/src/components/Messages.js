@@ -37,7 +37,7 @@ export default class Messages extends Component {
 			dispatch(ThreadActions.selectThread(selectedThread))
 		}
 	}
-
+	
 	render () {
 		var { messages, userContext } = this.props
 		if (messages == null)

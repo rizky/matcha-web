@@ -27,13 +27,21 @@ export default class Threads extends Component {
 			else
 				return null
 		})
+		matches = matches.filter(function(n){ return n !== null });
+		console.log(matches);
 		return (
 			<div className='threadsPane'>
-				<div className='threads'>
+				{
+				matches.length > 0
+				? <div className='threads'>
 					<div className='matches'>
-						{matches}
+						{
+							matches
+						}
 					</div>
 				</div>
+				: null
+				}
 				<div className='threads'>{threads}</div>
 			</div>
 		)
