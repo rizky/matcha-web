@@ -15,6 +15,20 @@ export const loadMessages = (id) => {
 }
 
 export const addMessage = (message) => {
+	let msg = {
+		thread: message.thread.id,
+		message: message.message,
+		from: message.from.id,
+		to: message.to.id
+	}
+	fetch (`${config.url.apiHost}/messages/`, {
+		method: 'POST',
+		headers: {
+		  'Accept': 'application/json',
+		  'Content-Type': 'application/json'
+		},
+		body: JSON.stringify(msg)
+	})
 	return {
 		type: 'ADD_MESSAGE',
 		message: message
