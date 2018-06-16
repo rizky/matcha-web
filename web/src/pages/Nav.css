@@ -19,6 +19,7 @@ ul {
 	cursor: pointer;
 	padding: 10px;
 	min-width: 130px;
+	white-space: nowrap;
 }
 
 .nav li a {
@@ -39,6 +40,14 @@ ul {
 	font-size: 1.3em;
 }
 
+.ani .handler {
+	background-color: transparent;
+    width: 130px;
+    height: 38px;
+    position: absolute;
+    margin-top: -50px;
+}
+
 @media screen and (max-width: 900px) {
 	.nav li {
 		min-width: 50px;
@@ -51,6 +60,10 @@ ul {
 	}
 	.nav {
 		grid-template: 1fr / 1fr 1fr 1fr 1fr 1fr;
+	}
+	.ani .handler {
+		width: 100px;
+		right: 0;
 	}
 }
 
@@ -73,12 +86,17 @@ ul {
 	.nav {
 		grid-template: 1fr / 1fr 1fr 1fr 1fr 1fr;
 	}
+	.ani .handler {
+		width: 50px;
+		right: 0;
+	}
 }
 
 .nav_account ul {
 	position: absolute;
+	right: 0;
+	top: 0;
 	display: flex;
-	align-items: center;
 	padding: 10px 10px;
 	border: 1px solid #eeeeee;
 	border-radius: 5px;
@@ -87,9 +105,10 @@ ul {
 	flex-direction: column;
 	opacity: 0;
 	background-color: #fff;
-	margin-top: 10px;
-	margin-left: -48px;
+	margin-top: 50px;
+	margin-right: 10px;
 	width: 168px;
+	z-index: 1000;
 }
 
 .nav_account ul ul li {
@@ -97,7 +116,7 @@ ul {
 	width: 100px;
 }
 
-.nav_account ul:hover {
+.nav_account ul:hover, .nav_account ul:active {
 	opacity: 1;
 	height: auto;
 }

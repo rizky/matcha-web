@@ -22,5 +22,5 @@ COPY api/package.json /usr/src/app/api/package.json
 COPY package.json /usr/src/app/package.json
 RUN npm run install --silent
 
-# docker build -t rizkyario/42-matcha:nodejs-mysql .
-# docker push rizkyario/42-matcha:nodejs-mysql
+# docker build -t rizkyario/42-matcha .
+# docker push rizkyario/42-matcha

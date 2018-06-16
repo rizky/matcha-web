@@ -1,19 +1,25 @@
 import React, { Component } from 'react'
-import './Threads.css'
+import './Thread.css'
 
 export default class Thread extends Component {
 	render () {
-		let user = this.props.user
-		return (
-			<div className='thread' id={`user_${user.id}`}>
-				<a href={`/users/${user.id}`}>
-					<div><img className='profile_picture circled' src={user.picture} alt=''/></div>
-				</a>
-				<div className='thread_preview'>
-					<span className='h1'>{user.name} </span>
-					<span className='h2'>Sent you giphy</span>
+		const { user, onClick, lastMessage, type } = this.props
+		const message = (lastMessage !== null) ? lastMessage.message : null
+		if (type === 1)
+			return (
+				<div className='thread' id={`user_${user.id}`} onClick={onClick}>
+					<img className='profile_picture circled' src={user.picture} alt=''/>
+					<div className='thread_preview'>
+						<span className='h1'>{user.name} </span>
+						<span className='h2'>{message}</span>
+					</div>
 				</div>
-			</div>
-		)
+			)
+		else
+			return (
+				<div className='thread' id={`user_${user.id}`} onClick={onClick}>
+					<img className='profile_picture circled' src={user.picture} alt=''/>
+				</div>
+			)
 	}
 }

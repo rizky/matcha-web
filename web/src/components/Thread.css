@@ -1,10 +1,23 @@
+.threadsPane {
+	display: grid;
+	grid-template-rows: min-content auto;
+	width: 100%;
+	overflow-y: auto;
+}
+
 .threads {
-	display: inline-grid;
+	display: grid;
 	grid-auto-rows: min-content;
-    margin-left: 10px;
+	margin-left: 10px;
+	margin-bottom: 10px;
 	align-items: self-start;
+	border: 1px solid #eeeeee;
+	color: #757575;
 	background-color: white;
-	height: 100%;
+	position: relative;
+	overflow-y: auto;
+	overflow-x: hidden;
+	width: 325px;
 }
 
 .thread {
@@ -15,8 +28,6 @@
 	border: 1px solid #eeeeee;
 	color: #757575;
 	background-color: white;
-	grid-gap: 0.5em;
-	width: 325px;
 }
 
 .thread_preview {
@@ -60,4 +71,12 @@
     position: relative;
     overflow: hidden;
     border-radius: 50%;
+}
+
+.matches {
+	display: flex;
+	align-items: flex-start;
+	width: 300px;
+	min-width: 100%;
+	overflow-x: auto;
 }

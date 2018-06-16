@@ -1,6 +1,8 @@
+import config from '../../config'
+
 export const loadUsers = () => {
 	return (dispatch) => {
-		fetch (`http://localhost:81/users`)
+		fetch (`${config.url.apiHost}/users`)
 		.then ( result => {
 			return result.json()
 		}).then( users => {
@@ -23,5 +25,18 @@ export const deleteUser = (id) => {
 	return {
 	type: 'DELETE_USER',
 	id: id
+	}
+}
+
+export const login = (user) => {
+	return {
+		type: 'LOGIN',
+		user: user
+	}
+}
+
+export const logout = () => {
+	return {
+		type: 'LOGOUT'
 	}
 }

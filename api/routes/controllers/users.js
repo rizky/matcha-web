@@ -13,7 +13,7 @@ router.get('/:id?', (req, res, next) =>
 			: res.json(rows)
 		})
 	else
-		User.findAll(null, (err, rows) =>
+		User.findAll(null, null, (err, rows) =>
 		{
 			(err)
 			? res.json(err)

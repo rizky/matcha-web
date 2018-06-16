@@ -1,10 +1,12 @@
 {
 	"scripts": {
 			"start": "concurrently \"npm run api\" \"npm run web\"",
+			"start:prod": "concurrently \"npm run api\" \"cd web && npm run build && serve -s build\"",
 			"api": "cd api && npm start",
 			"web": "cd web && npm start",
 			"install": "npm run install:api; npm run install:web",
 			"install:api": "cd api && npm install",
-			"install:web": "cd web && npm install"
+			"install:web": "cd web && npm install",
+			"test": "cd web && npm test"
 	}
 }

@@ -1,6 +1,8 @@
+import config from '../../config'
+
 export const loadPhotos = () => {
 	return (dispatch) => {
-		fetch (`http://localhost:81/photos`)
+		fetch (`${config.url.apiHost}/photos`)
 		.then ( result => {
 			return result.json()
 		}).then( photos => {

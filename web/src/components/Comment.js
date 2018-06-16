@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import './Photo.css'
+import { Link } from 'react-router-dom'
 
 export default class Comment extends Component {
 	constructor(props, context) {
@@ -10,12 +11,12 @@ export default class Comment extends Component {
 	}
 
 	render () {
-		let comment = this.props.comment
+		const {comment} = this.props
 		return (
 			<div className="comment" id="comment_{{comment.id}}">
-				<a href="/account/{{comment.user}}">
+				<Link to="/account/{{comment.user}}">
 					<span className="user">{comment.user.username} </span>
-				</a>
+				</Link>
 				<span style={{width: '96%'}}>{comment.message}</span>
 				<div
 					className="{{comment.delete_v}}" style={{float: 'right', opacity: '0.3'}}>
