@@ -43,6 +43,18 @@ export const deleteMessage = (id) => {
 }
 
 export const readMessage = (id) => {
+	let msg = {
+		id: id,
+		read: true,
+	}
+	fetch (`${config.url.apiHost}/messages/`, {
+		method: 'POST',
+		headers: {
+		  'Accept': 'application/json',
+		  'Content-Type': 'application/json'
+		},
+		body: JSON.stringify(msg)
+	})
 	return {
 		type: 'READ_MESSAGE',
 		id: id
