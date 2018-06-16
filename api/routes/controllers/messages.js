@@ -41,26 +41,23 @@ router.get('/to/:to', (req, res, next) =>
 })
 
 router.post('/', function(req, res) {
-	if (req.body.id === undefined)
+	Message.insert(req.body, function(err, count)
 	{
-		Message.insert(req.body, function(err, count)
-		{
-			if(err)
-				res.json(err);
-			else
-				res.json(count);
-		});
-	}
-	else
+		if(err)
+			res.json(err);
+		else
+			res.json(count);
+	});
+});
+
+router.put('/', function(req, res) {
+	Message.update(req.body, function(err, count)
 	{
-		Message.update(req.body, function(err, count)
-		{
-			if(err)
-				res.json(err);
-			else
-				res.json(count);
-		});
-	}
+		if(err)
+			res.json(err);
+		else
+			res.json(count);
+	});
 });
 
 export default router

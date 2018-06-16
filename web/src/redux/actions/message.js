@@ -48,7 +48,7 @@ export const readMessage = (id) => {
 		read: true,
 	}
 	fetch (`${config.url.apiHost}/messages/`, {
-		method: 'POST',
+		method: 'PUT',
 		headers: {
 		  'Accept': 'application/json',
 		  'Content-Type': 'application/json'
