@@ -2,10 +2,17 @@ import React, { Component } from 'react'
 import { BrowserRouter as Router, Route } from "react-router-dom"
 import { Home, Discover, Login, Logout, Registration, MessagesPage, NotificationPage, Nav, Footer, Settings } from './pages'
 import { connect } from 'react-redux'
+import * as NotificationActions from './redux/actions/notification'
+import { dispatch } from './index'
 
 export const UserContext = React.createContext();
 
 class App extends Component {
+	componentDidMount() {
+		if (this.props.userContext)
+			dispatch(NotificationActions.loadNotifications(this.props.userContext.id))
+	}
+
 	render() {
 		const { userContext, photos, users, notifications } = this.props
 		return (
