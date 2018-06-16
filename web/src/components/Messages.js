@@ -31,6 +31,7 @@ export default class Messages extends Component {
 				from: userContext,
 				to: userContext.id === selectedThread.user1 ? selectedThread.user2: selectedThread.user1,
 				match: {data: [0]},
+				read: {data: [0]},
 				createdAt: moment().format('YYYY-MM-DD HH:mm:ss')
 			}
 			dispatch(MessageActions.addMessage(message))
