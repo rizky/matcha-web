@@ -1,4 +1,7 @@
 .threadsPane {
+	display: grid;
+	grid-template-rows: min-content auto;
+	width: 100%;
 	overflow-y: auto;
 }
 
@@ -13,6 +16,8 @@
 	background-color: white;
 	position: relative;
 	overflow-y: auto;
+	overflow-x: hidden;
+	width: 325px;
 }
 
 .thread {

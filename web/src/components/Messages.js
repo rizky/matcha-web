@@ -11,6 +11,14 @@ export default class Messages extends Component {
 				return null
 			return <Message key={message.id} message={message}/>
 		})
-		return <div className='messages'>{messages}</div>
+		return (
+			<div className='messagesPane'>
+				<div className='messages'>{messages}</div>
+				<div className='messages'>
+				<input placeholder='Write message...' className='message-text'/>
+				</div>
+			</div>
+		)
+
 	}
 }

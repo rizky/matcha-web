@@ -1,9 +1,16 @@
+.messagesPane {
+	display: grid;
+	grid-template-rows: auto min-content;
+	margin-bottom: 10px;
+	width: 100%;
+	gap: 0px;
+}
+
 .messages {
 	display: grid;
 	grid-auto-rows: min-content;
 	margin-left: 10px;
 	margin-right: 10px;
-	margin-bottom: 10px;
 	align-items: self-start;
 	padding: 10px;
 	border: 1px solid #eeeeee;
@@ -61,4 +68,13 @@
     position: relative;
     overflow: hidden;
     border-radius: 50%;
+}
+
+.message-text {
+	width: 94%;
+	outline: none; 
+	font-size: 1em;
+	padding: 0px;
+	border-width: 0px;
+	height: 100%;
 }
