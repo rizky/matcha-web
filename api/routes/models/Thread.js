@@ -24,12 +24,33 @@ export default class Thread extends ORM {
 		})
 	}
 
+	static sendMessages(thread)
+	{
+		let message = {
+			thread: thread.id,
+			from: thread.user2,
+			to: thread.user1,
+			match: true,
+			message: 'Match'
+		}
+		Message.insert(message)
+		message = {
+			thread: thread.id,
+			from: thread.user1,
+			to: thread.user2,
+			match: true,
+			message: 'Match'
+		}
+		Message.insert(message)
+	}
+
 	static async match(params)
 	{
 		var threads = await Thread.findAll({ user1: params['user2'], user2: params['user1'] }, null)
-		params['matcher'] = params['user1']
 		console.log(params)
 		if (threads.length == 0)
+		{
+			params['matcher'] = params['user1']
 			return new Promise (
 				(resolve, reject) => {
 					Thread.insert(params, (err, data) => {
@@ -41,36 +62,24 @@ export default class Thread extends ORM {
 					})
 				}
 			)
+		}
 		else
-		return new Promise (
-			(resolve, reject) => {
-				var thread = threads[0]
-				thread['matcher'] = thread['user2']
-				Thread.update(thread, (err, data) => {
-					if (err)
-						reject(err)
-					else
-					{
-						let message = {
-							thread: thread.id,
-							from: thread.user2,
-							to: thread.user1,
-							match: true,
-							message: 'Match'
+		{
+			var thread = threads[0]
+			thread['matcher'] = thread['user2']
+			return new Promise (
+				(resolve, reject) => {
+					Thread.update(thread, (err, data) => {
+						if (err)
+							reject(err)
+						else
+						{
+							Thread.sendMessages(thread)
+							resolve(thread)
 						}
-						Message.insert(message)
-						message = {
-							thread: thread.id,
-							from: thread.user1,
-							to: thread.user2,
-							match: true,
-							message: 'Match'
-						}
-						Message.insert(message)
-						resolve(thread)
-					}
-				})
-			}
-		)
+					})
+				}
+			)
+		}
 	}
 }

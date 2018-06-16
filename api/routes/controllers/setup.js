@@ -117,8 +117,6 @@ router.get('/', async (req, res, next) =>
 
 	let thread = { user1: 1, user2: 2 }
 	thread = await Thread.match(thread)
-	await sleep(1000);
-
 	thread = { user1: 2, user2: 1 }
 	thread = await Thread.match(thread)
 	await sleep(1000);
@@ -143,6 +141,8 @@ router.get('/', async (req, res, next) =>
 
 	thread = { user1: 1, user2: 3 }
 	thread = await Thread.match(thread)
+	thread = { user1: 3, user2: 1 }
+	thread = await Thread.match(thread)
 	await sleep(1000);
 
 	message = {
@@ -164,6 +164,8 @@ router.get('/', async (req, res, next) =>
 	await sleep(1000);
 
 	thread = { user1: 1, user2: 4 }
+	thread = await Thread.match(thread)
+	thread = { user1: 4, user2: 1 }
 	thread = await Thread.match(thread)
 	await sleep(1000);
 
@@ -187,6 +189,8 @@ router.get('/', async (req, res, next) =>
 
 	thread = { user1: 1, user2: 5 }
 	thread = await Thread.match(thread)
+	thread = { user1: 5, user2: 1 }
+	thread = await Thread.match(thread)
 	await sleep(1000);
 	
 	message = {
@@ -208,6 +212,8 @@ router.get('/', async (req, res, next) =>
 	await sleep(1000);
 
 	thread = { user1: 1, user2: 6 }
+	thread = await Thread.match(thread)
+	thread = { user1: 6, user2: 1 }
 	thread = await Thread.match(thread)
 	thread = { user1: 1, user2: 7 }
 	thread = await Thread.match(thread)

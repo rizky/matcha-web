@@ -1,4 +1,5 @@
 import db from '../../db/database'
+import moment from 'moment'
 
 export default class ORM {
 	static findAll(params, order = null, callback = null)
@@ -41,14 +42,6 @@ export default class ORM {
 				})
 			}
 		)
-	}
-
-	static store(params, callback = null)
-	{
-		if (params.id)
-			return ORM.update(params, callback)
-		else
-			return ORM.insert(params, callback)
 	}
 
 	static insert(params, callback = null)
@@ -105,6 +98,8 @@ export default class ORM {
 					values.push(params[param])
 				}
 			})
+		slots += `, ${table}.updatedAt = ?`
+		values.push(moment(Date.now()).format('YYYY-MM-DD HH:mm:ss'))
 		values.push(params['id'])
 		let query = `UPDATE ${table} SET ${slots} WHERE id=?`
 		if (callback)
@@ -115,9 +110,7 @@ export default class ORM {
 					if (err)
 						reject(err)
 					else
-					{
 						resolve(params)
-					}
 				})
 			}
 		)

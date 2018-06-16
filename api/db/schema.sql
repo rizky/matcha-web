@@ -40,7 +40,7 @@ CREATE TABLE `message` (
   `like` bit(1) NOT NULL DEFAULT b'0',
   `message` varchar(255) DEFAULT NULL,
   `createdAt` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
-  `updatedAt` timestamp NULL DEFAULT NULL,
+  `updatedAt` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
   `deleted` bit(1) NOT NULL DEFAULT b'0',
   PRIMARY KEY (`id`),
   UNIQUE KEY `id_UNIQUE` (`id`)
@@ -57,7 +57,7 @@ CREATE TABLE `thread` (
   `matcher` int(30) NULL DEFAULT NULL,
   `lastMessage` int(30) NULL DEFAULT NULL,
   `createdAt` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
-  `updatedAt` timestamp NULL DEFAULT NULL,
+  `updatedAt` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
   `deleted` bit(1) NOT NULL DEFAULT b'0',
   PRIMARY KEY (`id`),
   UNIQUE KEY `id_UNIQUE` (`id`)
@@ -72,7 +72,7 @@ CREATE TABLE `photo` (
   `user` int(30) NOT NULL,
   `url` varchar(255) NOT NULL,
   `createdAt` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
-  `updatedAt` timestamp NULL DEFAULT NULL,
+  `updatedAt` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
   `deleted` bit(1) NOT NULL DEFAULT b'0',
   PRIMARY KEY (`id`),
   UNIQUE KEY `id_UNIQUE` (`id`)
@@ -107,7 +107,7 @@ CREATE TABLE `user` (
   `long` float( 10, 6 ) NOT NULL ,
   `activeAt` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
   `createdAt` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
-  `updatedAt` timestamp NULL DEFAULT NULL,
+  `updatedAt` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
   `deleted` bit(1) NOT NULL DEFAULT b'0',
   `tokenValidated` varchar(100) DEFAULT NULL,
   `tokenLost` varchar(100) DEFAULT NULL,
