@@ -5,7 +5,7 @@ class Settings extends Component {
 	render() {
 		const { userContext } = this.props
 		return (
-			<div class="forms">
+			<div class='forms'>
 			<h1>Settings</h1>
 			<form action='/account/settings' method='POST'>
 				<h2>Personal</h2>
@@ -25,13 +25,21 @@ class Settings extends Component {
 					<label for='gender'>Female</label>
 				</div>
 				<hr />
-				<input type='text' placeholder='Preferences' disabled value=''/>
+				<br />
+				<h2>Preferences</h2>
+				<input type='text' placeholder='Gender' disabled value=''/>
 				<div style={{display: 'flex'}}>
-					<input type='checkbox' style={{width: '1em', height: '1em'}} name='preferences-male'/>
-					<label for='preferences'>Male</label>
-					<input type='checkbox' style={{width: '1em', height: '1em'}} name='preferences-female'/>
-					<label for='preferences'>Female</label>
+					<input type='checkbox' style={{width: '1em', height: '1em'}} name='pGender-male'/>
+					<label for='pGender'>Male</label>
+					<input type='checkbox' style={{width: '1em', height: '1em'}} name='pGender-female'/>
+					<label for='pGender'>Female</label>
 				</div>
+				<hr />
+				<input type='text' placeholder='Age' disabled value=''/>
+				<input type='range' min='18' max='100' value='20' name='age'/>
+				<hr />
+				<input type='text' placeholder='Distance' disabled value=''/>
+				<input type='range' min='1' max='20' value='5' name='distance' />
 				<hr />
 				<br />
 				<h2>Password</h2>
