@@ -7,12 +7,12 @@ export const UserContext = React.createContext();
 
 class App extends Component {
 	render() {
-		const { userContext, photos, users } = this.props
+		const { userContext, photos, users, notifications } = this.props
 		return (
 		<div>
 			<Router>
 				<UserContext.Provider value={userContext}>
-					<Nav/>
+					<Nav notifications={notifications}/>
 					<main>
 						<Route exact path='/' render={()=><Home photos={photos}/>} />
 						<Route exact path='/discover' render={()=><Discover users={users}/>} />

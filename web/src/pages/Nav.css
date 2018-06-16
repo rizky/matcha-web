@@ -19,6 +19,7 @@ ul {
 	cursor: pointer;
 	padding: 10px;
 	min-width: 130px;
+	white-space: nowrap;
 }
 
 .nav li a {

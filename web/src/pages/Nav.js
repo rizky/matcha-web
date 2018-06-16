@@ -5,7 +5,9 @@ import { Link } from 'react-router-dom'
 
 class Nav extends Component {
 	render() {
-		const { userContext } = this.props
+		const { userContext, notifications } = this.props
+		let newNotifications = notifications.reduce((a, b) => b.read.data[0] === 0 ? 1 + a : a, 0)
+		newNotifications = newNotifications === 0 ? null : `(${newNotifications})`
 		return (
 			<header>
 				<ul className="nav">
@@ -35,7 +37,7 @@ class Nav extends Component {
 					<li>
 						<Link to="/notification">
 							<i className="fa fa-bell"></i>
-							<span className="nav-text">Notification</span>
+							<span className="nav-text">Notification{newNotifications}</span>
 						</Link>
 					</li>
 					{ (userContext)
