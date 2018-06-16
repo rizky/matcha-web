@@ -41,3 +41,10 @@ export const deleteMessage = (id) => {
 		id: id
 	}
 }
+
+export const readMessage = (id) => {
+	return {
+		type: 'READ_MESSAGE',
+		id: id
+	}
+}

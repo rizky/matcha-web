@@ -9,6 +9,16 @@ export default (messages = [], action) => {
 			return messages.filter((message) => {
 				return (message.id !== action.id)
 			})
+		case 'READ_MESSAGE':
+			return (messages.map( m => {
+				if (m.id === action.id)
+				{
+					m.read.data[0] = 1
+					return m
+				}
+				else
+					return m
+			}))
 		default:
 			return (messages)
 	}

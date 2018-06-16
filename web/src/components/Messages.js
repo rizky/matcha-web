@@ -4,6 +4,7 @@ import './Message.css'
 import { dispatch } from '../index'
 import * as MessageActions from '../redux/actions/message'
 import * as ThreadActions from '../redux/actions/thread'
+import * as NotificationActions from '../redux/actions/notification'
 import moment from 'moment'
 
 export default class Messages extends Component {
@@ -37,12 +38,25 @@ export default class Messages extends Component {
 			dispatch(ThreadActions.selectThread(selectedThread))
 		}
 	}
+
+	componentWillUpdate() {
+		var { messages } = this.props
+		messages.forEach ( message => {
+			if (message.read.data[0] === 0)
+			{
+				dispatch(NotificationActions.readNotification(message.id))
+				dispatch(MessageActions.readMessage(message.id))
+			}
+		})
+	}
 	
 	render () {
 		var { messages, userContext } = this.props
 		if (messages == null)
 			return (<div></div>)
 		messages = messages.map ( message => {
+			if (message.read.data[0] === 0)
+				dispatch(NotificationActions.readNotification(message.id))
 			if (message.from.id !== userContext.id && message.match.data[0])
 				return null
 			return <Message key={Math.random()} message={message}/>
