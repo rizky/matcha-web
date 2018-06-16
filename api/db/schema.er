@@ -27,6 +27,7 @@ tokenLost
 +user1
 +user2
 matcher
+read
 lastInteraction
 createdAt
 updatedAt
@@ -49,6 +50,7 @@ to
 match
 like
 message
+read
 createdAt
 updatedAt
 deleted
