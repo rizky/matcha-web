@@ -11,6 +11,7 @@
 	background-color: white;
 	position: relative;
 	overflow-y: auto;
+	overflow-x: hidden;
 	gap: 5px;
 }
 
