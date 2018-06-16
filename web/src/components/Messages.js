@@ -30,8 +30,8 @@ export default class Messages extends Component {
 				message: e.target.value,
 				from: userContext,
 				to: userContext.id === selectedThread.user1 ? selectedThread.user2: selectedThread.user1,
-				match: {data: [0]},
-				read: {data: [0]},
+				match: false,
+				read: false,
 				createdAt: moment().format('YYYY-MM-DD HH:mm:ss')
 			}
 			dispatch(MessageActions.addMessage(message))
@@ -43,7 +43,7 @@ export default class Messages extends Component {
 	componentWillUpdate() {
 		var { messages } = this.props
 		messages.forEach ( message => {
-			if (message.read.data[0] === 0)
+			if (!message.read)
 			{
 				dispatch(NotificationActions.readNotification(message.id))
 				dispatch(MessageActions.readMessage(message.id))
@@ -56,9 +56,9 @@ export default class Messages extends Component {
 		if (messages == null)
 			return (<div></div>)
 		messages = messages.map ( message => {
-			if (message.read.data[0] === 0)
+			if (!message.read)
 				dispatch(NotificationActions.readNotification(message.id))
-			if (message.from.id !== userContext.id && message.match.data[0])
+			if (message.from.id !== userContext.id && message.match)
 				return null
 			return <Message key={Math.random()} message={message}/>
 		})

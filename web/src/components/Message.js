@@ -16,12 +16,12 @@ class Message extends Component {
 		return (
 			<div style={{display: 'grid'}} id="message_{{message.id}}">				
 				{
-				message.match.data[0]
+				message.match
 				? <span className='time_text'>{this.formatFullDate(new Date(Date.parse(message.createdAt)))}</span>
 				: <span className='time_text'>{this.formatDate(new Date(Date.parse(message.createdAt)))}</span>
 				}
 				{
-				message.match.data[0]
+				message.match
 				? <div style={{textAlign: 'center', margin: '10px', marginBottom: '0px', width: '100%'}}>
 					<hr style={{marginLeft: '-10px'}}/>
 					<span style={{background: '#fff', position:'relative', top:'-19px', left: '-8px', fontSize: '0.8em', padding: '10px', color: '#b2b2b2'}}>You are a match</span>

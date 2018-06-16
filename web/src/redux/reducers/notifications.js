@@ -7,7 +7,7 @@ export default (notifications = [], action) => {
 			return (notifications.map( n => {
 				if (n.id === action.id)
 				{
-					n.read.data[0] = 1
+					n.read = 1
 					return n
 				}
 				else

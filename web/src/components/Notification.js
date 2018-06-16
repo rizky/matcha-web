@@ -18,7 +18,7 @@ class Notification extends Component {
 				<div className='notification'>
 					<span className='time_text'>{time}</span>
 					{
-						(notification.match.data[0] === 1)
+						(notification.match === 1)
 						? <i className="fas fa-star"></i>
 						: <i className="far fa-envelope"></i>
 					}
@@ -26,7 +26,7 @@ class Notification extends Component {
 					<div>
 					<span className='h1' style={{whiteSpace:'nowrap'}}>{notification.from.name}</span>
 					{
-						(notification.match.data[0] === 1)
+						(notification.match === 1)
 						? <span style={{whiteSpace:'nowrap'}} > is your new Match!</span>
 						: <span style={{whiteSpace:'nowrap'}} > sent you a message</span>
 					}
@@ -34,7 +34,7 @@ class Notification extends Component {
 				</div>
 				<div className='notification'>
 				{
-					(notification.match.data[0] === 1)
+					(notification.match === 1)
 					? <div className='notification-box-empty'>
 					  </div>
 					: <div className='notification-box'>
