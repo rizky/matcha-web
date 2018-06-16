@@ -3,7 +3,7 @@
 ## Installation
 
 ```bash
-git clone https://github.com/rizkyario/42-matcha.git && cd 42-matcha
+git clone https://github.com/rizkyario/matcha.git && cd matcha
 ```
 
 ### Development
