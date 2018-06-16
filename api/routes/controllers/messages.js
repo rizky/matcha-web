@@ -40,4 +40,14 @@ router.get('/to/:to', (req, res, next) =>
 	})
 })
 
+router.post('/', function(req, res) {
+	Message.insert(req.body, function(err, count)
+	{
+		if(err)
+			res.json(err);
+		else
+			res.json(count);
+	});
+});
+
 export default router
