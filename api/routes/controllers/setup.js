@@ -112,13 +112,10 @@ router.get('/', async (req, res, next) =>
 
 	// Insert Match and Message
 
-	function sleep(ms) {
-		return new Promise(resolve => setTimeout(resolve, ms));
-	}
-
-	let thread = { user1: 1, user2: 2 }
+	let thread = { createdAt: moment(Date.now()).subtract(30, 'minutes').format('YYYY-MM-DD HH:mm:ss'), user1: 1, user2: 2 }
 	thread = await Thread.match(thread)
-	thread = { user1: 2, user2: 1 }
+	console.log(thread)
+	thread = { createdAt: moment(Date.now()).subtract(30, 'minutes').format('YYYY-MM-DD HH:mm:ss'), user1: 2, user2: 1 }
 	thread = await Thread.match(thread)
 	
 	let message = {
@@ -126,7 +123,7 @@ router.get('/', async (req, res, next) =>
 		from: thread.user1,
 		to: thread.user2,
 		message: `Hello`,
-		createdAt: moment(Date.now()).add(1, 'hours').format('YYYY-MM-DD HH:mm:ss')
+		createdAt: moment(Date.now()).subtract(1, 'minutes').format('YYYY-MM-DD HH:mm:ss')
 	}
 	await Message.insert(message)
 
@@ -135,13 +132,13 @@ router.get('/', async (req, res, next) =>
 		from: thread.user2,
 		to: thread.user1,
 		message: 'Hi There',
-		createdAt: moment(Date.now()).add(2, 'hours').format('YYYY-MM-DD HH:mm:ss')
+		createdAt: moment(Date.now()).subtract(2, 'minutes').format('YYYY-MM-DD HH:mm:ss')
 	}
 	await Message.insert(message)
 
-	thread = { user1: 1, user2: 3 }
+	thread = { createdAt: moment(Date.now()).subtract(30, 'minutes').format('YYYY-MM-DD HH:mm:ss'), user1: 1, user2: 3 }
 	thread = await Thread.match(thread)
-	thread = { user1: 3, user2: 1 }
+	thread = { createdAt: moment(Date.now()).subtract(30, 'minutes').format('YYYY-MM-DD HH:mm:ss'), user1: 3, user2: 1 }
 	thread = await Thread.match(thread)
 
 	message = {
@@ -149,7 +146,7 @@ router.get('/', async (req, res, next) =>
 		from: thread.user1,
 		to: thread.user2,
 		message: `Hello`,
-		createdAt: moment(Date.now()).add(3, 'hours').format('YYYY-MM-DD HH:mm:ss')
+		createdAt: moment(Date.now()).subtract(3, 'minutes').format('YYYY-MM-DD HH:mm:ss')
 	}
 	await Message.insert(message)
 
@@ -158,13 +155,13 @@ router.get('/', async (req, res, next) =>
 		from: thread.user2,
 		to: thread.user1,
 		message: 'Hello! How are you',
-		createdAt: moment(Date.now()).add(4, 'hours').format('YYYY-MM-DD HH:mm:ss')
+		createdAt: moment(Date.now()).subtract(4, 'minutes').format('YYYY-MM-DD HH:mm:ss')
 	}
 	await Message.insert(message)
 
-	thread = { user1: 1, user2: 4 }
+	thread = { createdAt: moment(Date.now()).subtract(30, 'minutes').format('YYYY-MM-DD HH:mm:ss'), user1: 1, user2: 4 }
 	thread = await Thread.match(thread)
-	thread = { user1: 4, user2: 1 }
+	thread = { createdAt: moment(Date.now()).subtract(30, 'minutes').format('YYYY-MM-DD HH:mm:ss'), user1: 4, user2: 1 }
 	thread = await Thread.match(thread)
 
 	message = {
@@ -172,7 +169,7 @@ router.get('/', async (req, res, next) =>
 		from: thread.user1,
 		to: thread.user2,
 		message: `Hello`,
-		createdAt: moment(Date.now()).add(5, 'hours').format('YYYY-MM-DD HH:mm:ss')
+		createdAt: moment(Date.now()).subtract(5, 'minutes').format('YYYY-MM-DD HH:mm:ss')
 	}
 	await Message.insert(message)
 
@@ -181,13 +178,13 @@ router.get('/', async (req, res, next) =>
 		from: thread.user2,
 		to: thread.user1,
 		message: 'Hi! Nice to meet you',
-		createdAt: moment(Date.now()).add(6, 'hours').format('YYYY-MM-DD HH:mm:ss')
+		createdAt: moment(Date.now()).subtract(6, 'minutes').format('YYYY-MM-DD HH:mm:ss')
 	}
 	await Message.insert(message)
 
-	thread = { user1: 1, user2: 5 }
+	thread = { createdAt: moment(Date.now()).subtract(30, 'minutes').format('YYYY-MM-DD HH:mm:ss'), user1: 1, user2: 5 }
 	thread = await Thread.match(thread)
-	thread = { user1: 5, user2: 1 }
+	thread = { createdAt: moment(Date.now()).subtract(30, 'minutes').format('YYYY-MM-DD HH:mm:ss'), user1: 5, user2: 1 }
 	thread = await Thread.match(thread)
 	
 	message = {
@@ -195,7 +192,7 @@ router.get('/', async (req, res, next) =>
 		from: thread.user1,
 		to: thread.user2,
 		message: `Hello`,
-		createdAt: moment(Date.now()).add(7, 'hours').format('YYYY-MM-DD HH:mm:ss')
+		createdAt: moment(Date.now()).subtract(7, 'minutes').format('YYYY-MM-DD HH:mm:ss')
 	}
 	await Message.insert(message)
 
@@ -204,7 +201,7 @@ router.get('/', async (req, res, next) =>
 		from: thread.user2,
 		to: thread.user1,
 		message: 'Bonjour!',
-		createdAt: moment(Date.now()).add(8, 'hours').format('YYYY-MM-DD HH:mm:ss')
+		createdAt: moment(Date.now()).subtract(8, 'minutes').format('YYYY-MM-DD HH:mm:ss')
 	}
 	await Message.insert(message)
 

@@ -2,7 +2,7 @@
 export default (threads = [], action) => {
 	switch (action.type) {
 		case 'LOAD_THREADS':
-			return (action.threads)
+			return (action.threads.sort( (a, b) => Date.parse(a.lastMessage.createdAt) < Date.parse(b.lastMessage.createdAt) ))
 		case 'ADD_THREAD':
 			return [action.thread, ...threads]
 		case 'DELETE_THREAD':
