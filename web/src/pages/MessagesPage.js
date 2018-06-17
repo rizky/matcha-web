@@ -11,14 +11,17 @@ export default class MessagesPage extends Component {
 		if (userContext) dispatch(ThreadActions.loadThreads(userContext.id))
 	}
 
+	eqSet(a, b) {
+		return a.size === b.size && Array.from(a).every(b.has.bind(b));
+	}
 	componentDidUpdate(prevProps) {
-		
-		const { selectedThread, threads, userContext } = this.props
+		const { selectedThread, threads, userContext, messages } = this.props
 		if (selectedThread == null && threads.length > 0)
 		{
 			dispatch(ThreadActions.selectThread(threads[0]))
 			dispatch(MessageActions.loadMessages(threads[0].id))
 		}
+		dispatch(ThreadActions.loadThreads(userContext.id))
 	}
 
 	render() {		

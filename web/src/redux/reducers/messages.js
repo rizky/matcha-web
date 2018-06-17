@@ -13,7 +13,7 @@ export default (messages = [], action) => {
 			return (messages.map( m => {
 				if (m.id === action.id)
 				{
-					m.read = 1
+					m.read = true
 					return m
 				}
 				else
