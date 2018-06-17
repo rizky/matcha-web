@@ -1,5 +1,5 @@
 import config from '../../config'
-
+ 
 export const loadMessages = (id) => {
 	return (dispatch) => {
 		fetch (`${config.url.apiHost}/messages/thread/${id}`)
@@ -55,8 +55,14 @@ export const readMessage = (id) => {
 		},
 		body: JSON.stringify(msg)
 	})
-	return {
-		type: 'READ_MESSAGE',
-		id: id
+	return (dispatch) => {
+		dispatch({
+			type: 'READ_MESSAGE',
+			id: id
+		})
+		dispatch({
+			type: 'READ_THREAD',
+			id: id
+		})
 	}
 }

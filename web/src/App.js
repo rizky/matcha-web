@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Route } from "react-router-dom"
 import { Home, Discover, Login, Logout, Registration, MessagesPage, NotificationPage, Nav, Footer, Settings } from './pages'
 import { connect } from 'react-redux'
 import * as NotificationActions from './redux/actions/notification'
+import * as ThreadActions from './redux/actions/thread'
 import { dispatch } from './index'
 
 export const UserContext = React.createContext();
@@ -11,6 +12,7 @@ class App extends Component {
 	componentDidMount() {
 		const { userContext } = this.props
 		if (userContext) dispatch(NotificationActions.loadNotifications(userContext.id))
+		if (userContext) dispatch(ThreadActions.loadThreads(userContext.id))
 	}
 
 	render() {

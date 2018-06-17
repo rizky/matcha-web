@@ -9,6 +9,16 @@ export default (threads = [], action) => {
 			return threads.filter((thread) => {
 				return (thread.id !== action.id)
 			})
+		case 'READ_THREAD':
+			return (threads.map( m => {
+				if (m.lastMessage.id === action.id)
+				{
+					m.lastMessage.read = true
+					return m
+				}
+				else
+					return m
+			}))
 		default:
 			return (threads)
 	}

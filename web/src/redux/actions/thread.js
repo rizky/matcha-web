@@ -10,6 +10,10 @@ export const loadThreads = (id) => {
 				type: 'LOAD_THREADS',
 				threads: threads
 			})
+			dispatch({
+				type: 'SELECT_THREAD',
+				thread: threads[0]
+			})
 		})
 	}
 }
@@ -29,8 +33,14 @@ export const deleteThread = (id) => {
 }
 
 export const selectThread = (thread) => {
-	return {
-		type: 'SELECT_THREAD',
-		thread: thread
+	return (dispatch) => {
+		dispatch({
+			type: 'SELECT_THREAD',
+			thread: thread
+		})
+		dispatch({
+			type: 'READ_MESSAGE',
+			id: thread.id
+		})
 	}
 }
