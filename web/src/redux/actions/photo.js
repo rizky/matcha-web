@@ -22,7 +22,7 @@ export const addPhoto = (photo) => {
 
 export const deletePhoto = (id) => {
 	return {
-	type: 'DELETE_PHOTO',
-	id: id
+		type: 'DELETE_PHOTO',
+		id: id
 	}
 }

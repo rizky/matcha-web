@@ -9,13 +9,10 @@ export default (messages = [], action) => {
 			return messages.filter((message) => {
 				return (message.id !== action.id)
 			})
-		case 'READ_MESSAGE':
+		case 'UPDATE_MESSAGE':
 			return (messages.map( m => {
-				if (m.id === action.id)
-				{
-					m.read = true
-					return m
-				}
+				if (m.id === action.message.id)
+					return action.message
 				else
 					return m
 			}))

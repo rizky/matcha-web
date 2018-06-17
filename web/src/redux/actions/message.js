@@ -2,7 +2,6 @@ import config from '../../config'
  
 export const loadMessages = (id) => {
 	return (dispatch) => {
-		dispatch(readMessage(id))
 		fetch (`${config.url.apiHost}/messages/thread/${id}`)
 		.then (result => result.json())
 		.then (messages => {
@@ -34,10 +33,9 @@ export const addMessage = (message) => {
 			type: 'ADD_MESSAGE',
 			message: message
 		})
-		message.thread.lastMessage = message
 		dispatch({
 			type: 'UPDATE_THREADS',
-			thread: message.thread,
+			thread: { ...message.thread,  lastMessage: message}
 		})
 	}
 }
@@ -49,9 +47,9 @@ export const deleteMessage = (id) => {
 	}
 }
 
-export const readMessage = (id) => {
+export const readMessage = (message) => {
 	let msg = {
-		id: id,
+		id: message.id,
 		read: true,
 	}
 	fetch (`${config.url.apiHost}/messages/`, {
@@ -61,19 +59,19 @@ export const readMessage = (id) => {
 		  'Content-Type': 'application/json'
 		},
 		body: JSON.stringify(msg)
-	})
+	})	
 	return (dispatch) => {
 		dispatch({
-			type: 'READ_MESSAGE',
-			id: id
+			type: 'UPDATE_MESSAGE',
+			message: message
 		})
 		dispatch({
-			type: 'READ_THREAD',
-			id: id
+			type: 'UPDATE_THREAD',
+			message: message
 		})
 		dispatch({
-			type: 'READ_NOTIFICATION',
-			id: id
+			type: 'UPDATE_NOTIFICATION',
+			message: message
 		})
 	}
 }

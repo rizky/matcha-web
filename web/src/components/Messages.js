@@ -40,7 +40,10 @@ export default class Messages extends Component {
 		var { messages } = this.props
 		messages.forEach ( message => {
 			if (!message.read)
-				dispatch(MessageActions.readMessage(message.id))
+			{
+				message.read = true
+				dispatch(MessageActions.readMessage(message))
+			}
 		})
 	}
 	

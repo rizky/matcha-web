@@ -24,8 +24,8 @@ export const addThread = (thread) => {
 
 export const deleteThread = (id) => {
 	return {
-	type: 'DELETE_THREAD',
-	id: id
+		type: 'DELETE_THREAD',
+		id: id
 	}
 }
 
