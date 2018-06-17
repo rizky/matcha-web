@@ -3,7 +3,6 @@ import { Message } from '../components'
 import './Message.css'
 import { dispatch } from '../index'
 import * as MessageActions from '../redux/actions/message'
-import * as ThreadActions from '../redux/actions/thread'
 import * as NotificationActions from '../redux/actions/notification'
 import moment from 'moment'
 

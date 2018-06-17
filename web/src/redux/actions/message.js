@@ -2,6 +2,7 @@ import config from '../../config'
  
 export const loadMessages = (id) => {
 	return (dispatch) => {
+		dispatch(readMessage(id))
 		fetch (`${config.url.apiHost}/messages/thread/${id}`)
 		.then ( result => {
 			return result.json()

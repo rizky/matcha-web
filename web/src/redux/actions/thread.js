@@ -1,4 +1,5 @@
 import config from '../../config'
+import * as MessageActions from './message'
 
 export const loadThreads = (id) => {
 	return (dispatch) => {
@@ -10,10 +11,7 @@ export const loadThreads = (id) => {
 				type: 'LOAD_THREADS',
 				threads: threads
 			})
-			dispatch({
-				type: 'SELECT_THREAD',
-				thread: threads[0]
-			})
+			dispatch(selectThread(threads.find( t => !t.lastMessage.match)))
 		})
 	}
 }
@@ -38,9 +36,6 @@ export const selectThread = (thread) => {
 			type: 'SELECT_THREAD',
 			thread: thread
 		})
-		dispatch({
-			type: 'READ_MESSAGE',
-			id: thread.id
-		})
+		dispatch(MessageActions.loadMessages(thread.id))
 	}
 }

@@ -3,13 +3,11 @@ import { Thread } from '../components'
 import './Thread.css'
 import { dispatch } from '../index'
 import * as ThreadActions from '../redux/actions/thread'
-import * as MessageActions from '../redux/actions/message'
 import PropTypes from 'prop-types';
 
 export default class Threads extends Component {
 	selectThread = (thread) => {
 		dispatch(ThreadActions.selectThread(thread))
-		dispatch(MessageActions.loadMessages(thread.id))
 	}
 
 	render () {
