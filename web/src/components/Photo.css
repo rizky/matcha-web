@@ -18,6 +18,7 @@
 	grid-gap: 0.5em;
 	align-self:flex-start;
 	width: 325px;
+	position: relative;
 }
 
 .photo .far, .photo .fas {

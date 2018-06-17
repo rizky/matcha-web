@@ -3,17 +3,22 @@ import './Photo.css'
 
 export default class User extends Component {
 	render () {
-		if (!this.props.user)
+		const { user } = this.props
+		if (!user)
 			return null
 		var lat = 46.529
 		var long = 6.5
-		let user = this.props.user
 		let age = this.calculateAge(Date.parse(user.dob))
 		let activeAt = this.timeSince(Date.parse(user.activeAt))
 		let distance = this.getDistanceFromLatLonInKm(user.lat, user.long, lat, long)
 		return (
 			<div className='photo' id={`user_${user.id}`}>
 				<img className='picture' src={user.picture} alt=''/>
+				{
+				user.match
+				? <i className="fas fa-star" style={{position: 'absolute', top: '20px', right: '20px', color: '#16abdc'}}></i>
+				: null
+				}
 				<div>
 					<a>
 						<span className='user'>{user.name}, </span>

@@ -3,20 +3,26 @@ import { User } from '../components'
 import './Photo.css'
 import { dispatch } from '../index'
 import * as UserActions from '../redux/actions/user'
+import { UserContext } from '../App';
 
-export default class Users extends Component {
+class Users extends Component {
 	componentDidMount() {
-		dispatch(UserActions.loadUsers())
+		const { userContext } = this.props
+		dispatch(UserActions.loadUsers(userContext.id))
 	}
 
 	render () {
-		if (!this.props.users)
-			return null
-		let users = this.props.users.map ( user => {
-			return (<User key={user.id} user={user}/>)
-		})
+		var { users } = this.props
+		if (!users) return null
+		users = users.map ( user => {return (<User key={user.id} user={user}/>)})
 		return (
 			<div className='photos'>{users}</div>
 		)
 	}
 }
+
+export default React.forwardRef((props, ref) => (
+	<UserContext.Consumer>
+		{user => <Users {...props} userContext={user} ref={ref}/>}
+	</UserContext.Consumer>
+));

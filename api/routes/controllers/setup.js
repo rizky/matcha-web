@@ -211,8 +211,6 @@ router.get('/', async (req, res, next) =>
 	await Message.insert(message)
 	await sleep(1000);
 
-	thread = { user1: 1, user2: 6 }
-	thread = await Thread.match(thread)
 	thread = { user1: 6, user2: 1 }
 	thread = await Thread.match(thread)
 	thread = { user1: 1, user2: 7 }
