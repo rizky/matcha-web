@@ -18,11 +18,18 @@ class Notification extends Component {
 				<div className='notification'>
 					<span className='time_text'>{time}</span>
 					{
-						(notification.match)
+						notification.match
 						? <i className="fas fa-star"></i>
 						: <i className="far fa-envelope"></i>
 					}
-					<img className='profile_picture circled' src={notification.from.picture} alt=''/>
+					<div style={{position: 'relative'}}>
+						<img className='profile_picture circled' src={notification.from.picture} alt=''/>
+						{
+						!notification.read
+						? <i className="fas fa-circle" style={{position: 'absolute', top: '10px', right: '5px', padding: '0px', fontSize: '10px', color: '#fd3575'}}></i>
+						: null
+						}
+					</div>
 					<div>
 					<span className='h1' style={{whiteSpace:'nowrap'}}>{notification.from.name}</span>
 					{

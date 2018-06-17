@@ -7,7 +7,7 @@ class Nav extends Component {
 	render() {
 		const { userContext, notifications } = this.props
 		let newNotifications = notifications.reduce((a, b) => !b.read ? 1 + a : a, 0)
-		newNotifications = newNotifications === 0 ? null : `(${newNotifications})`
+		newNotifications = newNotifications === 0 ? null : <i className="fas fa-circle" style={{position: 'absolute', top: '0px', right: '-13px', padding: '0px', fontSize: '11px', color: '#fd3575'}}></i>
 		return (
 			<header>
 				<ul className="nav">
@@ -35,7 +35,7 @@ class Nav extends Component {
 					</li>
 					<li className="nav_spacing"></li>
 					<li>
-						<Link to="/notification">
+						<Link to="/notification" style={{position: 'relative'}}>
 							<i className="fa fa-bell"></i>
 							<span className="nav-text">Notification{newNotifications}</span>
 						</Link>

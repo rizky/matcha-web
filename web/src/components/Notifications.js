@@ -14,11 +14,11 @@ class Notifications extends Component {
 	}
 
 	render () {
-		if (this.props.notifications == null)
-			return (<div></div>)
-		let notifications = this.props.notifications.map ( notification => {
-			return <Notification key={notification.id} notification={notification} onClick={() => this.selectThread(notification.thread)}/>
-		})
+		let { notifications } = this.props
+		if (notifications == null) return <div/>
+		notifications = notifications.map ( notification => 
+			<Notification key={notification.id} notification={notification} onClick={() => this.selectThread(notification.thread)}/>
+		)
 		return <div className='notifications'>{notifications}</div>
 	}
 }

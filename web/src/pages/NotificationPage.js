@@ -6,15 +6,15 @@ import './NotificationPage.css'
 
 class NotificationPage extends Component {
 	componentDidMount() {
-		if (this.props.userContext)
-			dispatch(NotificationActions.loadNotifications(this.props.userContext.id))
+		const { userContext } = this.props
+		if (userContext) dispatch(NotificationActions.loadNotifications(userContext.id))
 	}
 
 	render() {		
-		const { notifications } = this.props
+		const { notifications, userContext } = this.props
 		return (
 			<div className='notification-page'>
-				<Notifications notifications={notifications}/>
+				<Notifications notifications={notifications} userContext={userContext}/>
 			</div>
 		)
 	}

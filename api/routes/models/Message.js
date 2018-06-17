@@ -10,6 +10,8 @@ export default class Message extends ORM {
 		else
 			message.from = await User.findOne(message.from)
 		message.thread = await Thread.findOne(message.thread)
+		message.thread.lastMessage = await Message.findAll({thread: message.thread.id}, ['createdAt', 'DESC'])
+		message.thread.lastMessage = message.thread.lastMessage.length === 0 ? null : message.thread.lastMessage[0]
 		message.thread.user1 = await User.findOne(message.thread.user1)
 		message.thread.user2 = await User.findOne(message.thread.user2)
 	}

@@ -9,8 +9,8 @@ export const UserContext = React.createContext();
 
 class App extends Component {
 	componentDidMount() {
-		if (this.props.userContext)
-			dispatch(NotificationActions.loadNotifications(this.props.userContext.id))
+		const { userContext } = this.props
+		if (userContext) dispatch(NotificationActions.loadNotifications(userContext.id))
 	}
 
 	render() {

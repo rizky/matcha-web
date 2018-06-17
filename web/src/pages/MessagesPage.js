@@ -7,28 +7,27 @@ import './MessagesPage.css'
 
 export default class MessagesPage extends Component {
 	componentDidMount() {
-		if (this.props.userContext)
-			dispatch(ThreadActions.loadThreads(this.props.userContext.id))
-	}
-
-	componentDidUpdate() {
-		if (this.props.selectedThread == null)
+		const { userContext, selectedThread, threads } = this.props
+		if (userContext) dispatch(ThreadActions.loadThreads(userContext.id))
+		if (selectedThread == null && threads.length > 0)
 		{
-			if (this.props.threads.length > 0)
-			{
-				dispatch(ThreadActions.selectThread(this.props.threads[0]))
-				dispatch(MessageActions.loadMessages(this.props.threads[0].id))
-			}
+			dispatch(ThreadActions.selectThread(threads[0]))
+			dispatch(MessageActions.loadMessages(threads[0].id))
 		}
 	}
 
+	componentDidUpdate() {
+		const { userContext } = this.props
+		if (userContext) dispatch(ThreadActions.loadThreads(userContext.id))
+	}
+
 	render() {		
-		const { threads, messages, selectedThread } = this.props
+		const { threads, messages, selectedThread, userContext } = this.props
 		const user = (selectedThread) ? selectedThread.user2: null
 		return (
 			<div className='messages-page'>
 				<Threads threads={threads}/>
-				<Messages messages={messages} selectedThread={selectedThread} userContext={this.props.userContext}/>
+				<Messages messages={messages} selectedThread={selectedThread} userContext={userContext}/>
 				<Profile user={user}/>
 			</div>
 		)

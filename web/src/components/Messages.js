@@ -41,7 +41,7 @@ export default class Messages extends Component {
 	}
 
 	componentWillUpdate() {
-		var { messages } = this.props
+		var { messages, userContext } = this.props
 		messages.forEach ( message => {
 			if (!message.read)
 			{
