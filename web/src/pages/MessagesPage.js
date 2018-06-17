@@ -7,6 +7,12 @@ import './MessagesPage.css'
 
 export default class MessagesPage extends Component {
 	componentDidMount() {
+		const { userContext } = this.props
+		if (userContext) dispatch(ThreadActions.loadThreads(userContext.id))
+
+	}
+
+	componentDidUpdate() {
 		const { userContext, selectedThread, threads } = this.props
 		if (userContext) dispatch(ThreadActions.loadThreads(userContext.id))
 		if (selectedThread == null && threads.length > 0)
@@ -14,11 +20,6 @@ export default class MessagesPage extends Component {
 			dispatch(ThreadActions.selectThread(threads[0]))
 			dispatch(MessageActions.loadMessages(threads[0].id))
 		}
-	}
-
-	componentDidUpdate() {
-		const { userContext } = this.props
-		if (userContext) dispatch(ThreadActions.loadThreads(userContext.id))
 	}
 
 	render() {		
