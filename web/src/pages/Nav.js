@@ -8,6 +8,8 @@ class Nav extends Component {
 		const { userContext, notifications } = this.props
 		let newNotifications = notifications.reduce((a, b) => !b.read ? 1 + a : a, 0)
 		newNotifications = newNotifications === 0 ? null : <i className="fas fa-circle" style={{position: 'absolute', top: '0px', right: '-13px', padding: '0px', fontSize: '11px', color: '#fd3575'}}></i>
+		let newMessages = notifications.reduce((a, b) => !b.read && !b.match ? 1 + a : a, 0)
+		newMessages = newMessages === 0 ? null : <i className="fas fa-circle" style={{position: 'absolute', top: '0px', right: '-13px', padding: '0px', fontSize: '11px', color: '#fd3575'}}></i>
 		return (
 			<header>
 				<ul className="nav">
@@ -24,9 +26,9 @@ class Nav extends Component {
 						</Link>
 					</li>
 					<li>
-						<Link to="/messages">
+						<Link to="/messages" style={{position: 'relative'}}>
 							<i className="far fa-envelope"></i>
-							<span className="nav-text">Messages</span>
+							<span className="nav-text">Messages{newMessages}</span>
 						</Link>
 					</li>
 					<li className="nav_logo">
