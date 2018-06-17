@@ -47,7 +47,6 @@ export default class Thread extends ORM {
 	static async match(params)
 	{
 		var threads = await Thread.findAll({ user1: params['user2'], user2: params['user1'] }, null)
-		console.log(params)
 		if (threads.length == 0)
 		{
 			params['matcher'] = params['user1']

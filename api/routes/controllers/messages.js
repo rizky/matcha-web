@@ -22,7 +22,7 @@ router.get('/:id?', (req, res, next) =>
 
 router.get('/thread/:thread', (req, res, next) =>
 {
-	Message.find({thread: req.params.thread}, null, (err, rows) =>
+	Message.find({thread: req.params.thread}, ['createdAt', 'ASC'], (err, rows) =>
 	{
 		(err)
 		? res.json(err)

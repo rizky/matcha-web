@@ -1,5 +1,6 @@
 import express from 'express'
 import { User, Photo, Message, Thread } from '../models'
+import moment from 'moment'
 
 var router = express.Router()
 
@@ -119,97 +120,93 @@ router.get('/', async (req, res, next) =>
 	thread = await Thread.match(thread)
 	thread = { user1: 2, user2: 1 }
 	thread = await Thread.match(thread)
-	await sleep(1000);
 	
 	let message = {
 		thread: thread.id,
 		from: thread.user1,
 		to: thread.user2,
-		message: `Hello`
+		message: `Hello`,
+		createdAt: moment(Date.now()).add(1, 'hours').format('YYYY-MM-DD HH:mm:ss')
 	}
 	await Message.insert(message)
-	await sleep(1000);
 
 	message = {
 		thread: thread.id,
 		from: thread.user2,
 		to: thread.user1,
-		message: 'Hi There'
+		message: 'Hi There',
+		createdAt: moment(Date.now()).add(2, 'hours').format('YYYY-MM-DD HH:mm:ss')
 	}
 	await Message.insert(message)
-	await sleep(1000);
 
 	thread = { user1: 1, user2: 3 }
 	thread = await Thread.match(thread)
 	thread = { user1: 3, user2: 1 }
 	thread = await Thread.match(thread)
-	await sleep(1000);
 
 	message = {
 		thread: thread.id,
 		from: thread.user1,
 		to: thread.user2,
-		message: `Hello`
+		message: `Hello`,
+		createdAt: moment(Date.now()).add(3, 'hours').format('YYYY-MM-DD HH:mm:ss')
 	}
 	await Message.insert(message)
-	await sleep(1000);
 
 	message = {
 		thread: thread.id,
 		from: thread.user2,
 		to: thread.user1,
-		message: 'Hello! How are you'
+		message: 'Hello! How are you',
+		createdAt: moment(Date.now()).add(4, 'hours').format('YYYY-MM-DD HH:mm:ss')
 	}
 	await Message.insert(message)
-	await sleep(1000);
 
 	thread = { user1: 1, user2: 4 }
 	thread = await Thread.match(thread)
 	thread = { user1: 4, user2: 1 }
 	thread = await Thread.match(thread)
-	await sleep(1000);
 
 	message = {
 		thread: thread.id,
 		from: thread.user1,
 		to: thread.user2,
-		message: `Hello`
+		message: `Hello`,
+		createdAt: moment(Date.now()).add(5, 'hours').format('YYYY-MM-DD HH:mm:ss')
 	}
 	await Message.insert(message)
-	await sleep(1000);
 
 	message = {
 		thread: thread.id,
 		from: thread.user2,
 		to: thread.user1,
-		message: 'Hi! Nice to meet you'
+		message: 'Hi! Nice to meet you',
+		createdAt: moment(Date.now()).add(6, 'hours').format('YYYY-MM-DD HH:mm:ss')
 	}
 	await Message.insert(message)
-	await sleep(1000);
 
 	thread = { user1: 1, user2: 5 }
 	thread = await Thread.match(thread)
 	thread = { user1: 5, user2: 1 }
 	thread = await Thread.match(thread)
-	await sleep(1000);
 	
 	message = {
 		thread: thread.id,
 		from: thread.user1,
 		to: thread.user2,
-		message: `Hello`
+		message: `Hello`,
+		createdAt: moment(Date.now()).add(7, 'hours').format('YYYY-MM-DD HH:mm:ss')
 	}
 	await Message.insert(message)
-	await sleep(1000);
 
 	message = {
 		thread: thread.id,
 		from: thread.user2,
 		to: thread.user1,
-		message: 'Bonjour!'
+		message: 'Bonjour!',
+		createdAt: moment(Date.now()).add(8, 'hours').format('YYYY-MM-DD HH:mm:ss')
 	}
 	await Message.insert(message)
-	await sleep(1000);
 
 	thread = { user1: 6, user2: 1 }
 	thread = await Thread.match(thread)
