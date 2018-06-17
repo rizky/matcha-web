@@ -3,14 +3,12 @@ import { Notification } from '../components'
 import './Notification.css'
 import { dispatch } from '../index'
 import * as ThreadActions from '../redux/actions/thread'
-import * as MessageActions from '../redux/actions/message'
 import { withRouter } from 'react-router'
 
 class Notifications extends Component {
 	selectThread = (thread) => {
 		let { history } = this.props
 		dispatch(ThreadActions.selectThread(thread))
-		dispatch(MessageActions.loadMessages(thread.id))
 		history.push('/messages')
 	}
 
