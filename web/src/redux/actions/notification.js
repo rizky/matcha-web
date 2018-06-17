@@ -13,10 +13,3 @@ export const loadNotifications = (id) => {
 		})
 	}
 }
-
-export const readNotification = (id) => {
-	return {
-		type: 'READ_NOTIFICATION',
-		id: id
-	}
-}

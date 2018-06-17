@@ -72,5 +72,9 @@ export const readMessage = (id) => {
 			type: 'READ_THREAD',
 			id: id
 		})
+		dispatch({
+			type: 'READ_NOTIFICATION',
+			id: id
+		})
 	}
 }

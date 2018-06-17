@@ -3,7 +3,6 @@ import { Message } from '../components'
 import './Message.css'
 import { dispatch } from '../index'
 import * as MessageActions from '../redux/actions/message'
-import * as NotificationActions from '../redux/actions/notification'
 import moment from 'moment'
 
 export default class Messages extends Component {
@@ -37,24 +36,18 @@ export default class Messages extends Component {
 		}
 	}
 
-	componentWillUpdate() {
+	componentDidUpdate() {
 		var { messages } = this.props
 		messages.forEach ( message => {
 			if (!message.read)
-			{
-				dispatch(NotificationActions.readNotification(message.id))
 				dispatch(MessageActions.readMessage(message.id))
-			}
 		})
 	}
 	
 	render () {
 		var { messages, userContext } = this.props
-		if (messages == null)
-			return (<div></div>)
+		if (messages == null) return <div/>
 		messages = messages.map ( message => {
-			if (!message.read)
-				dispatch(NotificationActions.readNotification(message.id))
 			if (message.from.id !== userContext.id && message.match)
 				return null
 			return <Message key={Math.random()} message={message}/>
