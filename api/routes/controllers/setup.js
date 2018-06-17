@@ -114,7 +114,6 @@ router.get('/', async (req, res, next) =>
 
 	let thread = { createdAt: moment(Date.now()).subtract(30, 'minutes').format('YYYY-MM-DD HH:mm:ss'), user1: 1, user2: 2 }
 	thread = await Thread.match(thread)
-	console.log(thread)
 	thread = { createdAt: moment(Date.now()).subtract(30, 'minutes').format('YYYY-MM-DD HH:mm:ss'), user1: 2, user2: 1 }
 	thread = await Thread.match(thread)
 	

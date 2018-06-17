@@ -30,6 +30,7 @@ export default class Thread extends ORM {
 			thread: thread.id,
 			from: thread.user2,
 			to: thread.user1,
+			createdAt: thread.createdAt,
 			match: true,
 			message: 'Match'
 		}
@@ -38,6 +39,7 @@ export default class Thread extends ORM {
 			thread: thread.id,
 			from: thread.user1,
 			to: thread.user2,
+			createdAt: thread.createdAt,
 			match: true,
 			message: 'Match'
 		}
