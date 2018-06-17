@@ -48,17 +48,13 @@ export const deleteMessage = (id) => {
 }
 
 export const readMessage = (message) => {
-	let msg = {
-		id: message.id,
-		read: true,
-	}
 	fetch (`${config.url.apiHost}/messages/`, {
 		method: 'PUT',
 		headers: {
 		  'Accept': 'application/json',
 		  'Content-Type': 'application/json'
 		},
-		body: JSON.stringify(msg)
+		body: JSON.stringify({id: message.id, read: true})
 	})	
 	return (dispatch) => {
 		dispatch({
