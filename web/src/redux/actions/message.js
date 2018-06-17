@@ -29,9 +29,16 @@ export const addMessage = (message) => {
 		},
 		body: JSON.stringify(msg)
 	})
-	return {
-		type: 'ADD_MESSAGE',
-		message: message
+	return (dispatch) => {
+		dispatch({
+			type: 'ADD_MESSAGE',
+			message: message
+		})
+		message.thread.lastMessage = message
+		dispatch({
+			type: 'UPDATE_THREADS',
+			thread: message.thread,
+		})
 	}
 }
 

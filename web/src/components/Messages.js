@@ -35,8 +35,6 @@ export default class Messages extends Component {
 				createdAt: moment().format('YYYY-MM-DD HH:mm:ss')
 			}
 			dispatch(MessageActions.addMessage(message))
-			selectedThread.lastMessage = message
-			dispatch(ThreadActions.selectThread(selectedThread))
 		}
 	}
 
