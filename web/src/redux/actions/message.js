@@ -4,9 +4,8 @@ export const loadMessages = (id) => {
 	return (dispatch) => {
 		dispatch(readMessage(id))
 		fetch (`${config.url.apiHost}/messages/thread/${id}`)
-		.then ( result => {
-			return result.json()
-		}).then( messages => {
+		.then (result => result.json())
+		.then (messages => {
 			dispatch({
 				type: 'LOAD_MESSAGES',
 				messages: messages

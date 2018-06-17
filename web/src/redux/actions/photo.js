@@ -3,9 +3,8 @@ import config from '../../config'
 export const loadPhotos = () => {
 	return (dispatch) => {
 		fetch (`${config.url.apiHost}/photos`)
-		.then ( result => {
-			return result.json()
-		}).then( photos => {
+		.then (result => result.json())
+		.then (photos => {
 			dispatch({
 				type: 'LOAD_PHOTOS',
 				photos: photos

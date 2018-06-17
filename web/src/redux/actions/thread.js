@@ -4,9 +4,8 @@ import * as MessageActions from './message'
 export const loadThreads = (id) => {
 	return (dispatch) => {
 		fetch (`${config.url.apiHost}/threads/${id}`)
-		.then ( result => {
-			return result.json()
-		}).then( threads => {
+		.then (result => result.json())
+		.then (threads => {
 			dispatch({
 				type: 'LOAD_THREADS',
 				threads: threads

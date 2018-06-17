@@ -3,9 +3,8 @@ import config from '../../config'
 export const loadUsers = (id) => {
 	return (dispatch) => {
 		fetch (`${config.url.apiHost}/users/to/${id}`)
-		.then ( result => {
-			return result.json()
-		}).then( users => {
+		.then (result => result.json())
+		.then (users => {
 			dispatch({
 				type: 'LOAD_USERS',
 				users: users
