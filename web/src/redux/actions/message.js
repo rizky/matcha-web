@@ -14,19 +14,18 @@ export const loadMessages = (id) => {
 }
 
 export const addMessage = (message) => {
-	let msg = {
-		thread: message.thread.id,
-		message: message.message,
-		from: message.from.id,
-		to: message.to.id
-	}
 	fetch (`${config.url.apiHost}/messages/`, {
 		method: 'POST',
 		headers: {
-		  'Accept': 'application/json',
-		  'Content-Type': 'application/json'
+			'Accept': 'application/json',
+			'Content-Type': 'application/json'
 		},
-		body: JSON.stringify(msg)
+		body: JSON.stringify({
+			thread: message.thread.id,
+			message: message.message,
+			from: message.from.id,
+			to: message.to.id
+		})
 	})
 	return (dispatch) => {
 		dispatch({
@@ -51,8 +50,8 @@ export const readMessage = (message) => {
 	fetch (`${config.url.apiHost}/messages/`, {
 		method: 'PUT',
 		headers: {
-		  'Accept': 'application/json',
-		  'Content-Type': 'application/json'
+			'Accept': 'application/json',
+			'Content-Type': 'application/json'
 		},
 		body: JSON.stringify({id: message.id, read: true})
 	})	
