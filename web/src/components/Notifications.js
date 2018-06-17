@@ -8,6 +8,8 @@ import { withRouter } from 'react-router'
 
 class Notifications extends Component {
 	selectThread = (thread) => {
+		console.log(thread);
+		
 		dispatch(ThreadActions.selectThread(thread))
 		dispatch(MessageActions.loadMessages(thread.id))
 		this.props.history.push('/messages')

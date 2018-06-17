@@ -13,22 +13,22 @@ export default class Threads extends Component {
 	}
 
 	render () {
-		if (this.props.threads.length === 0)
+		let { userContext, threads } = this.props
+		if (threads.length === 0)
 			return <div></div>
-		let threads = this.props.threads.map ( thread => {
+		let _threads = threads.map ( thread => {
 			if (!thread.lastMessage.match)
-				return (<Thread key={thread.id} user={thread.user2} type={1} lastMessage={thread.lastMessage} onClick={() => this.selectThread(thread)} />)
+				return (<Thread key={thread.id} userContext={userContext} user={thread.user2} type={1} lastMessage={thread.lastMessage} onClick={() => this.selectThread(thread)} />)
 			else
 				return null
 		})
-		let matches = this.props.threads.map ( thread => {
+		let matches = threads.map ( thread => {
 			if (thread.lastMessage.match)
-				return (<Thread key={thread.id} user={thread.user2} lastMessage={thread.lastMessage} onClick={() => this.selectThread(thread)} />)
+				return (<Thread key={thread.id} userContext={userContext} user={thread.user2} lastMessage={thread.lastMessage} onClick={() => this.selectThread(thread)} />)
 			else
 				return null
 		})
 		matches = matches.filter(function(n){ return n !== null });
-		console.log(matches);
 		return (
 			<div className='threadsPane'>
 				{
@@ -42,7 +42,7 @@ export default class Threads extends Component {
 				</div>
 				: null
 				}
-				<div className='threads'>{threads}</div>
+				<div className='threads'>{_threads}</div>
 			</div>
 		)
 	}

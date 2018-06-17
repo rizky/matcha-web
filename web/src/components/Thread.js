@@ -3,7 +3,7 @@ import './Thread.css'
 
 export default class Thread extends Component {
 	render () {
-		const { user, onClick, lastMessage, type } = this.props
+		const { user, onClick, lastMessage, type, userContext } = this.props
 		const message = (lastMessage !== null) ? lastMessage.message : null
 		if (type === 1)
 			return (
@@ -11,7 +11,7 @@ export default class Thread extends Component {
 					<div style={{position: 'relative'}}>
 						<img className='profile_picture circled' src={user.picture} alt=''/>
 						{
-						!lastMessage.read
+						!lastMessage.read && lastMessage.from !== userContext.id
 						? <i className="fas fa-circle" style={{position: 'absolute', top: '28px', right: '-8px', padding: '0px', color: '#fd3575'}}></i>
 						: null
 						}

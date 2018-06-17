@@ -9,12 +9,11 @@ export default class MessagesPage extends Component {
 	componentDidMount() {
 		const { userContext } = this.props
 		if (userContext) dispatch(ThreadActions.loadThreads(userContext.id))
-
 	}
 
-	componentDidUpdate() {
-		const { userContext, selectedThread, threads } = this.props
-		if (userContext) dispatch(ThreadActions.loadThreads(userContext.id))
+	componentDidUpdate(prevProps) {
+		
+		const { selectedThread, threads, userContext } = this.props
 		if (selectedThread == null && threads.length > 0)
 		{
 			dispatch(ThreadActions.selectThread(threads[0]))
@@ -27,7 +26,7 @@ export default class MessagesPage extends Component {
 		const user = (selectedThread) ? selectedThread.user2: null
 		return (
 			<div className='messages-page'>
-				<Threads threads={threads}/>
+				<Threads threads={threads} userContext={userContext}/>
 				<Messages messages={messages} selectedThread={selectedThread} userContext={userContext}/>
 				<Profile user={user}/>
 			</div>

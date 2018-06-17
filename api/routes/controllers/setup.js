@@ -122,7 +122,7 @@ router.get('/', async (req, res, next) =>
 		from: thread.user1,
 		to: thread.user2,
 		message: `Hello`,
-		createdAt: moment(Date.now()).subtract(1, 'minutes').format('YYYY-MM-DD HH:mm:ss')
+		createdAt: moment(Date.now()).subtract(2, 'minutes').format('YYYY-MM-DD HH:mm:ss')
 	}
 	await Message.insert(message)
 
@@ -131,7 +131,7 @@ router.get('/', async (req, res, next) =>
 		from: thread.user2,
 		to: thread.user1,
 		message: 'Hi There',
-		createdAt: moment(Date.now()).subtract(2, 'minutes').format('YYYY-MM-DD HH:mm:ss')
+		createdAt: moment(Date.now()).subtract(1, 'minutes').format('YYYY-MM-DD HH:mm:ss')
 	}
 	await Message.insert(message)
 
@@ -145,7 +145,7 @@ router.get('/', async (req, res, next) =>
 		from: thread.user1,
 		to: thread.user2,
 		message: `Hello`,
-		createdAt: moment(Date.now()).subtract(3, 'minutes').format('YYYY-MM-DD HH:mm:ss')
+		createdAt: moment(Date.now()).subtract(4, 'minutes').format('YYYY-MM-DD HH:mm:ss')
 	}
 	await Message.insert(message)
 
@@ -154,7 +154,7 @@ router.get('/', async (req, res, next) =>
 		from: thread.user2,
 		to: thread.user1,
 		message: 'Hello! How are you',
-		createdAt: moment(Date.now()).subtract(4, 'minutes').format('YYYY-MM-DD HH:mm:ss')
+		createdAt: moment(Date.now()).subtract(3, 'minutes').format('YYYY-MM-DD HH:mm:ss')
 	}
 	await Message.insert(message)
 
@@ -168,7 +168,7 @@ router.get('/', async (req, res, next) =>
 		from: thread.user1,
 		to: thread.user2,
 		message: `Hello`,
-		createdAt: moment(Date.now()).subtract(5, 'minutes').format('YYYY-MM-DD HH:mm:ss')
+		createdAt: moment(Date.now()).subtract(6, 'minutes').format('YYYY-MM-DD HH:mm:ss')
 	}
 	await Message.insert(message)
 
@@ -177,7 +177,7 @@ router.get('/', async (req, res, next) =>
 		from: thread.user2,
 		to: thread.user1,
 		message: 'Hi! Nice to meet you',
-		createdAt: moment(Date.now()).subtract(6, 'minutes').format('YYYY-MM-DD HH:mm:ss')
+		createdAt: moment(Date.now()).subtract(5, 'minutes').format('YYYY-MM-DD HH:mm:ss')
 	}
 	await Message.insert(message)
 
@@ -191,7 +191,7 @@ router.get('/', async (req, res, next) =>
 		from: thread.user1,
 		to: thread.user2,
 		message: `Hello`,
-		createdAt: moment(Date.now()).subtract(7, 'minutes').format('YYYY-MM-DD HH:mm:ss')
+		createdAt: moment(Date.now()).subtract(8, 'minutes').format('YYYY-MM-DD HH:mm:ss')
 	}
 	await Message.insert(message)
 
@@ -200,7 +200,7 @@ router.get('/', async (req, res, next) =>
 		from: thread.user2,
 		to: thread.user1,
 		message: 'Bonjour!',
-		createdAt: moment(Date.now()).subtract(8, 'minutes').format('YYYY-MM-DD HH:mm:ss')
+		createdAt: moment(Date.now()).subtract(7, 'minutes').format('YYYY-MM-DD HH:mm:ss')
 	}
 	await Message.insert(message)
 

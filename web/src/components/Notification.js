@@ -11,7 +11,6 @@ class Notification extends Component {
 
 	render () {
 		const { notification, onClick } = this.props
-		console.log(notification)
 		const time = this.formatDate(new Date(Date.parse(notification.createdAt)))
 		return (
 			<div style={{display: 'grid', marginTop: '5px'}} onClick={onClick}>
