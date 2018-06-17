@@ -14,7 +14,8 @@ export default class Photo extends Component {
 	}
 
 	handleDelete = () => {
-		dispatch(PhotoActions.deletePhoto(this.props.photo.id))
+		const { photo: { id } } = this.props
+		dispatch(PhotoActions.deletePhoto(id))
 		this.handleClose()
 	}
 

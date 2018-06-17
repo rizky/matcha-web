@@ -10,13 +10,9 @@ export default class Photos extends Component {
 	}
 
 	render () {
-		if (!this.props.photos)
-			return null
-		let photos = this.props.photos.map ( photo => {
-			return (<Photo key={photo.id} photo={photo}/>)
-		})
-		return (
-			<div className='photos'>{photos}</div>
-		)
+		let { photos } = this.props
+		if (!photos) return null
+		photos = photos.map ( photo => <Photo key={photo.id} photo={photo}/> )
+		return <div className='photos'>{photos}</div>
 	}
 }
